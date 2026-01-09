@@ -5,6 +5,7 @@
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/golfshop/page": "app/golfshop/page.js",
   "/hjalp/page": "app/hjalp/page.js",
+  "/icon.png/route": "app/icon.png/route.js",
   "/integritetspolicy/page": "app/integritetspolicy/page.js",
   "/kontakt/page": "app/kontakt/page.js",
   "/om-oss/page": "app/om-oss/page.js",

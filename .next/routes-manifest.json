@@ -74,6 +74,12 @@
       "namedRegex": "^/hjalp(?:/)?$"
     },
     {
+      "page": "/icon.png",
+      "regex": "^/icon\\.png(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/icon\\.png(?:/)?$"
+    },
+    {
       "page": "/integritetspolicy",
       "regex": "^/integritetspolicy(?:/)?$",
       "routeKeys": {},

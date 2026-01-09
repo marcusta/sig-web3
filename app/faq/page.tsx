@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, HelpCircle, Book, Shield, Trophy, Globe, Users, Building2, UserCheck, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const faqCategories = [
   {
@@ -363,12 +364,12 @@ export default function FAQPage() {
                   Kontakta oss gärna med frågor om bokningar, teknik eller medlemskap.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a
+                  <Link
                     href="/kontakt"
                     className="px-8 py-3 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20"
                   >
                     Kontakta oss
-                  </a>
+                  </Link>
                   <a
                     href="mailto:info@swedenindoorgolf.se"
                     className="px-8 py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors flex items-center gap-2"

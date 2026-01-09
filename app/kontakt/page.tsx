@@ -3,6 +3,7 @@
 import { Contact } from '@/components/home/Contact';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import Link from 'next/link';
 
 export default function KontaktPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
@@ -83,18 +84,18 @@ export default function KontaktPage() {
                     För svar på vanliga frågor, se vår FAQ-sida eller Support-sida:
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a
+                    <Link
                       href="/faq"
                       className="px-4 py-2 bg-slate-800 text-white text-sm font-semibold rounded-lg hover:bg-slate-700 transition-colors"
                     >
                       FAQ
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="/support"
                       className="px-4 py-2 bg-slate-800 text-white text-sm font-semibold rounded-lg hover:bg-slate-700 transition-colors"
                     >
                       Support
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

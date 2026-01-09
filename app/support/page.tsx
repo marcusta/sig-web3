@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PlayCircle, AlertCircle, FileText, ExternalLink, Settings, Download, Video, ShoppingCart, Users, Flag, Gamepad2, Target, Keyboard, BarChart3, Trophy, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const quickSteps = [
@@ -241,7 +242,7 @@ export default function SupportPage() {
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-slate-300 text-sm md:text-base">
               Söker du information om <strong className="text-white">bokningar, priser eller medlemskap?</strong> Se vår{' '}
-              <a href="/faq" className="text-primary hover:text-yellow-400 font-semibold underline">FAQ-sida</a>
+              <Link href="/faq" className="text-primary hover:text-yellow-400 font-semibold underline">FAQ-sida</Link>
             </p>
           </div>
         </div>
@@ -509,13 +510,13 @@ export default function SupportPage() {
                 </div>
               </div>
               <div className="flex justify-center">
-                <a
+                <Link
                   href="/tavlingar"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20"
                 >
                   Se alla tävlingar & anmäl dig
                   <ExternalLink size={18} />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -573,13 +574,13 @@ export default function SupportPage() {
                 Boka gärna en annan simulator och fortsätt spela där - vi kompenserar dig för den extra bokningen.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a
+                <Link
                   href="/kontakt"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20"
                 >
                   Kontakta oss
                   <ExternalLink size={18} />
-                </a>
+                </Link>
                 <a
                   href="mailto:info@swedenindoorgolf.se"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors"

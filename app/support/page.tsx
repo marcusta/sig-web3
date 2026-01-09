@@ -207,11 +207,12 @@ const quickNavLinks = [
 export default function SupportPage() {
   const [selectedMat, setSelectedMat] = useState<'mat1-2' | 'mat3'>('mat1-2');
   const [expandedDataField, setExpandedDataField] = useState<number | null>(null);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100; // Account for sticky nav height
+      const offset = 180; // Account for header (80px) + sticky nav height (~100px)
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -227,11 +228,11 @@ export default function SupportPage() {
       <PageHeader
         title="Support"
         subtitle="Här hittar du snabbhjälp, manualer och kontaktuppgifter för teknisk support."
-        backgroundImage="/hero-bg.jpg"
+        backgroundImage={`${basePath}/hero-bg.jpg`}
       />
 
       {/* Sticky Quick Navigation */}
-      <div className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-sm border-b border-slate-800">
+      <div className="sticky top-20 z-40 bg-slate-950/95 backdrop-blur-sm border-b border-slate-800">
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="max-w-6xl mx-auto">
             <p className="text-sm text-slate-400 mb-3 font-medium">Vad vill du göra?</p>
@@ -252,7 +253,7 @@ export default function SupportPage() {
       </div>
 
       {/* TRÄNA PÅ RANGEN */}
-      <section id="practice" className="py-20 border-b border-slate-900 scroll-mt-24">
+      <section id="practice" className="py-20 border-b border-slate-900 scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -275,9 +276,11 @@ export default function SupportPage() {
                 <video
                   controls
                   className="w-full"
-                  poster="/support/mat-1-2.jpg"
+                  poster={`${basePath}/support/mat-1-2.jpg`}
+                  preload="metadata"
+                  playsInline
                 >
-                  <source src="/support/sig-start.mp4" type="video/mp4" />
+                  <source src={`${basePath}/support/sig-start.mp4`} type="video/mp4" />
                   Din webbläsare stödjer inte videoformatet.
                 </video>
               </div>
@@ -329,7 +332,7 @@ export default function SupportPage() {
       </section>
 
       {/* SPELA EN RUNDA */}
-      <section id="play-round" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24">
+      <section id="play-round" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -453,7 +456,7 @@ export default function SupportPage() {
       </section>
 
       {/* TÄVLA & UTMANINGAR */}
-      <section id="compete" className="py-20 border-b border-slate-900 scroll-mt-24">
+      <section id="compete" className="py-20 border-b border-slate-900 scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-12">
@@ -489,7 +492,7 @@ export default function SupportPage() {
       </section>
 
       {/* FELSÖKNING */}
-      <section id="troubleshooting" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24">
+      <section id="troubleshooting" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-12">
@@ -555,7 +558,7 @@ export default function SupportPage() {
               </div>
               <div className="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden">
                 <Image
-                  src={selectedMat === 'mat1-2' ? '/support/mat-1-2.jpg' : '/support/mat-3.jpg'}
+                  src={selectedMat === 'mat1-2' ? `${basePath}/support/mat-1-2.jpg` : `${basePath}/support/mat-3.jpg`}
                   alt={selectedMat === 'mat1-2' ? 'Matta 1-2 och 4-8' : 'Matta 3'}
                   width={1200}
                   height={800}
@@ -568,7 +571,7 @@ export default function SupportPage() {
       </section>
 
       {/* FÖRSTÅ DATA */}
-      <section id="understand-data" className="py-20 border-b border-slate-900 scroll-mt-24">
+      <section id="understand-data" className="py-20 border-b border-slate-900 scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -648,7 +651,7 @@ export default function SupportPage() {
       </section>
 
       {/* AVANCERAT */}
-      <section id="advanced" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24">
+      <section id="advanced" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -697,7 +700,7 @@ export default function SupportPage() {
                     <h4 className="font-bold text-white text-center">Driver, Fairway woods & Hybrid</h4>
                   </div>
                   <Image
-                    src="/support/club-marker-woods.png"
+                    src={`${basePath}/support/club-marker-woods.png`}
                     alt="Club marker placement for woods"
                     width={400}
                     height={400}
@@ -709,7 +712,7 @@ export default function SupportPage() {
                     <h4 className="font-bold text-white text-center">Järn & Wedge</h4>
                   </div>
                   <Image
-                    src="/support/club-marker-iron.png"
+                    src={`${basePath}/support/club-marker-iron.png`}
                     alt="Club marker placement for irons"
                     width={400}
                     height={400}
@@ -721,7 +724,7 @@ export default function SupportPage() {
                     <h4 className="font-bold text-white text-center">Putter</h4>
                   </div>
                   <Image
-                    src="/support/club-marker-putter.png"
+                    src={`${basePath}/support/club-marker-putter.png`}
                     alt="Club marker placement for putter"
                     width={400}
                     height={400}

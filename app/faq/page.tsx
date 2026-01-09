@@ -350,13 +350,14 @@ function AccordionItem({ question, answer }: { question: string, answer: string 
 
 export default function FAQPage() {
   const [activeCategory, setActiveCategory] = useState('getting-started');
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   return (
     <div className="bg-slate-950 min-h-screen">
       <PageHeader
         title="FAQ"
         subtitle="Här hittar du svar på de vanligaste frågorna om vår anläggning, teknik och bokning."
-        backgroundImage="/hero-bg.jpg"
+        backgroundImage={`${basePath}/hero-bg.jpg`}
       />
 
       <section className="py-20">
@@ -402,7 +403,7 @@ export default function FAQPage() {
                             <p className="text-white text-sm font-semibold text-center">Driver, Woods & Hybrid</p>
                           </div>
                           <Image
-                            src="/support/club-marker-woods.png"
+                            src={`${basePath}/support/club-marker-woods.png`}
                             alt="Club marker placement for woods"
                             width={400}
                             height={500}
@@ -414,7 +415,7 @@ export default function FAQPage() {
                             <p className="text-white text-sm font-semibold text-center">Järn & Wedge</p>
                           </div>
                           <Image
-                            src="/support/club-marker-iron.png"
+                            src={`${basePath}/support/club-marker-iron.png`}
                             alt="Club marker placement for irons"
                             width={400}
                             height={500}
@@ -426,7 +427,7 @@ export default function FAQPage() {
                             <p className="text-white text-sm font-semibold text-center">Putter</p>
                           </div>
                           <Image
-                            src="/support/club-marker-putter.png"
+                            src={`${basePath}/support/club-marker-putter.png`}
                             alt="Club marker placement for putter"
                             width={400}
                             height={500}

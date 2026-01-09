@@ -3,8 +3,17 @@
   "pages404": true,
   "appType": "app",
   "caseSensitive": false,
-  "basePath": "",
+  "basePath": "/sig-web3",
   "redirects": [
+    {
+      "source": "/sig-web3/",
+      "destination": "/sig-web3",
+      "basePath": false,
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^/sig-web3/$"
+    },
     {
       "source": "/:path+/",
       "destination": "/:path+",

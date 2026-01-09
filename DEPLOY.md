@@ -1,45 +1,90 @@
 # Deployment Instructions
 
-Your site is configured for static export and subdirectory deployment.
-The target URL is: `https://app.swedenindoorgolf.se/sig-web3/`
+You have configured the application to run as a Node.js server (Server Side Rendering), which allows you to manage it with `systemctl`.
 
-## 1. Local Development (Port 4001)
-To run locally at root (`http://localhost:4001/`):
-```bash
-npm run dev
+## 1. Prepare & Commit (Local Machine)
+
+Since you want to commit built files, follow these steps:
+
+1.  **Build the application**:
+    ```bash
+    # Set the base path matching your production URL structure
+    export NEXT_PUBLIC_BASE_PATH=/sig-web3
+    npm run build
+    ```
+    This creates a `.next` folder.
+
+2.  **Commit everything**:
+    ```bash
+    git add .
+    git commit -m "Build for deployment"
+    git push
+    ```
+
+## 2. Server Setup (First Time)
+
+On your deployment server:
+
+1.  **Clone the repository**:
+    ```bash
+    cd /var/www/  # or your preferred directory
+    git clone https://github.com/your-repo/sig-web3.git
+    cd sig-web3
+    ```
+
+2.  **Install Production Dependencies**:
+    Even though you committed the build, you still need `node_modules` for the server to run.
+    ```bash
+    npm install --omit=dev
+    ```
+
+3.  **Setup Systemd Service**:
+    Copy the provided service file and edit it.
+    
+    ```bash
+    # Copy file to systemd directory
+    sudo cp sig-web3.service /etc/systemd/system/
+
+    # Edit the file to match your User and Paths
+    sudo nano /etc/systemd/system/sig-web3.service
+    # -> UPDATE 'User', 'WorkingDirectory', and 'ExecStart'
+    ```
+
+4.  **Start the Service**:
+    ```bash
+    sudo systemctl daemon-reload
+    sudo systemctl enable sig-web3
+    sudo systemctl start sig-web3
+    ```
+
+5.  **Check Status**:
+    ```bash
+    sudo systemctl status sig-web3
+    ```
+    You should see it active and listening on port 4001.
+
+## 3. Updates (Subsequent Depoyments)
+
+When you have changes:
+
+1.  **Local**: Make changes, `npm run build`, commit, and push.
+2.  **Server**:
+    ```bash
+    cd /var/www/sig-web3
+    git pull
+    npm install --omit=dev  # Only if package.json changed
+    sudo systemctl restart sig-web3
+    ```
+
+## Reverse Proxy (Caddy)
+
+Add this to your Caddyfile.
+
+Since Next.js is configured with `basePath: '/sig-web3'`, we simply forward the full path to the internal port. We do **not** want to strip the prefix.
+
+```caddy
+app.swedenindoorgolf.se {
+    # Reverse proxy the specific path to your local node process
+    reverse_proxy /sig-web3/* localhost:4001
+}
 ```
-
-To run locally mimicking the subdirectory (optional, for testing):
-```bash
-NEXT_PUBLIC_BASE_PATH=/sig-web3 npm run dev
-```
-
-## 2. Server Deployment
-Since you have a VPS with Linux, you can serve the static files using Nginx or Apache.
-
-### Step A: Build for Production
-Run this command on your local machine (or the server if it has Node.js):
-```bash
-export NEXT_PUBLIC_BASE_PATH=/sig-web3
-npm run build
-```
-*Note: This generates a static export in the `out/` directory.*
-
-### Step B: Upload Files
-Upload the contents of the `out/` directory to your server.
-Example location: `/var/www/html/sig-web3/` or wherever your web root matches the URL.
-
-### Step C: Web Server Config (Nginx Example)
-Ensure your Nginx block handles the location. If `apps.swedenindoorgolf.se` root is `/var/www/html/` and you uploaded `out` content to `/var/www/html/sig-web3/`, it should work automatically for static files.
-
-**Important for SPA Routing:**
-For a single page app (Next.js), if you refresh a page like `/sig-web3/faq`, Nginx might look for a file `faq.html` or `faq/index.html`. `next export` creates these files.
-- `/sig-web3/` -> `index.html`
-- `/sig-web3/faq` -> `faq.html`
-
-Make sure `try_files` is configured if you experience 404s on direct link access (though simpler static export structure usually just works if `.html` extension is resolved).
-
-## Gotchas to Watch Out For
-1.  **Images**: Any manual `<img>` tags or CSS `background-url` must include the base path. I have updated `Hero.tsx` and `Gallery.tsx` to handle this. Next.js `<Image />` handles it automatically.
-2.  **Links**: Next.js `<Link />` handles `basePath` automatically. Standard `<a href="...">` tags do NOT. Using `<Link>` is always preferred for internal navigation.
-3.  **Environment Variable**: You MUST set `NEXT_PUBLIC_BASE_PATH=/sig-web3` when building for the server. If you forget this, assets will 404.

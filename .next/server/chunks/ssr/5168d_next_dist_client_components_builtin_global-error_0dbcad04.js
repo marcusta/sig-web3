@@ -1,0 +1,3 @@
+module.exports=[55423,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(15526);a.n(d("[project]/github/sig-web3/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},54771,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(15526);a.n(d("[project]/github/sig-web3/node_modules/next/dist/client/components/builtin/global-error.js"))},40439,a=>{"use strict";a.i(55423);var b=a.i(54771);a.n(b)}];
+
+//# sourceMappingURL=5168d_next_dist_client_components_builtin_global-error_0dbcad04.js.map

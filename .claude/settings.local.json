@@ -4,7 +4,8 @@
       "Bash(npm run build:*)",
       "Bash(ls:*)",
       "Bash(wc:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "WebFetch(domain:gspro.gitbook.io)"
     ]
   }
 }

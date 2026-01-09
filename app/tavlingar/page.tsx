@@ -39,27 +39,53 @@ export default function CompetitionsPage() {
                 Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag.
               </p>
 
-              {/* Registration */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
-                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                  <Users size={20} className="text-primary" />
-                  Kom igång
-                </h3>
-                <p className="text-slate-300 mb-4">
-                  Det är jätteenkelt att komma igång! För att delta behöver du:
+              {/* Important Notice */}
+              <div className="bg-blue-900/30 border border-blue-800/50 rounded-xl p-4 mb-6">
+                <p className="text-blue-200 text-sm font-medium">
+                  <strong>Viktigt:</strong> För att spela i våra klubbtävlingar behöver du INTE betala någon medlemsavgift på SimulatorGolfTour.com.
+                  Du registrerar ett gratis konto och kan sedan delta i lokala tävlingar hos oss.
                 </p>
-                <ol className="list-decimal list-inside text-slate-300 space-y-2 mb-4">
-                  <li>Registrera en användare på länken nedan</li>
-                  <li>Maila ditt USERNAME till <a href="mailto:fredrik@lundberg.one" className="text-primary hover:underline">fredrik@lundberg.one</a></li>
-                  <li>Du blir inlagd och kan spela genom att klicka på &quot;Tournaments&quot; på startskärmen i simulatorn</li>
+              </div>
+
+              {/* PART 1: Registration - One time setup */}
+              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
+                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                  <Users size={24} className="text-primary" />
+                  Registrering och anmälan (engångsregistrering)
+                </h3>
+
+                <h4 className="text-white font-semibold mb-3">Steg 1: Registrera dig på SimulatorGolfTour</h4>
+                <ol className="list-decimal list-inside text-slate-300 space-y-2 mb-6 ml-2">
+                  <li>Gå till <a href="https://simulatorgolftour.com" target="_blank" className="text-primary hover:underline">simulatorgolftour.com</a></li>
+                  <li>Klicka på profilikonen i övre högra hörnet och välj &quot;Sign Up&quot;</li>
+                  <li>Fyll i dina uppgifter och välj ett <strong className="text-white">användarnamn (username)</strong></li>
                 </ol>
+
+                {/* Critical Info Box */}
+                <div className="bg-red-900/30 border border-red-800/50 rounded-lg p-4 mb-6">
+                  <p className="text-red-200 text-sm font-medium mb-2">
+                    <strong>MYCKET VIKTIGT - Spara denna information:</strong>
+                  </p>
+                  <ul className="text-red-200 text-sm space-y-1 ml-4">
+                    <li>✓ Ditt <strong>USERNAME</strong> (användarnamn) - detta är skiftlägeskänsligt (STORA/små bokstäver)</li>
+                    <li>✓ Din <strong>SGT UID</strong> (unikt ID-nummer) - får du efter registrering</li>
+                    <li>✓ Båda dessa behövs för att koppla ditt konto till GSPro</li>
+                  </ul>
+                </div>
+
+                <h4 className="text-white font-semibold mb-3">Steg 2: Anmäl dig till HobbyTouren</h4>
+                <p className="text-slate-300 mb-4">
+                  Maila ditt <strong className="text-white">USERNAME</strong> till <a href="mailto:fredrik@lundberg.one" className="text-primary hover:underline">fredrik@lundberg.one</a> så blir du inlagd i tävlingen.
+                  Du måste vara registrerad hos Fredrik innan du kan spela.
+                </p>
+
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="https://simulatorgolftour.com/register"
                     target="_blank"
                     className="inline-flex items-center gap-2 bg-primary text-slate-900 px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
                   >
-                    Registrera dig
+                    Registrera dig på SGT
                     <ExternalLink size={16} />
                   </Link>
                   <Link
@@ -71,6 +97,37 @@ export default function CompetitionsPage() {
                     <ExternalLink size={16} />
                   </Link>
                 </div>
+              </div>
+
+              {/* PART 2: Playing - Every time */}
+              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
+                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                  <Trophy size={24} className="text-primary" />
+                  Spela tävling (görs varje gång du spelar)
+                </h3>
+
+                <h4 className="text-white font-semibold mb-3">Steg 1: Koppla ditt SGT-konto i GSPro</h4>
+                <ol className="list-decimal list-inside text-slate-300 space-y-2 mb-6 ml-2">
+                  <li>Öppna GSPro på simulatorn</li>
+                  <li>Gå till <strong className="text-white">Settings</strong> (inställningar)</li>
+                  <li>Välj fliken <strong className="text-white">Players</strong></li>
+                  <li>Lägg till eller redigera din spelarprofil</li>
+                  <li>Fyll i:
+                    <ul className="list-disc list-inside ml-6 mt-2 space-y-1">
+                      <li><strong className="text-white">Player Name:</strong> Måste matcha ditt SGT username EXAKT (skiftlägeskänsligt!)</li>
+                      <li><strong className="text-white">SGT UID:</strong> Ditt unika ID från SimulatorGolfTour</li>
+                    </ul>
+                  </li>
+                  <li>Spara inställningarna</li>
+                </ol>
+
+                <h4 className="text-white font-semibold mb-3">Steg 2: Starta tävlingen</h4>
+                <ol className="list-decimal list-inside text-slate-300 space-y-2 mb-4 ml-2">
+                  <li>På GSPros startsida, klicka på den stora knappen <strong className="text-white">&quot;Tournaments&quot;</strong></li>
+                  <li>Välj rätt användare i användarväljaren (den med ditt kopplade SGT-konto)</li>
+                  <li>I listan av tävlingar som dyker upp, välj HobbyTouren Indoor</li>
+                  <li>Spela och njut!</li>
+                </ol>
               </div>
 
               {/* Classes and Fees */}
@@ -140,15 +197,25 @@ export default function CompetitionsPage() {
                 </div>
               </div>
 
-              {/* How to login */}
+              {/* Troubleshooting */}
               <div className="bg-slate-800/50 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Hur loggar man in?</h3>
-                <ol className="list-decimal list-inside text-slate-300 space-y-2">
-                  <li>I GSPro inställningar, lägg till spelare i &quot;Players&quot; fliken med ditt username och SGT UID</li>
-                  <li>På GSPros startsida finns en stor knapp som heter &quot;Tournaments&quot;. Klicka på den.</li>
-                  <li>Välj rätt användare i användarväljaren</li>
-                  <li>I listan av tävlingar som dyker upp, välj den du vill spela</li>
-                </ol>
+                <h3 className="text-lg font-bold text-white mb-4">Vanliga problem</h3>
+                <div className="space-y-4 text-slate-300 text-sm">
+                  <div>
+                    <p className="text-white font-semibold mb-1">Jag ser inte tävlingen i GSPro</p>
+                    <p>Kontrollera att:
+                      <ul className="list-disc list-inside ml-4 mt-1">
+                        <li>Din Player Name i GSPro matchar ditt SGT username EXAKT (inklusive STORA/små bokstäver)</li>
+                        <li>Du har fyllt i korrekt SGT UID i Players-inställningarna</li>
+                        <li>Du är inlagd i tävlingen (maila fredrik@lundberg.one om du är osäker)</li>
+                      </ul>
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold mb-1">Mitt resultat registrerades inte</p>
+                    <p>Detta beror oftast på att Player Name och SGT username inte matchar exakt. Dubbelkolla skiftläget på alla bokstäver.</p>
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -1,0 +1,15 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/faq/page": "/faq",
+  "/favicon.ico/route": "/favicon.ico",
+  "/golfshop/page": "/golfshop",
+  "/hjalp/page": "/hjalp",
+  "/integritetspolicy/page": "/integritetspolicy",
+  "/om-oss/page": "/om-oss",
+  "/oppettider/page": "/oppettider",
+  "/page": "/",
+  "/prislista/page": "/prislista",
+  "/support/page": "/support",
+  "/tavlingar/page": "/tavlingar"
+}

@@ -1,0 +1,28 @@
+[Unit]
+Description=SIG Web3 Next.js Application
+After=network.target
+
+[Service]
+# START CONFIGURATION
+# 1. User: Change to the user who owns the files (e.g., ubuntu, web, root)
+User=root
+
+# 2. WorkingDirectory: Change to where you cloned the repo
+WorkingDirectory=/var/www/sig-web3
+
+# 3. ExecStart: Path to npm. Run 'which npm' on your server to find it.
+# Common paths: /usr/bin/npm, /usr/local/bin/npm, or /home/user/.nvm/...
+ExecStart=/usr/bin/npm start
+# END CONFIGURATION
+
+Restart=always
+RestartSec=10
+
+# Environment Variables
+Environment=NODE_ENV=production
+Environment=PORT=4001
+# Ensure this matches what you used during 'npm run build'
+Environment=NEXT_PUBLIC_BASE_PATH=/sig-web3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/golfshop/page": "app/golfshop/page.js",
+  "/hjalp/page": "app/hjalp/page.js",
+  "/integritetspolicy/page": "app/integritetspolicy/page.js",
+  "/om-oss/page": "app/om-oss/page.js",
+  "/oppettider/page": "app/oppettider/page.js",
+  "/page": "app/page.js",
+  "/prislista/page": "app/prislista/page.js",
+  "/support/page": "app/support/page.js",
+  "/tavlingar/page": "app/tavlingar/page.js"
+}

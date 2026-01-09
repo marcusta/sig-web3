@@ -212,7 +212,8 @@ export default function SupportPage() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 180; // Account for header (80px) + sticky nav height (~100px)
+      // Account for header (80px) + sticky nav height (~100px on desktop, hidden on mobile)
+      const offset = window.innerWidth >= 768 ? 180 : 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -231,12 +232,12 @@ export default function SupportPage() {
         backgroundImage={`${basePath}/hero-bg.jpg`}
       />
 
-      {/* Sticky Quick Navigation */}
-      <div className="sticky top-20 z-40 bg-slate-950/95 backdrop-blur-sm border-b border-slate-800">
+      {/* Sticky Quick Navigation - Hidden on mobile */}
+      <div className="hidden md:block sticky top-20 z-40 bg-slate-950/95 backdrop-blur-md border-b border-slate-800">
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="max-w-6xl mx-auto">
             <p className="text-sm text-slate-400 mb-3 font-medium">Vad vill du göra?</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+            <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
               {quickNavLinks.map((link) => (
                 <button
                   key={link.id}
@@ -253,7 +254,7 @@ export default function SupportPage() {
       </div>
 
       {/* TRÄNA PÅ RANGEN */}
-      <section id="practice" className="py-20 border-b border-slate-900 scroll-mt-44">
+      <section id="practice" className="py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -332,7 +333,7 @@ export default function SupportPage() {
       </section>
 
       {/* SPELA EN RUNDA */}
-      <section id="play-round" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-44">
+      <section id="play-round" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -456,7 +457,7 @@ export default function SupportPage() {
       </section>
 
       {/* TÄVLA & UTMANINGAR */}
-      <section id="compete" className="py-20 border-b border-slate-900 scroll-mt-44">
+      <section id="compete" className="py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-12">
@@ -492,7 +493,7 @@ export default function SupportPage() {
       </section>
 
       {/* FELSÖKNING */}
-      <section id="troubleshooting" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-44">
+      <section id="troubleshooting" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-12">
@@ -571,7 +572,7 @@ export default function SupportPage() {
       </section>
 
       {/* FÖRSTÅ DATA */}
-      <section id="understand-data" className="py-20 border-b border-slate-900 scroll-mt-44">
+      <section id="understand-data" className="py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -651,7 +652,7 @@ export default function SupportPage() {
       </section>
 
       {/* AVANCERAT */}
-      <section id="advanced" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-44">
+      <section id="advanced" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">

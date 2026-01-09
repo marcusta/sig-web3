@@ -5,7 +5,7 @@ import { useRef, useEffect, useState } from 'react';
 
 const stats = [
   { label: 'Stationer', value: 8, suffix: '' },
-  { label: 'Banor', value: 950, suffix: '+' },
+  { label: 'Banor', value: 2000, suffix: '+' },
   { label: 'Öppet', value: '05-24', isText: true },
 ];
 

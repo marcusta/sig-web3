@@ -128,7 +128,7 @@ const faqCategories = [
       },
       {
         question: "Vilka golfbanor kan jag spela?",
-        answer: "Vi har för närvarande över 630 banor att välja mellan. Exempel på kända banor är Augusta National (Georgia Golf Club i GSPRO) och St Andrews Old Course (The Old Course i GSPRO). En fullständig lista finns på simulatorgolftour.com/courses/"
+        answer: "Vi har för närvarande över 2000 banor att välja mellan. Exempel på kända banor är Augusta National (Georgia Golf Club i GSPRO), TPC Sawgrass (DPC Sodgrass i GSPRO) och Pebble Beach (DPC Pebble i GSPRO). En fullständig lista finns på https://app.swedenindoorgolf.se/gsp/"
       },
       {
         question: "Hur startar jag en runda?",

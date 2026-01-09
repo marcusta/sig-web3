@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #eab308; /* yellow-500 */
+  --color-primary-foreground: #ffffff;
+  --color-background: #020617; /* slate-950 */
+  --color-foreground: #f1f5f9; /* slate-100 */
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+}

@@ -39,7 +39,11 @@ const faqCategories = [
       },
       {
         question: "Var hittar jag detaljerade instruktioner och guider?",
-        answer: "Vår Support-sida (/support) har omfattande steg-för-steg guider för allt från att komma igång till avancerade funktioner. Där hittar du instruktionsvideos, tangentbordsgenvägar, och detaljerade beskrivningar av alla spellägen."
+        answer: (
+          <>
+            Vår <Link href="/support" className="text-primary hover:text-yellow-400 underline font-semibold">Support-sida</Link> har omfattande steg-för-steg guider för allt från att komma igång till avancerade funktioner. Där hittar du instruktionsvideos, tangentbordsgenvägar, och detaljerade beskrivningar av alla spellägen.
+          </>
+        )
       }
     ]
   },
@@ -54,7 +58,11 @@ const faqCategories = [
       },
       {
         question: "Vad kostar det att spela?",
-        answer: "Priser varierar beroende på tid och dag. Se vår fullständiga prislista på /prislista-sidan. Vi erbjuder både klippkort, medlemskap och timbokning. Medlemmar får rabatterade priser."
+        answer: (
+          <>
+            Priser varierar beroende på tid och dag. Se vår fullständiga <Link href="/prislista" className="text-primary hover:text-yellow-400 underline font-semibold">prislista</Link>. Vi erbjuder både klippkort, medlemskap och timbokning. Medlemmar får rabatterade priser.
+          </>
+        )
       },
       {
         question: "Bokningsregler",
@@ -116,7 +124,16 @@ const faqCategories = [
     items: [
       {
         question: "Vilka spellägen finns?",
-        answer: "GSPRO erbjuder flera lägen:\n• LOCAL MATCH - Spela en komplett bana med 1-4 spelare\n• PRACTICE - Driving range, träna på bana, eller skills challenge\n• TOURNAMENTS - Delta i klubbtävlingar eller onlinetävlingar\n• ONLINE MATCH - Spela head-to-head mot spelare var som helst i världen\n\nFör detaljerade instruktioner om varje spelläge, se vår Support-sida (/support)."
+        answer: (
+          <>
+            GSPRO erbjuder flera lägen:{'\n'}
+            • LOCAL MATCH - Spela en komplett bana med 1-4 spelare{'\n'}
+            • PRACTICE - Driving range, träna på bana, eller skills challenge{'\n'}
+            • TOURNAMENTS - Delta i klubbtävlingar eller onlinetävlingar{'\n'}
+            • ONLINE MATCH - Spela head-to-head mot spelare var som helst i världen{'\n\n'}
+            För detaljerade instruktioner om varje spelläge, se vår <Link href="/support" className="text-primary hover:text-yellow-400 underline font-semibold">Support-sida</Link>.
+          </>
+        )
       },
       {
         question: "Hur fungerar putting?",
@@ -128,7 +145,11 @@ const faqCategories = [
       },
       {
         question: "SimulatorGolfTour (SGT) - Onlinetävlingar",
-        answer: "SimulatorGolfTour (SGT) är plattformen vi använder för onlinetävlingar. För att komma igång, registrera dig på simulatorgolftour.com/register. Du hittar guider och YouTube-tutorials på SGT Getting Started: simulatorgolftour.com/getting-started. För HobbyTouren Indoor, se vår tävlingssida för mer information."
+        answer: (
+          <>
+            SimulatorGolfTour (SGT) är plattformen vi använder för onlinetävlingar. För att komma igång, registrera dig på simulatorgolftour.com/register. Du hittar guider och YouTube-tutorials på SGT Getting Started: simulatorgolftour.com/getting-started. För HobbyTouren Indoor, se vår <Link href="/tavlingar" className="text-primary hover:text-yellow-400 underline font-semibold">tävlingssida</Link> för mer information.
+          </>
+        )
       },
       {
         question: "Vilka golfbanor kan jag spela?",
@@ -136,11 +157,24 @@ const faqCategories = [
       },
       {
         question: "Simulatorn fungerar inte - vad gör jag?",
-        answer: "Se vår omfattande Felsökningsguide på Support-sidan (/support#troubleshooting) där vi har steg-för-steg lösningar på alla vanliga problem:\n• Simulatorn registrerar inte slag\n• 'INGEN BOLL' fast bollen ligger rätt\n• Bollen flyger fel väg\n• Datorn har kraschat\n\nFör akuta problem i hallen, se anslagstavlan för jourtelefonnummer."
+        answer: (
+          <>
+            Se vår omfattande <Link href="/support#troubleshooting" className="text-primary hover:text-yellow-400 underline font-semibold">Felsökningsguide på Support-sidan</Link> där vi har steg-för-steg lösningar på alla vanliga problem:{'\n'}
+            • Simulatorn registrerar inte slag{'\n'}
+            • 'INGEN BOLL' fast bollen ligger rätt{'\n'}
+            • Bollen flyger fel väg{'\n'}
+            • Datorn har kraschat{'\n\n'}
+            För akuta problem i hallen, se anslagstavlan för jourtelefonnummer.
+          </>
+        )
       },
       {
         question: "Vad betyder all data jag ser på skärmen?",
-        answer: "Vi har en komplett guide över alla 23 databrickor på vår Support-sida (/support#understand-data) under 'Förstå Data'. Där förklaras varje mätvärde i detalj - från Ball Speed och Carry till Smash Factor och Spin Axis. Du lär dig också hur du använder datan för att förbättra ditt spel."
+        answer: (
+          <>
+            Vi har en komplett guide över alla 23 databrickor på vår <Link href="/support#understand-data" className="text-primary hover:text-yellow-400 underline font-semibold">Support-sida under 'Förstå Data'</Link>. Där förklaras varje mätvärde i detalj - från Ball Speed och Carry till Smash Factor och Spin Axis. Du lär dig också hur du använder datan för att förbättra ditt spel.
+          </>
+        )
       }
     ]
   },
@@ -182,7 +216,11 @@ const faqCategories = [
       },
       {
         question: "GSPRO software",
-        answer: "GSPRO är marknadsledande mjukvara för golf simulator. Den använder GCQuads data för analys och visualisering. Den innehåller virtuella kopior av några av världens toppbanor, spelappar med utmaningar, skills games och onlinetävlingar. Läs mer om GSPRO på vår Support-sida."
+        answer: (
+          <>
+            GSPRO är marknadsledande mjukvara för golf simulator. Den använder GCQuads data för analys och visualisering. Den innehåller virtuella kopior av några av världens toppbanor, spelappar med utmaningar, skills games och onlinetävlingar. Läs mer om GSPRO på vår <Link href="/support#advanced" className="text-primary hover:text-yellow-400 underline font-semibold">Support-sida</Link>.
+          </>
+        )
       },
       {
         question: "Varför måste jag använda vita bollar?",
@@ -198,7 +236,15 @@ const faqCategories = [
       },
       {
         question: "Vad är Club Markers och behöver jag dem?",
-        answer: "Club Markers är INTE nödvändiga för att spela banor eller se bolldata! De behövs endast för avancerad klubbdata (klubbhastighet, anfallsvinkel, träffpunkt på bladet).\n\nVår Support-sida (/support#advanced) har komplett information om:\n• Vad club markers är och när du behöver dem\n• Hur du köper dem via MATCHi\n• Detaljerade bilder för hur du applicerar dem på olika klubbtyper"
+        answer: (
+          <>
+            Club Markers är INTE nödvändiga för att spela banor eller se bolldata! De behövs endast för avancerad klubbdata (klubbhastighet, anfallsvinkel, träffpunkt på bladet).{'\n\n'}
+            Vår <Link href="/support#advanced" className="text-primary hover:text-yellow-400 underline font-semibold">Support-sida under 'Avancerat'</Link> har komplett information om:{'\n'}
+            • Vad club markers är och när du behöver dem{'\n'}
+            • Hur du köper dem via MATCHi{'\n'}
+            • Detaljerade bilder för hur du applicerar dem på olika klubbtyper
+          </>
+        )
       }
     ]
   },
@@ -232,13 +278,17 @@ const faqCategories = [
       },
       {
         question: "Integritetspolicy",
-        answer: "Vi behandlar dina personuppgifter i enlighet med GDPR. Vi samlar in uppgifter för att fullfölja köpeavtal och förbättra vår service. Vi delar INTE vidare personuppgifter till annonsörer i kommersiella syften. För fullständig integritetspolicy, se /integritetspolicy."
+        answer: (
+          <>
+            Vi behandlar dina personuppgifter i enlighet med GDPR. Vi samlar in uppgifter för att fullfölja köpeavtal och förbättra vår service. Vi delar INTE vidare personuppgifter till annonsörer i kommersiella syften. För fullständig integritetspolicy, se vår <Link href="/integritetspolicy" className="text-primary hover:text-yellow-400 underline font-semibold">integritetspolicy-sida</Link>.
+          </>
+        )
       }
     ]
   }
 ];
 
-function AccordionItem({ question, answer }: { question: string, answer: string }) {
+function AccordionItem({ question, answer }: { question: string, answer: string | React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

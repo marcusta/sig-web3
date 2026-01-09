@@ -68,7 +68,7 @@ export default function KontaktPage() {
                   <div>
                     <h3 className="text-white font-bold mb-1">Bemannade tider</h3>
                     <p className="text-slate-400 text-sm">
-                      Mån - Ons: 14:00 - 20:00
+                      När golfshopen har öppet
                     </p>
                   </div>
                 </div>

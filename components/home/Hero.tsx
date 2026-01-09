@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export function Hero() {
@@ -70,12 +71,12 @@ export function Hero() {
             >
               BOKA SPELTID <ArrowRight size={20} />
             </a>
-            <a
+            <Link
               href="/om-oss"
               className="px-8 py-4 bg-slate-800 text-white text-lg font-bold rounded-lg hover:bg-slate-700 transition-all flex items-center justify-center"
             >
               Läs mer om oss
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

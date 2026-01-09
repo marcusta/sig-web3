@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 4001",
-    "build": "next build",
-    "start": "next start",
+    "build": "NEXT_PUBLIC_BASE_PATH=/sig-web3 next build",
+    "start": "NEXT_PUBLIC_BASE_PATH=/sig-web3 next start",
     "lint": "eslint"
   },
   "dependencies": {

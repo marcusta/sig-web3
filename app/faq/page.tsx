@@ -360,7 +360,7 @@ export default function FAQPage() {
         backgroundImage={`${basePath}/hero-bg.jpg`}
       />
 
-      <section className="py-20">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Sidebar / Categories */}

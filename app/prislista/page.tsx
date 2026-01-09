@@ -12,7 +12,7 @@ export default function PrislistaPage() {
         backgroundImage={`${basePath}/hero-bg.jpg`}
       />
 
-      <section className="py-20 px-6">
+      <section className="py-12 md:py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           {/* Intro description */}
           <div className="text-center mb-16">

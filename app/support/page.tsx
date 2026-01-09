@@ -2,8 +2,8 @@
 
 import { Contact } from '@/components/home/Contact';
 import { PageHeader } from '@/components/ui/PageHeader';
-import { motion } from 'framer-motion';
-import { PlayCircle, AlertCircle, FileText, ExternalLink, Settings, Download, Video, ShoppingCart, Users, Flag, Gamepad2, Target, Keyboard, BarChart3, Trophy } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { PlayCircle, AlertCircle, FileText, ExternalLink, Settings, Download, Video, ShoppingCart, Users, Flag, Gamepad2, Target, Keyboard, BarChart3, Trophy, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -207,6 +207,7 @@ const quickNavLinks = [
 export default function SupportPage() {
   const [selectedMat, setSelectedMat] = useState<'mat1-2' | 'mat3'>('mat1-2');
   const [expandedDataField, setExpandedDataField] = useState<number | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const scrollToSection = (id: string) => {
@@ -221,6 +222,9 @@ export default function SupportPage() {
         top: offsetPosition,
         behavior: 'smooth'
       });
+
+      // Close mobile menu after navigation
+      setMobileMenuOpen(false);
     }
   };
 
@@ -254,7 +258,7 @@ export default function SupportPage() {
       </div>
 
       {/* TRÄNA PÅ RANGEN */}
-      <section id="practice" className="py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
+      <section id="practice" className="py-12 md:py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -333,7 +337,7 @@ export default function SupportPage() {
       </section>
 
       {/* SPELA EN RUNDA */}
-      <section id="play-round" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
+      <section id="play-round" className="py-12 md:py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -457,7 +461,7 @@ export default function SupportPage() {
       </section>
 
       {/* TÄVLA & UTMANINGAR */}
-      <section id="compete" className="py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
+      <section id="compete" className="py-12 md:py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-12">
@@ -493,7 +497,7 @@ export default function SupportPage() {
       </section>
 
       {/* FELSÖKNING */}
-      <section id="troubleshooting" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
+      <section id="troubleshooting" className="py-12 md:py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-12">
@@ -572,7 +576,7 @@ export default function SupportPage() {
       </section>
 
       {/* FÖRSTÅ DATA */}
-      <section id="understand-data" className="py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
+      <section id="understand-data" className="py-12 md:py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -652,7 +656,7 @@ export default function SupportPage() {
       </section>
 
       {/* AVANCERAT */}
-      <section id="advanced" className="py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
+      <section id="advanced" className="py-12 md:py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-16">
@@ -827,7 +831,7 @@ export default function SupportPage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6 text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-4">Behöver du ytterligare hjälp?</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
@@ -837,6 +841,68 @@ export default function SupportPage() {
         </div>
         <Contact />
       </section>
+
+      {/* Floating Action Button (Mobile Only) */}
+      <button
+        onClick={() => setMobileMenuOpen(true)}
+        className="md:hidden fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-slate-950 rounded-full shadow-2xl flex items-center justify-center hover:bg-yellow-400 active:scale-95 transition-all"
+        aria-label="Open navigation menu"
+      >
+        <Menu size={24} />
+      </button>
+
+      {/* Mobile Navigation Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+            />
+
+            {/* Slide-up Menu */}
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="md:hidden fixed bottom-0 left-0 right-0 z-[60] bg-slate-900 rounded-t-3xl shadow-2xl max-h-[80vh] overflow-y-auto"
+            >
+              {/* Header */}
+              <div className="sticky top-0 bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between rounded-t-3xl">
+                <h3 className="text-lg font-bold text-white">Snabbnavigering</h3>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-800 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X size={24} className="text-slate-400" />
+                </button>
+              </div>
+
+              {/* Navigation Items */}
+              <div className="px-6 py-4 space-y-2">
+                {quickNavLinks.map((link) => (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id)}
+                    className="w-full flex items-center gap-4 px-4 py-4 bg-slate-800/50 border border-slate-800 rounded-xl text-left hover:bg-slate-800 hover:border-primary/30 transition-all group"
+                  >
+                    <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                      <link.icon size={20} className="text-primary" />
+                    </div>
+                    <span className="text-white font-medium">{link.label}</span>
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="sv">
       <body className={cn(inter.className, "bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col")}>
         <Header />
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col pt-20">
           {children}
         </main>
         <Footer />

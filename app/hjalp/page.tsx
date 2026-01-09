@@ -13,7 +13,7 @@ export default function HjalpPage() {
         backgroundImage={`${basePath}/hero-bg.jpg`}
       />
 
-      <section className="py-20 px-6">
+      <section className="py-12 md:py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8">
             

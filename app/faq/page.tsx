@@ -205,11 +205,25 @@ const faqCategories = [
         answer: (
           <>
             SimulatorGolfTour (SGT) är plattformen vi använder för
-            onlinetävlingar. För att komma igång, registrera dig på
-            simulatorgolftour.com/register. Du hittar guider och
-            YouTube-tutorials på SGT Getting Started:
-            simulatorgolftour.com/getting-started. För HobbyTouren Indoor, se
-            vår{" "}
+            onlinetävlingar. För att komma igång, registrera dig på{" "}
+            <a
+              href="https://simulatorgolftour.com/register"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-yellow-400 underline font-semibold"
+            >
+              simulatorgolftour.com/register
+            </a>
+            . Du hittar guider och YouTube-tutorials på SGT Getting Started:{" "}
+            <a
+              href="https://simulatorgolftour.com/getting-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-yellow-400 underline font-semibold"
+            >
+              simulatorgolftour.com/getting-started
+            </a>
+            . För HobbyTouren Indoor, se vår{" "}
             <Link
               href="/tavlingar"
               className="text-primary hover:text-yellow-400 underline font-semibold"
@@ -222,8 +236,22 @@ const faqCategories = [
       },
       {
         question: "Vilka golfbanor kan jag spela?",
-        answer:
-          "Vi har för närvarande över 2000 banor att välja mellan. Exempel på kända banor är Augusta National (Georgia Golf Club i GSPRO), TPC Sawgrass (DPC Sodgrass i GSPRO) och Pebble Beach (DPC Pebble i GSPRO). En fullständig lista finns på <a href='https://app.swedenindoorgolf.se/gsp/' target='_blank'>https://app.swedenindoorgolf.se/gsp/</a>",
+        answer: (
+          <>
+            Vi har för närvarande över 2000 banor att välja mellan. Exempel på
+            kända banor är Augusta National (Georgia Golf Club i GSPRO), TPC
+            Sawgrass (DPC Sodgrass i GSPRO) och Pebble Beach (DPC Pebble i
+            GSPRO). En fullständig lista finns på{" "}
+            <a
+              href="https://app.swedenindoorgolf.se/gsp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-yellow-400 underline font-semibold"
+            >
+              https://app.swedenindoorgolf.se/gsp/
+            </a>
+          </>
+        ),
       },
       {
         question: "Simulatorn fungerar inte - vad gör jag?",

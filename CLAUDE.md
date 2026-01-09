@@ -69,6 +69,65 @@ public/                 # Static assets (images, logo)
 - Use Next.js `<Link>` for internal routes (handles basePath automatically)
 - Use standard `<a>` tags for external links (MATCHi booking platform)
 
+## UI/Design Principles
+
+### NO Nested Boxes (Anti-AI-Slop Design)
+
+**1. Mobile: Zero nested boxes (< 768px)**
+- Flatten ALL nested card structures to single level
+- Use typography (font size, weight, color) for hierarchy
+- Use whitespace for separation, not boxes
+- Remove decorative containers
+
+**2. Desktop: Maximum 1 level of nesting**
+- Outer container for section grouping only
+- Inner cards for distinct items if truly needed
+- NEVER go deeper than 2 levels
+- Question every box: "Would this be clear without it?"
+
+**3. Boxes must be purposeful**
+- Only use when grouping truly related content
+- Not for decoration or "visual interest"
+- Not to "make it look designed"
+- Each box should serve a functional purpose
+
+**4. Visual hierarchy without boxes**
+- Use font scale: text-4xl (headers) → text-2xl (subheaders) → text-base (body)
+- Use font weight: font-bold, font-semibold, font-medium
+- Use color: white (primary), slate-400 (secondary), primary (accent)
+- Use generous whitespace: mb-8, mb-12, mb-16 for section breaks
+
+**5. Padding consistency**
+```
+Mobile cards:     p-4 sm:p-6     (16-24px)
+Desktop cards:    p-6 md:p-8     (24-32px)
+Mobile sections:  py-8 md:py-12  (32-48px)
+Desktop sections: py-12 md:py-20 (48-80px)
+
+IMPORTANT: When nesting on desktop, reduce child padding
+Example: If parent has p-8, child should have p-4 or p-6
+```
+
+**6. Borders & backgrounds - use sparingly**
+- Minimize borders - prefer spacing for separation
+- Backgrounds only for emphasis or major groupings
+- When used: subtle (border-slate-800, bg-slate-900/50)
+- Avoid multiple border styles on same page
+
+**7. Mobile-first simplification checklist**
+- [ ] Remove all nested boxes
+- [ ] Reduce all padding by 30-40%
+- [ ] Remove decorative icons/elements
+- [ ] Flatten card-within-card structures
+- [ ] Use `hidden md:block` for desktop-only containers
+
+**8. Common violations to avoid**
+- ❌ Card inside a card inside a section
+- ❌ Borders on borders on borders
+- ❌ Decorative containers that add no meaning
+- ❌ Excessive padding creating "tunnel vision"
+- ❌ Background colors nested 3+ levels deep
+
 ## Important Patterns
 
 ### Base Path Handling

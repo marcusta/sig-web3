@@ -1,3 +1,3 @@
-:HL["/sig-web3/_next/static/chunks/f1851bc6ec627161.css","style"]
+:HL["/sig-web3/_next/static/chunks/5bfa7684b82d3370.css","style"]
 :HL["/sig-web3/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"MOjf_Vj22N1-xB2DuAr_z","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"tavlingar","paramType":null,"paramKey":"tavlingar","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"Lb-N92ZYTUDw17W3Zwqh7","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"tavlingar","paramType":null,"paramKey":"tavlingar","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

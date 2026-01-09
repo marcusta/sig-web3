@@ -18,42 +18,40 @@ export default function CompetitionsPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
 
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-12">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-primary/20 rounded-lg text-primary">
-                  <Trophy size={28} />
-                </div>
+            <div className="mb-16">
+              <div className="flex items-start gap-4 mb-8">
+                <Trophy size={32} className="text-primary shrink-0" />
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-2">HobbyTouren Indoor</h2>
-                  <p className="text-primary font-semibold">
+                  <h2 className="text-3xl font-bold text-white mb-2">HobbyTouren Indoor</h2>
+                  <p className="text-primary font-semibold text-lg">
                     Tävla i inomhusgolf!
                   </p>
                 </div>
               </div>
 
-              <div className="bg-red-900/30 border border-red-800/50 rounded-xl p-4 mb-6">
-                <p className="text-red-200 font-medium text-center">
+              <div className="border-l-4 border-red-500 pl-6 mb-8">
+                <p className="text-white font-semibold text-lg">
                   HobbyTouren Indoor är för dig som gillar att tävla i golf samt umgås i trevligt sällskap!
                 </p>
               </div>
 
-              <p className="text-slate-300 mb-6">
+              <p className="text-slate-300 mb-8 text-lg leading-relaxed">
                 Öppen för alla hcp-klasser. Spela när det passar dig och registrera resultatet.
                 Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag.
               </p>
 
               {/* Important Notice */}
-              <div className="bg-blue-900/30 border border-blue-800/50 rounded-xl p-4 mb-6">
-                <p className="text-blue-200 text-sm font-medium">
-                  <strong>Viktigt:</strong> För att spela i våra klubbtävlingar behöver du INTE betala någon medlemsavgift på SimulatorGolfTour.com.
+              <div className="border-l-4 border-blue-500 pl-6 mb-10">
+                <p className="text-blue-200 font-medium">
+                  <strong className="text-white">Viktigt:</strong> För att spela i våra klubbtävlingar behöver du INTE betala någon medlemsavgift på SimulatorGolfTour.com.
                   Du registrerar ett gratis konto och kan sedan delta i lokala tävlingar hos oss.
                 </p>
               </div>
 
               {/* PART 1: Registration - One time setup */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
-                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                  <Users size={24} className="text-primary" />
+              <div className="mb-12 pb-12 border-b border-slate-800">
+                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                  <Users size={28} className="text-primary" />
                   Registrering och anmälan (engångsregistrering)
                 </h3>
 
@@ -65,11 +63,11 @@ export default function CompetitionsPage() {
                 </ol>
 
                 {/* Critical Info Box */}
-                <div className="bg-red-900/30 border border-red-800/50 rounded-lg p-4 mb-6">
-                  <p className="text-red-200 text-sm font-medium mb-2">
-                    <strong>MYCKET VIKTIGT - Spara denna information:</strong>
+                <div className="border-l-4 border-red-500 pl-6 mb-8 bg-red-950/20 py-4">
+                  <p className="text-red-200 font-bold mb-3">
+                    MYCKET VIKTIGT - Spara denna information:
                   </p>
-                  <ul className="text-red-200 text-sm space-y-1 ml-4">
+                  <ul className="text-red-200 space-y-2">
                     <li>✓ Ditt <strong>USERNAME</strong> (användarnamn) - detta är skiftlägeskänsligt (STORA/små bokstäver)</li>
                     <li>✓ Din <strong>SGT UID</strong> (unikt ID-nummer) - får du efter registrering</li>
                     <li>✓ Båda dessa behövs för att koppla ditt konto till GSPro</li>
@@ -103,9 +101,9 @@ export default function CompetitionsPage() {
               </div>
 
               {/* PART 2: Playing - Every time */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
-                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                  <Trophy size={24} className="text-primary" />
+              <div className="mb-12 pb-12 border-b border-slate-800">
+                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                  <Trophy size={28} className="text-primary" />
                   Spela tävling (görs varje gång du spelar)
                 </h3>
 
@@ -134,44 +132,48 @@ export default function CompetitionsPage() {
               </div>
 
               {/* Classes and Fees */}
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-slate-800/50 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <Info size={20} className="text-primary" />
+              <div className="grid md:grid-cols-2 gap-12 mb-12">
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <Info size={24} className="text-primary" />
                     Klasser
                   </h3>
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div>
-                      <p className="text-white font-semibold">Herrar (2 klasser)</p>
-                      <p className="text-slate-400 text-sm">Scratch och Netto (med hcp). Man deltar automatiskt i båda klasserna.</p>
+                      <p className="text-white font-semibold text-lg">Herrar (2 klasser)</p>
+                      <p className="text-slate-400">Scratch och Netto (med hcp). Man deltar automatiskt i båda klasserna.</p>
                     </div>
                     <div>
-                      <p className="text-white font-semibold">Damer (1 klass)</p>
-                      <p className="text-slate-400 text-sm">Netto-klass</p>
+                      <p className="text-white font-semibold text-lg">Damer (1 klass)</p>
+                      <p className="text-slate-400">Netto-klass</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-slate-800/50 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <CreditCard size={20} className="text-primary" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <CreditCard size={24} className="text-primary" />
                     Anmälningsavgift
                   </h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Herrar</span>
-                      <span className="text-white font-semibold">100 kr</span>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between items-baseline mb-1">
+                        <span className="text-slate-300 text-lg">Herrar</span>
+                        <span className="text-white font-bold text-xl">100 kr</span>
+                      </div>
+                      <p className="text-slate-500 text-sm">(50 kr scratch + 50 kr netto)</p>
                     </div>
-                    <p className="text-slate-500 text-sm">(50 kr scratch + 50 kr netto)</p>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Damer</span>
-                      <span className="text-white font-semibold">50 kr</span>
+                    <div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="text-slate-300 text-lg">Damer</span>
+                        <span className="text-white font-bold text-xl">50 kr</span>
+                      </div>
                     </div>
-                    <div className="pt-3 border-t border-slate-700">
-                      <p className="text-slate-400 text-sm">
+                    <div className="pt-4 border-t border-slate-700">
+                      <p className="text-slate-400">
                         Swisha till Sweden Indoor Golf AB<br />
-                        <span className="text-white font-mono">123 196 97 32</span><br />
-                        Ange &quot;HT&quot; som meddelande
+                        <span className="text-white font-mono text-lg">123 196 97 32</span><br />
+                        <span className="text-sm">Ange &quot;HT&quot; som meddelande</span>
                       </p>
                     </div>
                   </div>
@@ -179,58 +181,55 @@ export default function CompetitionsPage() {
               </div>
 
               {/* Trophies */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
-                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                  <Trophy size={20} className="text-primary" />
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                  <Trophy size={24} className="text-primary" />
                   Vandringspokaler
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-6">
                   <div>
-                    <p className="text-white font-semibold">Major Master</p>
-                    <p className="text-slate-400 text-sm">Bäst på alla 3 majors totalt</p>
+                    <p className="text-white font-bold text-lg mb-1">Major Master</p>
+                    <p className="text-slate-400">Bäst på alla 3 majors totalt</p>
                   </div>
                   <div>
-                    <p className="text-white font-semibold">HobbyTouren Indoor Leaderboard</p>
-                    <p className="text-slate-400 text-sm">Bäst totalt på alla veckotävlingar + livetävlingar</p>
+                    <p className="text-white font-bold text-lg mb-1">HobbyTouren Indoor Leaderboard</p>
+                    <p className="text-slate-400">Bäst totalt på alla veckotävlingar + livetävlingar</p>
                   </div>
                   <div>
-                    <p className="text-white font-semibold">Fredex Cup</p>
-                    <p className="text-slate-400 text-sm">Vinnaren av 18-hålstävlingen i v11 (avslutningstävlingen)</p>
+                    <p className="text-white font-bold text-lg mb-1">Fredex Cup</p>
+                    <p className="text-slate-400">Vinnaren av 18-hålstävlingen i v11 (avslutningstävlingen)</p>
                   </div>
                 </div>
               </div>
 
               {/* Troubleshooting */}
-              <div className="bg-slate-800/50 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Vanliga problem</h3>
-                <div className="space-y-4 text-slate-300 text-sm">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-6">Vanliga problem</h3>
+                <div className="space-y-6">
                   <div>
-                    <p className="text-white font-semibold mb-1">Jag ser inte tävlingen i GSPro</p>
-                    <p>Kontrollera att:
-                      <ul className="list-disc list-inside ml-4 mt-1">
-                        <li>Din Player Name i GSPro matchar ditt SGT username EXAKT (inklusive STORA/små bokstäver)</li>
-                        <li>Du har fyllt i korrekt SGT UID i Players-inställningarna</li>
-                        <li>Du är inlagd i tävlingen (maila fredrik@lundberg.one om du är osäker)</li>
-                      </ul>
-                    </p>
+                    <p className="text-white font-semibold text-lg mb-2">Jag ser inte tävlingen i GSPro</p>
+                    <p className="text-slate-300 mb-2">Kontrollera att:</p>
+                    <ul className="list-disc list-inside space-y-1 text-slate-300 ml-4">
+                      <li>Din Player Name i GSPro matchar ditt SGT username EXAKT (inklusive STORA/små bokstäver)</li>
+                      <li>Du har fyllt i korrekt SGT UID i Players-inställningarna</li>
+                      <li>Du är inlagd i tävlingen (maila fredrik@lundberg.one om du är osäker)</li>
+                    </ul>
                   </div>
                   <div>
-                    <p className="text-white font-semibold mb-1">Mitt resultat registrerades inte</p>
-                    <p>Detta beror oftast på att Player Name och SGT username inte matchar exakt. Dubbelkolla skiftläget på alla bokstäver.</p>
+                    <p className="text-white font-semibold text-lg mb-2">Mitt resultat registrerades inte</p>
+                    <p className="text-slate-300">Detta beror oftast på att Player Name och SGT username inte matchar exakt. Dubbelkolla skiftläget på alla bokstäver.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* H40+ Scratch Indoor Section */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-primary/20 rounded-lg text-primary">
-                  <Trophy size={28} />
-                </div>
+            <div className="pt-16 border-t-2 border-slate-800">
+              <div className="flex items-start gap-4 mb-8">
+                <Trophy size={32} className="text-primary shrink-0" />
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-2">H40+ Scratch Indoor</h2>
-                  <p className="text-primary font-semibold">
+                  <h2 className="text-3xl font-bold text-white mb-2">H40+ Scratch Indoor</h2>
+                  <p className="text-primary font-semibold text-lg">
                     Seriespel för alla klubbar inom Östergötland
                   </p>
                 </div>
@@ -242,17 +241,17 @@ export default function CompetitionsPage() {
               </p>
 
               {/* Format */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
-                <h3 className="text-lg font-bold text-white mb-4">Format 2025-2026</h3>
-                <ul className="text-slate-300 space-y-2">
-                  <li>3-mannalag med 1 singel och 1 shamble</li>
-                  <li>Om endast 2 spelare: spela 2 singlar, en räknas som shamble-resultat</li>
-                  <li>Spelare kan variera mellan olika lag i samma klubb för att bilda fulltaliga lag</li>
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-white mb-4">Format 2025-2026</h3>
+                <ul className="text-slate-300 space-y-2 text-lg">
+                  <li>• 3-mannalag med 1 singel och 1 shamble</li>
+                  <li>• Om endast 2 spelare: spela 2 singlar, en räknas som shamble-resultat</li>
+                  <li>• Spelare kan variera mellan olika lag i samma klubb för att bilda fulltaliga lag</li>
                 </ul>
               </div>
 
               {/* Simulator Instructions */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
+              <div className="mb-12">
                 <h3 className="text-lg font-bold text-white mb-4">Kort instruktion simulatorgolf</h3>
                 <div className="space-y-4 text-slate-300">
                   <p>Vi spelar med puttning men med 10-8 foot gimmiecirkel.</p>
@@ -282,7 +281,7 @@ export default function CompetitionsPage() {
               </div>
 
               {/* Schedule */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
+              <div className="mb-12">
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Calendar size={20} className="text-primary" />
                   Spelschema 2025-2026
@@ -340,7 +339,7 @@ export default function CompetitionsPage() {
               </div>
 
               {/* Fee */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
+              <div className="mb-12">
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <CreditCard size={20} className="text-primary" />
                   Avgift
@@ -362,7 +361,7 @@ export default function CompetitionsPage() {
               </div>
 
               {/* Registration */}
-              <div className="bg-slate-800/50 rounded-xl p-6 mb-6">
+              <div className="mb-12">
                 <h3 className="text-lg font-bold text-white mb-4">Anmälan</h3>
                 <p className="text-slate-300">
                   Anmälan sker till tävlingsansvarig Christian Bremer senast <span className="text-white font-semibold">13:00 onsdagen</span> före tävlingsdagen.
@@ -370,7 +369,7 @@ export default function CompetitionsPage() {
               </div>
 
               {/* Contacts */}
-              <div className="bg-slate-800/50 rounded-xl p-6">
+              <div>
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Mail size={20} className="text-primary" />
                   Kontaktpersoner

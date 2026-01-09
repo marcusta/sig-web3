@@ -257,18 +257,38 @@ export default function SupportPage() {
         </div>
       </div>
 
+      {/* Quick Link to Första Hjälpen */}
+      <div className="py-8 md:py-12 bg-gradient-to-r from-red-950/30 to-slate-950">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-4xl mx-auto">
+            <button
+              onClick={() => scrollToSection('troubleshooting')}
+              className="w-full border-2 border-red-800/50 rounded-2xl p-4 md:p-8 hover:border-red-700 transition-all group"
+            >
+              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                <AlertCircle size={36} className="text-red-500 shrink-0" />
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Problem att komma igång?</h3>
+                  <p className="text-slate-300 text-sm md:text-base">Klicka här för att gå direkt till Första Hjälpen med lösningar på vanliga problem</p>
+                </div>
+                <div className="shrink-0 text-red-500 group-hover:translate-x-2 transition-transform hidden md:block">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* TRÄNA PÅ RANGEN */}
       <section id="practice" className="py-12 md:py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-16">
-              <div className="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-500">
-                <Target size={32} />
-              </div>
-              <div>
-                <h2 className="text-4xl font-bold text-white">Träna på Rangen</h2>
-                <p className="text-slate-400 text-lg">Kom igång med driving range och träningslägen</p>
-              </div>
+            <div className="mb-16">
+              <h2 className="text-4xl font-bold text-white mb-2">Träna på Rangen</h2>
+              <p className="text-slate-400 text-lg">Kom igång med driving range och träningslägen</p>
             </div>
 
             {/* Quick Start Video */}
@@ -277,7 +297,7 @@ export default function SupportPage() {
                 <PlayCircle className="text-primary" size={28} />
                 Quick Start Video
               </h3>
-              <div className="bg-slate-900/50 border border-slate-800 rounded-3xl overflow-hidden">
+              <div className="border border-slate-800 rounded-2xl overflow-hidden">
                 <video
                   controls
                   className="w-full"
@@ -294,22 +314,20 @@ export default function SupportPage() {
             {/* Slå ett slag */}
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-white mb-6">Slå ett slag</h3>
-              <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8">
-                <ul className="space-y-4">
-                  {slaEttSlagTips.map((tip, index) => (
-                    <li key={index} className="flex items-start gap-3 text-slate-300">
-                      <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
-                      {tip}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ul className="space-y-4">
+                {slaEttSlagTips.map((tip, index) => (
+                  <li key={index} className="flex items-start gap-3 text-slate-300 text-lg">
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                    {tip}
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Träningslägen */}
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Träningslägen</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-12">
                 {trainingModes.map((mode, index) => (
                   <motion.div
                     key={index}
@@ -317,13 +335,12 @@ export default function SupportPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-primary/30 transition-colors"
                   >
-                    <h4 className="font-bold text-white mb-4">{mode.title}</h4>
+                    <h4 className="font-bold text-white text-lg mb-3">{mode.title}</h4>
                     <ul className="space-y-2">
                       {mode.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-start gap-2 text-slate-400 text-sm">
-                          <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
+                        <li key={itemIndex} className="flex items-start gap-2 text-slate-400">
+                          <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -340,14 +357,9 @@ export default function SupportPage() {
       <section id="play-round" className="py-12 md:py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-16">
-              <div className="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-500">
-                <Flag size={32} />
-              </div>
-              <div>
-                <h2 className="text-4xl font-bold text-white">Spela en Runda</h2>
-                <p className="text-slate-400 text-lg">Allt du behöver veta för att spela en hel bana</p>
-              </div>
+            <div className="mb-16">
+              <h2 className="text-4xl font-bold text-white mb-2">Spela en Runda</h2>
+              <p className="text-slate-400 text-lg">Allt du behöver veta för att spela en hel bana</p>
             </div>
 
             {/* Spelare - Lägga till/Ta bort */}
@@ -356,7 +368,7 @@ export default function SupportPage() {
                 <Users className="text-primary" size={28} />
                 Spelare - Lägga till/Ta bort
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 {playerInstructions.map((item, index) => (
                   <motion.div
                     key={index}
@@ -364,10 +376,9 @@ export default function SupportPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-primary/30 transition-colors"
                   >
-                    <h4 className="font-bold text-white mb-3">{item.title}</h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+                    <h4 className="font-bold text-white text-lg mb-2">{item.title}</h4>
+                    <p className="text-slate-400 leading-relaxed">{item.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -376,7 +387,7 @@ export default function SupportPage() {
             {/* Starta en runda */}
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-white mb-6">Starta en runda</h3>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {startRoundSteps.map((step, index) => (
                   <motion.div
                     key={index}
@@ -384,27 +395,25 @@ export default function SupportPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-primary/30 transition-colors"
+                    className="flex items-start gap-4"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold shrink-0 text-sm">
-                        {index + 1}
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-bold text-white mb-2">{step.title}</h4>
-                        {step.description && (
-                          <p className="text-slate-400 text-sm leading-relaxed">{step.description}</p>
-                        )}
-                        {step.items && (
-                          <ul className="space-y-2 mt-2">
-                            {step.items.map((item, itemIndex) => (
-                              <li key={itemIndex} className="text-slate-400 text-sm leading-relaxed">
-                                <span className="text-primary font-medium">{item.label}:</span> {item.text}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
+                    <div className="text-primary font-bold shrink-0 text-2xl">
+                      {index + 1}.
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-white text-lg mb-2">{step.title}</h4>
+                      {step.description && (
+                        <p className="text-slate-400 leading-relaxed">{step.description}</p>
+                      )}
+                      {step.items && (
+                        <ul className="space-y-2 mt-3">
+                          {step.items.map((item, itemIndex) => (
+                            <li key={itemIndex} className="text-slate-400 leading-relaxed">
+                              <span className="text-primary font-semibold">{item.label}:</span> {item.text}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </motion.div>
                 ))}
@@ -439,20 +448,20 @@ export default function SupportPage() {
               </div>
 
               {/* Lie & Påverkan */}
-              <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8">
-                <h4 className="text-lg font-bold text-white mb-4">Lie & Påverkan</h4>
-                <p className="text-slate-400 text-sm mb-4">Information om hur bollen ligger finns längst ner på minikartan.</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="mt-12 pt-12 border-t border-slate-800">
+                <h4 className="text-xl font-bold text-white mb-4">Lie & Påverkan</h4>
+                <p className="text-slate-400 mb-6">Information om hur bollen ligger finns längst ner på minikartan.</p>
+                <div className="space-y-6">
                   {liePaverkan.map((item, index) => (
-                    <div key={index} className="bg-slate-950/50 rounded-xl p-4">
-                      <h5 className="font-medium text-primary mb-1">{item.title}</h5>
-                      <p className="text-slate-400 text-sm">{item.description}</p>
+                    <div key={index}>
+                      <h5 className="font-semibold text-primary text-lg mb-1">{item.title}</h5>
+                      <p className="text-slate-400">{item.description}</p>
                     </div>
                   ))}
-                </div>
-                <div className="mt-4 bg-slate-950/50 rounded-xl p-4">
-                  <h5 className="font-medium text-primary mb-1">Puttning</h5>
-                  <p className="text-slate-400 text-sm">Använd heatmap (Y) för att läsa greenen. Siktet justeras med musen eller piltangenterna.</p>
+                  <div>
+                    <h5 className="font-semibold text-primary text-lg mb-1">Puttning</h5>
+                    <p className="text-slate-400">Använd heatmap (Y) för att läsa greenen. Siktet justeras med musen eller piltangenterna.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -464,38 +473,31 @@ export default function SupportPage() {
       <section id="compete" className="py-12 md:py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-12">
-              <div className="w-16 h-16 bg-yellow-500/10 rounded-2xl flex items-center justify-center text-yellow-500">
-                <Trophy size={32} />
-              </div>
-              <div>
-                <h2 className="text-4xl font-bold text-white">Tävla & Utmaningar</h2>
-                <p className="text-slate-400 text-lg">Tournaments, challenges och online-matcher</p>
-              </div>
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold text-white mb-2">Tävla & Utmaningar</h2>
+              <p className="text-slate-400 text-lg">Tournaments, challenges och online-matcher</p>
             </div>
 
             {/* Club Tournaments */}
-            <div className="bg-gradient-to-br from-primary/10 to-slate-900/50 border-2 border-primary/30 rounded-3xl p-8 md:p-12 mb-8">
+            <div className="border-2 border-primary/30 rounded-2xl p-6 md:p-12 mb-12">
               <div className="flex items-center gap-3 mb-6">
                 <Trophy size={40} className="text-primary" />
                 <h3 className="text-2xl font-bold text-white">Våra Klubbtävlingar</h3>
               </div>
-              <div className="space-y-4 text-slate-300 max-w-3xl">
-                <p className="text-lg">
-                  Vi arrangerar flera tävlingar under inomhussäsongen där du kan tävla mot andra golfare:
-                </p>
-                <div className="grid md:grid-cols-2 gap-4 my-6">
-                  <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4">
-                    <h4 className="text-primary font-bold mb-2">HobbyTouren Indoor</h4>
-                    <p className="text-sm text-slate-400">Veckotävlingar och majors för alla hcp-klasser. Spela när det passar dig!</p>
-                  </div>
-                  <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4">
-                    <h4 className="text-primary font-bold mb-2">H40+ Scratch Indoor</h4>
-                    <p className="text-sm text-slate-400">Seriespel för klubbar inom Östergötland. För dig som är 40+.</p>
-                  </div>
+              <p className="text-lg text-slate-300 mb-8">
+                Vi arrangerar flera tävlingar under inomhussäsongen där du kan tävla mot andra golfare:
+              </p>
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-8">
+                <div>
+                  <h4 className="text-primary font-bold text-lg mb-2">HobbyTouren Indoor</h4>
+                  <p className="text-slate-400">Veckotävlingar och majors för alla hcp-klasser. Spela när det passar dig!</p>
+                </div>
+                <div>
+                  <h4 className="text-primary font-bold text-lg mb-2">H40+ Scratch Indoor</h4>
+                  <p className="text-slate-400">Seriespel för klubbar inom Östergötland. För dig som är 40+.</p>
                 </div>
               </div>
-              <div className="mt-6 flex justify-center">
+              <div className="flex justify-center">
                 <a
                   href="/tavlingar"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20"
@@ -507,12 +509,12 @@ export default function SupportPage() {
             </div>
 
             {/* GSPro Tournament Modes */}
-            <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Tävlingslägen i GSPro</h3>
-              <div className="space-y-3 text-slate-300 text-left max-w-2xl mx-auto">
-                <p className="text-sm"><strong className="text-primary">TOURNAMENTS:</strong> Delta i klubbtävlingar eller onlinetävlingar mot spelare globalt.</p>
-                <p className="text-sm"><strong className="text-primary">ONLINE MATCH:</strong> Spela head-to-head i realtid mot spelare var som helst i världen.</p>
-                <p className="text-sm"><strong className="text-primary">SKILLS CHALLENGE:</strong> Utmana dig själv i precisionsövningar som närmast flagga och längsta drive.</p>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-6">Tävlingslägen i GSPro</h3>
+              <div className="space-y-4 max-w-2xl">
+                <p className="text-slate-300"><strong className="text-primary">TOURNAMENTS:</strong> Delta i klubbtävlingar eller onlinetävlingar mot spelare globalt.</p>
+                <p className="text-slate-300"><strong className="text-primary">ONLINE MATCH:</strong> Spela head-to-head i realtid mot spelare var som helst i världen.</p>
+                <p className="text-slate-300"><strong className="text-primary">SKILLS CHALLENGE:</strong> Utmana dig själv i precisionsövningar som närmast flagga och längsta drive.</p>
               </div>
             </div>
           </div>
@@ -523,18 +525,13 @@ export default function SupportPage() {
       <section id="troubleshooting" className="py-12 md:py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-12">
-              <div className="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-500">
-                <AlertCircle size={32} />
-              </div>
-              <div>
-                <h2 className="text-4xl font-bold text-white">Felsökning</h2>
-                <p className="text-slate-400 text-lg">När något inte fungerar som det ska</p>
-              </div>
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold text-white mb-2">Felsökning</h2>
+              <p className="text-slate-400 text-lg">När något inte fungerar som det ska</p>
             </div>
 
-            <div className="bg-gradient-to-br from-red-950/20 to-slate-950 border-2 border-red-900/30 rounded-3xl p-8 mb-12">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <div className="border-2 border-red-900/30 rounded-2xl p-6 md:p-8 mb-12">
+              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
                 <AlertCircle className="text-red-500" size={28} />
                 FÖRSTA HJÄLPEN ✓
               </h3>
@@ -546,12 +543,12 @@ export default function SupportPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex gap-4 bg-slate-900/50 border border-slate-800 p-6 rounded-2xl hover:border-primary/30 transition-colors"
+                    className="flex gap-4"
                   >
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold shrink-0">
-                      {step.num}
+                    <div className="text-primary font-bold shrink-0 text-2xl">
+                      {step.num}.
                     </div>
-                    <p className="text-slate-300 leading-relaxed mt-2">{step.text}</p>
+                    <p className="text-slate-300 leading-relaxed text-lg">{step.text}</p>
                   </motion.div>
                 ))}
               </div>
@@ -602,23 +599,18 @@ export default function SupportPage() {
       <section id="understand-data" className="py-12 md:py-20 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-16">
-              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500">
-                <BarChart3 size={32} />
-              </div>
-              <div>
-                <h2 className="text-4xl font-bold text-white">Förstå Data</h2>
-                <p className="text-slate-400 text-lg">Vad betyder alla siffror och värden?</p>
-              </div>
+            <div className="mb-16">
+              <h2 className="text-4xl font-bold text-white mb-2">Förstå Data</h2>
+              <p className="text-slate-400 text-lg">Vad betyder alla siffror och värden?</p>
             </div>
 
             {/* Data Brickor */}
             <div className="mb-16">
-              <h3 className="text-2xl font-bold text-white mb-6">Data Brickor</h3>
-              <p className="text-slate-400 mb-6">
+              <h3 className="text-2xl font-bold text-white mb-4">Data Brickor</h3>
+              <p className="text-slate-400 mb-8">
                 Vilka är dom viktigaste och vad betyder dom? Klicka för att se beskrivningar.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {dataFields.map((field, index) => (
                   <motion.div
                     key={index}
@@ -626,10 +618,10 @@ export default function SupportPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.02 }}
-                    className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden hover:border-primary/30 transition-colors cursor-pointer"
+                    className="border-b border-slate-800 last:border-0 cursor-pointer hover:bg-slate-900/30 transition-colors"
                     onClick={() => setExpandedDataField(expandedDataField === index ? null : index)}
                   >
-                    <div className="flex items-center justify-between p-4">
+                    <div className="flex items-center justify-between py-4">
                       <span className="font-medium text-white">{field.name}</span>
                       <span className={cn(
                         "text-slate-500 transition-transform",
@@ -637,8 +629,8 @@ export default function SupportPage() {
                       )}>▼</span>
                     </div>
                     {expandedDataField === index && (
-                      <div className="px-4 pb-4 pt-0">
-                        <p className="text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                      <div className="pb-4">
+                        <p className="text-slate-400 leading-relaxed">
                           {field.description}
                         </p>
                       </div>
@@ -650,22 +642,22 @@ export default function SupportPage() {
 
             {/* Avancerade Datarutan */}
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Avancerade Datarutan (Data Tiles)</h3>
-              <p className="text-slate-400 mb-6">
+              <h3 className="text-2xl font-bold text-white mb-4">Avancerade Datarutan (Data Tiles)</h3>
+              <p className="text-slate-400 mb-8">
                 Datarutorna visar din sving- och bolldata efter varje slag.
               </p>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {advancedDataInfo.map((section, index) => (
-                  <div key={index} className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
-                    <h4 className="font-bold text-white mb-3">{section.title}</h4>
+                  <div key={index}>
+                    <h4 className="font-bold text-white text-lg mb-3">{section.title}</h4>
                     {section.description && (
-                      <p className="text-slate-400 text-sm">{section.description}</p>
+                      <p className="text-slate-400">{section.description}</p>
                     )}
                     {section.items && (
-                      <ul className="space-y-2 mt-2">
+                      <ul className="space-y-2 mt-3">
                         {section.items.map((item, itemIndex) => (
-                          <li key={itemIndex} className="text-slate-400 text-sm">
-                            <span className="text-primary font-medium">{item.label}:</span> {item.text}
+                          <li key={itemIndex} className="text-slate-400">
+                            <span className="text-primary font-semibold">{item.label}:</span> {item.text}
                           </li>
                         ))}
                       </ul>
@@ -682,14 +674,9 @@ export default function SupportPage() {
       <section id="advanced" className="py-12 md:py-20 bg-slate-900/30 border-b border-slate-900 scroll-mt-24 md:scroll-mt-44">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-16">
-              <div className="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500">
-                <Settings size={32} />
-              </div>
-              <div>
-                <h2 className="text-4xl font-bold text-white">Avancerat</h2>
-                <p className="text-slate-400 text-lg">För dig som vill gå djupare</p>
-              </div>
+            <div className="mb-16">
+              <h2 className="text-4xl font-bold text-white mb-2">Avancerat</h2>
+              <p className="text-slate-400 text-lg">För dig som vill gå djupare</p>
             </div>
 
             {/* Club Markers */}
@@ -698,8 +685,8 @@ export default function SupportPage() {
                 <ShoppingCart className="text-primary" size={28} />
                 Club Markers ✓
               </h3>
-              <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 mb-8">
-                <p className="text-slate-300 leading-relaxed mb-4">
+              <div className="mb-8 space-y-4">
+                <p className="text-slate-300 leading-relaxed">
                   <a
                     href="https://www.matchi.se/facilities/swedenindoorgolf"
                     target="_blank"
@@ -710,54 +697,54 @@ export default function SupportPage() {
                     <ExternalLink size={16} />
                   </a>
                 </p>
-                <p className="text-slate-300 leading-relaxed mb-4">
+                <p className="text-slate-300 leading-relaxed text-lg">
                   Du köper dina club markers i vårt bokningssystem Matchi. För att få klubbdata behöver dina golfklubbor märkas upp med Club markers,
                   ett set räcker till +14 klubbor. Du behöver 4 st markeringar per klubba och instruktion hur de skall placeras på klubbladen finns nedan.
                 </p>
-                <p className="text-slate-300 leading-relaxed">
+                <p className="text-slate-300 leading-relaxed text-lg">
                   När du har köpt dina club markers kvitterar du ut dem i hallen under bemannade tider (måndag - onsdag, 14 - 20).
                 </p>
-                <p className="text-primary font-medium mt-4">
+                <p className="text-primary font-semibold text-lg">
                   OBS: För att få bolldata (spela banor) behövs inga club markers!
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden">
-                  <div className="p-4 border-b border-slate-800">
-                    <h4 className="font-bold text-white text-center">Driver, Fairway woods & Hybrid</h4>
+                <div>
+                  <h4 className="font-bold text-white mb-4">Driver, Fairway woods & Hybrid</h4>
+                  <div className="border border-slate-800 rounded-xl overflow-hidden">
+                    <Image
+                      src={`${basePath}/support/club-marker-woods.png`}
+                      alt="Club marker placement for woods"
+                      width={400}
+                      height={400}
+                      className="w-full h-auto"
+                    />
                   </div>
-                  <Image
-                    src={`${basePath}/support/club-marker-woods.png`}
-                    alt="Club marker placement for woods"
-                    width={400}
-                    height={400}
-                    className="w-full h-auto"
-                  />
                 </div>
-                <div className="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden">
-                  <div className="p-4 border-b border-slate-800">
-                    <h4 className="font-bold text-white text-center">Järn & Wedge</h4>
+                <div>
+                  <h4 className="font-bold text-white mb-4">Järn & Wedge</h4>
+                  <div className="border border-slate-800 rounded-xl overflow-hidden">
+                    <Image
+                      src={`${basePath}/support/club-marker-iron.png`}
+                      alt="Club marker placement for irons"
+                      width={400}
+                      height={400}
+                      className="w-full h-auto"
+                    />
                   </div>
-                  <Image
-                    src={`${basePath}/support/club-marker-iron.png`}
-                    alt="Club marker placement for irons"
-                    width={400}
-                    height={400}
-                    className="w-full h-auto"
-                  />
                 </div>
-                <div className="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden">
-                  <div className="p-4 border-b border-slate-800">
-                    <h4 className="font-bold text-white text-center">Putter</h4>
+                <div>
+                  <h4 className="font-bold text-white mb-4">Putter</h4>
+                  <div className="border border-slate-800 rounded-xl overflow-hidden">
+                    <Image
+                      src={`${basePath}/support/club-marker-putter.png`}
+                      alt="Club marker placement for putter"
+                      width={400}
+                      height={400}
+                      className="w-full h-auto"
+                    />
                   </div>
-                  <Image
-                    src={`${basePath}/support/club-marker-putter.png`}
-                    alt="Club marker placement for putter"
-                    width={400}
-                    height={400}
-                    className="w-full h-auto"
-                  />
                 </div>
               </div>
             </div>
@@ -765,9 +752,9 @@ export default function SupportPage() {
             {/* GSPro Software */}
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-white mb-6">Manual GSPro</h3>
-              <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-8 md:p-12 mb-8">
+              <div className="mb-12">
                 <h4 className="text-xl font-bold text-white mb-6">GSPRO SOFTWARE - ALLMÄNT</h4>
-                <div className="space-y-4 text-slate-300 leading-relaxed">
+                <div className="space-y-4 text-slate-300 leading-relaxed text-lg max-w-4xl">
                   <p>
                     GSPRO är marknadsledande mjukvara för golf simulator. GSPRO använder GCQuads data för analys och visualisering.
                     Kanske världens just nu kraftfullaste kombination designad för professionella club fitting instruktörer och tränare.
@@ -781,7 +768,7 @@ export default function SupportPage() {
                     GSPRO innehåller virtuella kopior av några av världens toppbanor, spelappar med olika utmaningar, "skills games"
                     som närmst flagga och längsta drive. Sammantaget tas utmaningarna och nöjet till en ny nivå. Att flytta spelet inomhus känns plötsligt fullkomligt självklart.
                   </p>
-                  <p className="text-primary font-medium">
+                  <p className="text-primary font-semibold">
                     Träna på den virtuella rangen eller träna genom att delta i tävlingar online mot spelare i hela världen.
                     All utrustning hos oss är uppkopplad på nätet så du får inte svårt att finna motstånd om kamraterna stannat hemma.
                   </p>
@@ -796,22 +783,20 @@ export default function SupportPage() {
                 <FileText className="text-primary" size={24} />
                 GSPRO Manualer
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-4">
                 {manuals.map((manual, index) => (
                   <a
                     key={index}
                     href={manual.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-6 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-primary/30 hover:bg-slate-800 transition-all group"
+                    className="flex items-center justify-between py-4 border-b border-slate-800 hover:border-primary/30 transition-colors group"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-slate-950 transition-colors">
-                        <Download size={20} />
-                      </div>
+                      <Download size={24} className="text-primary" />
                       <div>
-                        <h5 className="font-bold text-white">{manual.title}</h5>
-                        <span className="text-xs text-slate-500 uppercase tracking-widest">{manual.type} DOKUMENT</span>
+                        <h5 className="font-bold text-white text-lg group-hover:text-primary transition-colors">{manual.title}</h5>
+                        <span className="text-sm text-slate-500">{manual.type} dokument</span>
                       </div>
                     </div>
                     <ExternalLink size={18} className="text-slate-600 group-hover:text-primary transition-colors" />
@@ -826,23 +811,21 @@ export default function SupportPage() {
                 <Video className="text-primary" size={28} />
                 Video Clips - YouTube
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
                 {youtubeVideos.map((video, index) => (
                   <a
                     key={index}
                     href={video.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-6 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-red-500/30 hover:bg-slate-800 transition-all group"
+                    className="flex items-center gap-4 py-4 border-b border-slate-800 hover:border-red-500/30 transition-colors group"
                   >
-                    <div className="w-12 h-12 bg-red-600/10 rounded-xl flex items-center justify-center group-hover:bg-red-600 transition-colors shrink-0">
-                      <PlayCircle size={24} className="text-red-500 group-hover:text-white transition-colors" />
-                    </div>
+                    <PlayCircle size={24} className="text-red-500 shrink-0" />
                     <div className="flex-1">
-                      <h4 className="font-bold text-white group-hover:text-primary transition-colors">
+                      <h4 className="font-bold text-white text-lg group-hover:text-primary transition-colors">
                         {video.title}
                       </h4>
-                      <span className="text-xs text-slate-500">YouTube Tutorial</span>
+                      <span className="text-sm text-slate-500">YouTube Tutorial</span>
                     </div>
                     <ExternalLink size={18} className="text-slate-600 group-hover:text-primary transition-colors" />
                   </a>

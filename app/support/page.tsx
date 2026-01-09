@@ -474,22 +474,45 @@ export default function SupportPage() {
               </div>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12 text-center">
-              <Trophy size={48} className="text-primary mx-auto mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">Tävlingslägen i GSPro</h3>
-              <div className="space-y-4 text-slate-300 text-left max-w-2xl mx-auto">
-                <p><strong className="text-primary">TOURNAMENTS:</strong> Delta i klubbtävlingar eller onlinetävlingar mot spelare globalt.</p>
-                <p><strong className="text-primary">ONLINE MATCH:</strong> Spela head-to-head i realtid mot spelare var som helst i världen.</p>
-                <p><strong className="text-primary">SKILLS CHALLENGE:</strong> Utmana dig själv i precisionsövningar som närmast flagga och längsta drive.</p>
+            {/* Club Tournaments */}
+            <div className="bg-gradient-to-br from-primary/10 to-slate-900/50 border-2 border-primary/30 rounded-3xl p-8 md:p-12 mb-8">
+              <div className="flex items-center gap-3 mb-6">
+                <Trophy size={40} className="text-primary" />
+                <h3 className="text-2xl font-bold text-white">Våra Klubbtävlingar</h3>
               </div>
-              <div className="mt-8">
+              <div className="space-y-4 text-slate-300 max-w-3xl">
+                <p className="text-lg">
+                  Vi arrangerar flera tävlingar under inomhussäsongen där du kan tävla mot andra golfare:
+                </p>
+                <div className="grid md:grid-cols-2 gap-4 my-6">
+                  <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4">
+                    <h4 className="text-primary font-bold mb-2">HobbyTouren Indoor</h4>
+                    <p className="text-sm text-slate-400">Veckotävlingar och majors för alla hcp-klasser. Spela när det passar dig!</p>
+                  </div>
+                  <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4">
+                    <h4 className="text-primary font-bold mb-2">H40+ Scratch Indoor</h4>
+                    <p className="text-sm text-slate-400">Seriespel för klubbar inom Östergötland. För dig som är 40+.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 flex justify-center">
                 <a
-                  href="/faq"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors"
+                  href="/tavlingar"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20"
                 >
-                  Läs mer i FAQ
-                  <ExternalLink size={16} />
+                  Se alla tävlingar & anmäl dig
+                  <ExternalLink size={18} />
                 </a>
+              </div>
+            </div>
+
+            {/* GSPro Tournament Modes */}
+            <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12">
+              <h3 className="text-xl font-bold text-white mb-4 text-center">Tävlingslägen i GSPro</h3>
+              <div className="space-y-3 text-slate-300 text-left max-w-2xl mx-auto">
+                <p className="text-sm"><strong className="text-primary">TOURNAMENTS:</strong> Delta i klubbtävlingar eller onlinetävlingar mot spelare globalt.</p>
+                <p className="text-sm"><strong className="text-primary">ONLINE MATCH:</strong> Spela head-to-head i realtid mot spelare var som helst i världen.</p>
+                <p className="text-sm"><strong className="text-primary">SKILLS CHALLENGE:</strong> Utmana dig själv i precisionsövningar som närmast flagga och längsta drive.</p>
               </div>
             </div>
           </div>

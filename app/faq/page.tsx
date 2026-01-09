@@ -356,6 +356,21 @@ export default function FAQPage() {
   const handleCategorySelect = (categoryId: string) => {
     setActiveCategory(categoryId);
     setMobileMenuOpen(false);
+
+    // On mobile, scroll to the category section
+    if (window.innerWidth < 1024) {
+      const element = document.getElementById(categoryId);
+      if (element) {
+        const offset = 100; // Account for header
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
 
   return (
@@ -393,74 +408,124 @@ export default function FAQPage() {
 
             {/* Content Area */}
             <main className="w-full lg:w-2/3 xl:w-3/4">
-              {/* Mobile Category Indicator */}
-              <div className="lg:hidden mb-6 flex items-center gap-3 px-4 py-3 bg-slate-900/50 border border-slate-800 rounded-xl">
-                {(() => {
-                  const ActiveIcon = faqCategories.find(c => c.id === activeCategory)?.icon || HelpCircle;
-                  return (
-                    <>
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <ActiveIcon size={20} className="text-primary" />
+              {/* Desktop: Show active category only */}
+              <div className="hidden lg:block">
+                <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12">
+                  {faqCategories.find(c => c.id === activeCategory)?.items.map((item, index) => (
+                    <AccordionItem key={index} question={item.question} answer={item.answer} />
+                  ))}
+
+                  {activeCategory === 'club-markers' && (
+                     <div className="mt-8 p-6 bg-slate-950 rounded-2xl border border-slate-800">
+                        <p className="text-sm text-slate-400 mb-6 italic">
+                          Instruktion för placering av Club Markers (Drivers, Järn & Putters).
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          <div className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                            <div className="p-3 border-b border-slate-800 text-center">
+                              <h4 className="font-bold text-white text-sm">Driver, Fairway woods & Hybrid</h4>
+                            </div>
+                            <Image
+                              src={`${basePath}/support/club-marker-woods.png`}
+                              alt="Club marker placement for woods"
+                              width={300}
+                              height={300}
+                              className="w-full h-auto"
+                            />
+                          </div>
+                          <div className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                            <div className="p-3 border-b border-slate-800 text-center">
+                              <h4 className="font-bold text-white text-sm">Järn & Wedge</h4>
+                            </div>
+                            <Image
+                              src={`${basePath}/support/club-marker-iron.png`}
+                              alt="Club marker placement for irons"
+                              width={300}
+                              height={300}
+                              className="w-full h-auto"
+                            />
+                          </div>
+                          <div className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                            <div className="p-3 border-b border-slate-800 text-center">
+                              <h4 className="font-bold text-white text-sm">Putter</h4>
+                            </div>
+                            <Image
+                              src={`${basePath}/support/club-marker-putter.png`}
+                              alt="Club marker placement for putter"
+                              width={300}
+                              height={300}
+                              className="w-full h-auto"
+                            />
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-xs text-slate-500 font-medium">Visar kategori:</p>
-                        <p className="text-white font-bold">{faqCategories.find(c => c.id === activeCategory)?.title}</p>
-                      </div>
-                    </>
-                  );
-                })()}
+                  )}
+                </div>
               </div>
 
-              <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12">
-                {faqCategories.find(c => c.id === activeCategory)?.items.map((item, index) => (
-                  <AccordionItem key={index} question={item.question} answer={item.answer} />
-                ))}
-
-                {activeCategory === 'club-markers' && (
-                   <div className="mt-8 p-6 bg-slate-950 rounded-2xl border border-slate-800">
-                      <p className="text-sm text-slate-400 mb-6 italic">
-                        Instruktion för placering av Club Markers (Drivers, Järn & Putters).
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-slate-800 rounded-xl overflow-hidden">
-                          <div className="p-3 border-b border-slate-700">
-                            <p className="text-white text-sm font-semibold text-center">Driver, Woods & Hybrid</p>
-                          </div>
-                          <Image
-                            src={`${basePath}/support/club-marker-woods.png`}
-                            alt="Club marker placement for woods"
-                            width={400}
-                            height={500}
-                            className="w-full h-auto"
-                          />
-                        </div>
-                        <div className="bg-slate-800 rounded-xl overflow-hidden">
-                          <div className="p-3 border-b border-slate-700">
-                            <p className="text-white text-sm font-semibold text-center">Järn & Wedge</p>
-                          </div>
-                          <Image
-                            src={`${basePath}/support/club-marker-iron.png`}
-                            alt="Club marker placement for irons"
-                            width={400}
-                            height={500}
-                            className="w-full h-auto"
-                          />
-                        </div>
-                        <div className="bg-slate-800 rounded-xl overflow-hidden">
-                          <div className="p-3 border-b border-slate-700">
-                            <p className="text-white text-sm font-semibold text-center">Putter</p>
-                          </div>
-                          <Image
-                            src={`${basePath}/support/club-marker-putter.png`}
-                            alt="Club marker placement for putter"
-                            width={400}
-                            height={500}
-                            className="w-full h-auto"
-                          />
-                        </div>
+              {/* Mobile: Show all categories */}
+              <div className="lg:hidden space-y-8">
+                {faqCategories.map((category) => (
+                  <div key={category.id} id={category.id} className="scroll-mt-24">
+                    <div className="flex items-center gap-3 mb-4 px-2">
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <category.icon size={20} className="text-primary" />
                       </div>
-                   </div>
-                )}
+                      <h2 className="text-2xl font-bold text-white">{category.title}</h2>
+                    </div>
+                    <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-6 md:p-8">
+                      {category.items.map((item, index) => (
+                        <AccordionItem key={index} question={item.question} answer={item.answer} />
+                      ))}
+
+                      {category.id === 'club-markers' && (
+                         <div className="mt-8 p-6 bg-slate-950 rounded-2xl border border-slate-800">
+                            <p className="text-sm text-slate-400 mb-6 italic">
+                              Instruktion för placering av Club Markers (Drivers, Järn & Putters).
+                            </p>
+                            <div className="grid grid-cols-1 gap-6">
+                              <div className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                <div className="p-3 border-b border-slate-800 text-center">
+                                  <h4 className="font-bold text-white text-sm">Driver, Fairway woods & Hybrid</h4>
+                                </div>
+                                <Image
+                                  src={`${basePath}/support/club-marker-woods.png`}
+                                  alt="Club marker placement for woods"
+                                  width={300}
+                                  height={300}
+                                  className="w-full h-auto"
+                                />
+                              </div>
+                              <div className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                <div className="p-3 border-b border-slate-800 text-center">
+                                  <h4 className="font-bold text-white text-sm">Järn & Wedge</h4>
+                                </div>
+                                <Image
+                                  src={`${basePath}/support/club-marker-iron.png`}
+                                  alt="Club marker placement for irons"
+                                  width={300}
+                                  height={300}
+                                  className="w-full h-auto"
+                                />
+                              </div>
+                              <div className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                                <div className="p-3 border-b border-slate-800 text-center">
+                                  <h4 className="font-bold text-white text-sm">Putter</h4>
+                                </div>
+                                <Image
+                                  src={`${basePath}/support/club-marker-putter.png`}
+                                  alt="Club marker placement for putter"
+                                  width={300}
+                                  height={300}
+                                  className="w-full h-auto"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Contact CTA */}

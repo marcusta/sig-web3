@@ -109,7 +109,7 @@ const faqCategories = [
       {
         question: "Kan jag ändra min bokning?",
         answer:
-          "Ja, du kan ändra din bokning via MATCHi upp till 6 timmar innan starttid. Logga in på ditt konto och hantera dina bokningar där. Vid frågor, Matchi på 010-405 88 00.",
+          "Ja, du kan ändra din bokning via MATCHi upp till 6 timmar innan starttid. Logga in på ditt konto och hantera dina bokningar där. Vid frågor, kontakta Matchi på 010-405 88 00.",
       },
       {
         question: "Vad händer om jag kommer för sent?",

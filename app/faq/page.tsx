@@ -1,8 +1,8 @@
 'use client';
 
 import { PageHeader } from '@/components/ui/PageHeader';
-import { motion } from 'framer-motion';
-import { ChevronDown, HelpCircle, Book, Shield, Trophy, Globe, Map, Users, Zap, BarChart3, Wrench, Building2, UserCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, HelpCircle, Book, Shield, Trophy, Globe, Map, Users, Zap, BarChart3, Wrench, Building2, UserCheck, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -350,7 +350,13 @@ function AccordionItem({ question, answer }: { question: string, answer: string 
 
 export default function FAQPage() {
   const [activeCategory, setActiveCategory] = useState('getting-started');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+  const handleCategorySelect = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <div className="bg-slate-950 min-h-screen">
@@ -363,8 +369,8 @@ export default function FAQPage() {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row gap-12">
-            {/* Sidebar / Categories */}
-            <aside className="lg:w-1/3 xl:w-1/4">
+            {/* Sidebar / Categories - Hidden on mobile */}
+            <aside className="hidden lg:block lg:w-1/3 xl:w-1/4">
               <div className="sticky top-24 space-y-2">
                 <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6 ml-4">Kategorier</h3>
                 {faqCategories.map((category) => (
@@ -386,7 +392,25 @@ export default function FAQPage() {
             </aside>
 
             {/* Content Area */}
-            <main className="lg:w-2/3 xl:w-3/4">
+            <main className="w-full lg:w-2/3 xl:w-3/4">
+              {/* Mobile Category Indicator */}
+              <div className="lg:hidden mb-6 flex items-center gap-3 px-4 py-3 bg-slate-900/50 border border-slate-800 rounded-xl">
+                {(() => {
+                  const ActiveIcon = faqCategories.find(c => c.id === activeCategory)?.icon || HelpCircle;
+                  return (
+                    <>
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <ActiveIcon size={20} className="text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-500 font-medium">Visar kategori:</p>
+                        <p className="text-white font-bold">{faqCategories.find(c => c.id === activeCategory)?.title}</p>
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
+
               <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12">
                 {faqCategories.find(c => c.id === activeCategory)?.items.map((item, index) => (
                   <AccordionItem key={index} question={item.question} answer={item.answer} />
@@ -464,6 +488,78 @@ export default function FAQPage() {
           </div>
         </div>
       </section>
+
+      {/* Floating Action Button (Mobile Only) */}
+      <button
+        onClick={() => setMobileMenuOpen(true)}
+        className="lg:hidden fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-slate-950 rounded-full shadow-2xl flex items-center justify-center hover:bg-yellow-400 active:scale-95 transition-all"
+        aria-label="Open category menu"
+      >
+        <Menu size={24} />
+      </button>
+
+      {/* Mobile Category Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+            />
+
+            {/* Slide-up Menu */}
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="lg:hidden fixed bottom-0 left-0 right-0 z-[60] bg-slate-900 rounded-t-3xl shadow-2xl max-h-[80vh] overflow-y-auto"
+            >
+              {/* Header */}
+              <div className="sticky top-0 bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between rounded-t-3xl">
+                <h3 className="text-lg font-bold text-white">FAQ Kategorier</h3>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-800 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X size={24} className="text-slate-400" />
+                </button>
+              </div>
+
+              {/* Category Items */}
+              <div className="px-6 py-4 space-y-2">
+                {faqCategories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => handleCategorySelect(category.id)}
+                    className={cn(
+                      "w-full flex items-center gap-4 px-4 py-4 rounded-xl text-left transition-all",
+                      activeCategory === category.id
+                        ? "bg-primary text-slate-950 font-bold shadow-lg shadow-primary/20"
+                        : "bg-slate-800/50 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-primary/30"
+                    )}
+                  >
+                    <div className={cn(
+                      "w-10 h-10 rounded-lg flex items-center justify-center transition-colors",
+                      activeCategory === category.id
+                        ? "bg-slate-950/20"
+                        : "bg-slate-900"
+                    )}>
+                      <category.icon size={20} className={activeCategory === category.id ? "text-slate-950" : "text-primary"} />
+                    </div>
+                    <span className="font-medium">{category.title}</span>
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -2,10 +2,9 @@
 
 import { PageHeader } from '@/components/ui/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, HelpCircle, Book, Shield, Trophy, Globe, Map, Users, Zap, BarChart3, Wrench, Building2, UserCheck, Menu, X } from 'lucide-react';
+import { ChevronDown, HelpCircle, Book, Shield, Trophy, Globe, Users, Building2, UserCheck, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 
 const faqCategories = [
   {
@@ -36,6 +35,10 @@ const faqCategories = [
       {
         question: "Vad är skillnaden mellan Practice och att spela en bana?",
         answer: "I Practice-läget tränar du på driving range där du kan slå hur många bollar du vill mot olika mål och se detaljerad data för varje slag. När du spelar en bana (Local Match) spelar du en komplett golfrunda med 18 hål där varje slag räknas och du får ett totalt score."
+      },
+      {
+        question: "Var hittar jag detaljerade instruktioner och guider?",
+        answer: "Vår Support-sida (/support) har omfattande steg-för-steg guider för allt från att komma igång till avancerade funktioner. Där hittar du instruktionsvideos, tangentbordsgenvägar, och detaljerade beskrivningar av alla spellägen."
       }
     ]
   },
@@ -112,7 +115,7 @@ const faqCategories = [
     items: [
       {
         question: "Vilka spellägen finns?",
-        answer: "GSPRO erbjuder flera lägen:\n• LOCAL MATCH - Spela en komplett bana med 1-4 spelare\n• PRACTICE - Driving range, träna på bana, eller skills challenge\n• TOURNAMENTS - Delta i klubbtävlingar eller onlinetävlingar\n• ONLINE MATCH - Spela head-to-head mot spelare var som helst i världen"
+        answer: "GSPRO erbjuder flera lägen:\n• LOCAL MATCH - Spela en komplett bana med 1-4 spelare\n• PRACTICE - Driving range, träna på bana, eller skills challenge\n• TOURNAMENTS - Delta i klubbtävlingar eller onlinetävlingar\n• ONLINE MATCH - Spela head-to-head mot spelare var som helst i världen\n\nFör detaljerade instruktioner om varje spelläge, se vår Support-sida (/support)."
       },
       {
         question: "Hur fungerar putting?",
@@ -131,97 +134,12 @@ const faqCategories = [
         answer: "Vi har för närvarande över 2000 banor att välja mellan. Exempel på kända banor är Augusta National (Georgia Golf Club i GSPRO), TPC Sawgrass (DPC Sodgrass i GSPRO) och Pebble Beach (DPC Pebble i GSPRO). En fullständig lista finns på https://app.swedenindoorgolf.se/gsp/"
       },
       {
-        question: "Hur startar jag en runda?",
-        answer: "Välj LOCAL MATCH från huvudmenyn, välj bana och tee, lägg till spelare, sätt matchinställningar (puttning, väder, mulligans), och tryck Start. Detaljerade instruktioner finns på vår Support-sida under 'Spela en Runda'."
-      }
-    ]
-  },
-  {
-    id: 'data-analysis',
-    title: 'Data & Analys',
-    icon: BarChart3,
-    items: [
-      {
-        question: "Vilken data får jag se?",
-        answer: "GCQuad mäter omfattande bolldata (hastighet, spin, launch angle, carry) och klubbdata (klubbhastighet, slag vinkel, träffpunkt). I Practice-läge kan du visa upp till 24 olika mätvärden samtidigt. Se alla databrickor och deras betydelse på vår Support-sida."
+        question: "Simulatorn fungerar inte - vad gör jag?",
+        answer: "Se vår omfattande Felsökningsguide på Support-sidan (/support#troubleshooting) där vi har steg-för-steg lösningar på alla vanliga problem:\n• Simulatorn registrerar inte slag\n• 'INGEN BOLL' fast bollen ligger rätt\n• Bollen flyger fel väg\n• Datorn har kraschat\n\nFör akuta problem i hallen, se anslagstavlan för jourtelefonnummer."
       },
       {
-        question: "Vad betyder Ball Speed, Carry, Spin?",
-        answer: "Ball Speed = bollens hastighet direkt efter träff. Carry = luftfärden bollen färdas. Back Spin = bollens rotation bakåt i RPM. Side Spin = sidorotation. Smash Factor = förhållandet bollhastighet/klubbhastighet (effektivitet). För alla 23 databrickor, se Support-sidan under 'Förstå Data'."
-      },
-      {
-        question: "Behöver jag Club Markers för att se data?",
-        answer: "NEJ! För bolldata (som är det viktigaste) behövs INGA club markers. Du kan spela banor och se bollens hastighet, spin, carry, etc. Club markers behövs endast om du vill ha detaljerad KLUBB-data som klubbhastighet, träffvinkel, och träffpunkt på bladet."
-      },
-      {
-        question: "Hur sparar jag min träningsdata?",
-        answer: "GSPRO inkluderar kostnadsfria konton i en molntjänst där alla dina slag sparas automatiskt. Du kan logga in och analysera din historik, jämföra prestationer över tid, och dela data med en tränare."
-      },
-      {
-        question: "Kan jag få coachning eller lektioner?",
-        answer: "Kontakta oss på info@swedenindoorgolf.se för information om tillgängliga coacher och instruktörer som kan hjälpa dig analysera din data och förbättra ditt spel."
-      },
-      {
-        question: "Vad är Skills Challenge?",
-        answer: "Skills Challenge är precisionsövningar där du utmanas att träffa specifika mål - till exempel närmast flagga eller längsta drive. Perfekt för att tävla mot dig själv eller vänner och utveckla specifika delar av ditt spel."
-      }
-    ]
-  },
-  {
-    id: 'troubleshooting',
-    title: 'Felsökning',
-    icon: Wrench,
-    items: [
-      {
-        question: "Simulatorn registrerar inte mitt slag",
-        answer: "1) Kontrollera att det står SLÅ (inte INGEN BOLL) på skärmen. 2) Se till att det bara finns EN boll i den svarta rutan och inga andra föremål i det rödmarkerade området. 3) Om det står READY men inget händer, täck över alla fyra kamerorna på GCQuad i några sekunder för att återställa vitbalansen. Fullständig felsökningsguide finns på Support-sidan."
-      },
-      {
-        question: "Det står 'INGEN BOLL' fast bollen ligger rätt",
-        answer: "Tryck på Windows-symbolen och starta om datorn. Vänta tills GSPro-menyn visas på skärmen innan du fortsätter. Om problemet kvarstår, kontrollera att bollen är VIT och omarkerad, samt att den ligger exakt i den svarta rutan."
-      },
-      {
-        question: "Skärmen är frusen eller datorn har kraschat",
-        answer: "Tryck på Windows-symbolen och starta om datorn. Vänta tills GSPro-menyn visas helt innan du börjar spela igen. Om problemet uppstår upprepade gånger, kontakta oss direkt."
-      },
-      {
-        question: "Bollen flyger fel väg eller konstigt",
-        answer: "1) Kontrollera att du använder en VIT omarkerad boll. 2) Se till att inga föremål (klubbor, väskor, etc.) ligger i det rödmarkerade området. 3) Kontrollera i spelarlistan att rätt spelare är vald och att höger/vänster-inställningen stämmer. 4) På matta 1-2 och 4-8: undvik att stå i den vita rutan."
-      },
-      {
-        question: "Vem kontaktar jag vid tekniska problem?",
-        answer: "Om du inte kan lösa problemet själv med vår felsökningsguide: 1) Under bemannade tider (mån-ons 14-20): kontakta personalen i hallen direkt. 2) För akuta ärenden: se anslagstavlan i hallen för jourtelefonnummer. 3) För icke-akuta frågor: maila info@swedenindoorgolf.se"
-      },
-      {
-        question: "Problemet löste sig inte - vad gör jag?",
-        answer: "Om inget fungerar: boka en annan simulator/bana och fortsätt spela där. Meddela oss via info@swedenindoorgolf.se så kompenserar vi dig för den extra bokningen eller ger dig en ny tid. Ta gärna skärmbild/foto av felet om möjligt."
-      }
-    ]
-  },
-  {
-    id: 'club-markers',
-    title: 'Club Markers',
-    icon: Map,
-    items: [
-      {
-        question: "Vad är Club Markers?",
-        answer: "Club Markers är små reflekterande klistermärken som sätts på klubbladen. De gör att GCQuad-kamerorna kan mäta detaljerad klubbdata (klubbhastighet, träffvinkel, träffpunkt). OBS: Du behöver INTE club markers för att spela banor - bolldata fungerar utan dem!"
-      },
-      {
-        question: "Måste jag ha Club Markers?",
-        answer: "NEJ! För bolldata (hastighet, carry, spin, etc.) och för att spela banor behövs INGA club markers. Club markers behövs endast om du vill ha avancerad klubbdata för träning och club fitting - till exempel klubbhastighet, anfallsvinkel, och var på bladet du träffar bollen."
-      },
-      {
-        question: "Hur köper jag Club Markers?",
-        answer: "Du köper Club Markers via vårt bokningssystem MATCHi på matchi.se/facilities/swedenindoorgolf. Ett set räcker till 14+ klubbor (4 markeringar per klubba). När du köpt dem kvitterar du ut dem i hallen under bemannade tider (måndag-onsdag, 14-20)."
-      },
-      {
-        question: "Hur mycket kostar Club Markers?",
-        answer: "Se aktuellt pris i MATCHi-bokningssystemet under 'Produkter' eller kontakta oss på info@swedenindoorgolf.se. Ett set räcker till hela ditt klubbset (14+ klubbor)."
-      },
-      {
-        question: "Hur applicerar jag Club Markers?",
-        answer: "Du behöver 4 markeringar per klubba. Placeringen varierar beroende på klubbtyp:\n• Driver/Woods/Hybrid - se bild på Support-sidan\n• Järn/Wedge - se bild på Support-sidan\n• Putter - se bild på Support-sidan\n\nDetaljerade instruktioner med bilder finns på vår Support-sida under 'Avancerat > Club Markers'."
+        question: "Vad betyder all data jag ser på skärmen?",
+        answer: "Vi har en komplett guide över alla 23 databrickor på vår Support-sida (/support#understand-data) under 'Förstå Data'. Där förklaras varje mätvärde i detalj - från Ball Speed och Carry till Smash Factor och Spin Axis. Du lär dig också hur du använder datan för att förbättra ditt spel."
       }
     ]
   },
@@ -276,6 +194,10 @@ const faqCategories = [
       {
         question: "Vad händer om jag missar bollen helt?",
         answer: "Om du svingar men missar bollen helt (en 'air shot'), registrerar systemet detta som ett slag som räknas i ditt score om du spelar en runda. På driving range påverkar det inte din träning - slå bara nästa boll."
+      },
+      {
+        question: "Vad är Club Markers och behöver jag dem?",
+        answer: "Club Markers är INTE nödvändiga för att spela banor eller se bolldata! De behövs endast för avancerad klubbdata (klubbhastighet, anfallsvinkel, träffpunkt på bladet).\n\nVår Support-sida (/support#advanced) har komplett information om:\n• Vad club markers är och när du behöver dem\n• Hur du köper dem via MATCHi\n• Detaljerade bilder för hur du applicerar dem på olika klubbtyper"
       }
     ]
   },
@@ -414,52 +336,6 @@ export default function FAQPage() {
                   {faqCategories.find(c => c.id === activeCategory)?.items.map((item, index) => (
                     <AccordionItem key={index} question={item.question} answer={item.answer} />
                   ))}
-
-                  {activeCategory === 'club-markers' && (
-                     <div className="mt-12 pt-12 border-t border-slate-800">
-                        <p className="text-slate-400 mb-8 text-lg">
-                          Instruktion för placering av Club Markers (Drivers, Järn & Putters).
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                          <div>
-                            <h4 className="font-bold text-white mb-4">Driver, Fairway woods & Hybrid</h4>
-                            <div className="border border-slate-800 rounded-xl overflow-hidden">
-                              <Image
-                                src={`${basePath}/support/club-marker-woods.png`}
-                                alt="Club marker placement for woods"
-                                width={300}
-                                height={300}
-                                className="w-full h-auto"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-white mb-4">Järn & Wedge</h4>
-                            <div className="border border-slate-800 rounded-xl overflow-hidden">
-                              <Image
-                                src={`${basePath}/support/club-marker-iron.png`}
-                                alt="Club marker placement for irons"
-                                width={300}
-                                height={300}
-                                className="w-full h-auto"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-white mb-4">Putter</h4>
-                            <div className="border border-slate-800 rounded-xl overflow-hidden">
-                              <Image
-                                src={`${basePath}/support/club-marker-putter.png`}
-                                alt="Club marker placement for putter"
-                                width={300}
-                                height={300}
-                                className="w-full h-auto"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                  )}
                 </div>
               </div>
 
@@ -475,52 +351,6 @@ export default function FAQPage() {
                       {category.items.map((item, index) => (
                         <AccordionItem key={index} question={item.question} answer={item.answer} />
                       ))}
-
-                      {category.id === 'club-markers' && (
-                         <div className="mt-12 pt-12 border-t border-slate-800">
-                            <p className="text-slate-400 mb-8">
-                              Instruktion för placering av Club Markers (Drivers, Järn & Putters).
-                            </p>
-                            <div className="space-y-8">
-                              <div>
-                                <h4 className="font-bold text-white mb-4">Driver, Fairway woods & Hybrid</h4>
-                                <div className="border border-slate-800 rounded-xl overflow-hidden">
-                                  <Image
-                                    src={`${basePath}/support/club-marker-woods.png`}
-                                    alt="Club marker placement for woods"
-                                    width={300}
-                                    height={300}
-                                    className="w-full h-auto"
-                                  />
-                                </div>
-                              </div>
-                              <div>
-                                <h4 className="font-bold text-white mb-4">Järn & Wedge</h4>
-                                <div className="border border-slate-800 rounded-xl overflow-hidden">
-                                  <Image
-                                    src={`${basePath}/support/club-marker-iron.png`}
-                                    alt="Club marker placement for irons"
-                                    width={300}
-                                    height={300}
-                                    className="w-full h-auto"
-                                  />
-                                </div>
-                              </div>
-                              <div>
-                                <h4 className="font-bold text-white mb-4">Putter</h4>
-                                <div className="border border-slate-800 rounded-xl overflow-hidden">
-                                  <Image
-                                    src={`${basePath}/support/club-marker-putter.png`}
-                                    alt="Club marker placement for putter"
-                                    width={300}
-                                    height={300}
-                                    className="w-full h-auto"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      )}
                     </div>
                   </div>
                 ))}
@@ -530,14 +360,14 @@ export default function FAQPage() {
               <div className="mt-16 text-center">
                 <h3 className="text-2xl font-bold text-white mb-4">Hittar du inte det du letar efter?</h3>
                 <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-                  Vår support är öppen och hjälper dig gärna med frågor om bokningar, teknik eller medlemskap.
+                  Kontakta oss gärna med frågor om bokningar, teknik eller medlemskap.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <a
-                    href="/support"
+                    href="/kontakt"
                     className="px-8 py-3 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20"
                   >
-                    Kontakta Support
+                    Kontakta oss
                   </a>
                   <a
                     href="mailto:info@swedenindoorgolf.se"

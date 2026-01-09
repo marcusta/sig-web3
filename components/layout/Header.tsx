@@ -12,6 +12,7 @@ const navigation = [
   { name: 'Öppettider', href: '/oppettider' },
   { name: 'Support', href: '/support' },
   { name: 'FAQ', href: '/faq' },
+  { name: 'Kontakt', href: '/kontakt' },
   { name: 'Golfshop', href: '/golfshop' },
   { name: 'Tävlingar', href: '/tavlingar' },
 ];

@@ -80,6 +80,12 @@
       "namedRegex": "^/integritetspolicy(?:/)?$"
     },
     {
+      "page": "/kontakt",
+      "regex": "^/kontakt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kontakt(?:/)?$"
+    },
+    {
       "page": "/om-oss",
       "regex": "^/om\\-oss(?:/)?$",
       "routeKeys": {},

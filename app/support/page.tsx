@@ -1,6 +1,5 @@
 'use client';
 
-import { Contact } from '@/components/home/Contact';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PlayCircle, AlertCircle, FileText, ExternalLink, Settings, Download, Video, ShoppingCart, Users, Flag, Gamepad2, Target, Keyboard, BarChart3, Trophy, Menu, X } from 'lucide-react';
@@ -235,6 +234,18 @@ export default function SupportPage() {
         subtitle="Här hittar du snabbhjälp, manualer och kontaktuppgifter för teknisk support."
         backgroundImage={`${basePath}/hero-bg.jpg`}
       />
+
+      {/* FAQ Quick Link */}
+      <div className="py-6 bg-slate-900/50 border-b border-slate-800">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-slate-300 text-sm md:text-base">
+              Söker du information om <strong className="text-white">bokningar, priser eller medlemskap?</strong> Se vår{' '}
+              <a href="/faq" className="text-primary hover:text-yellow-400 font-semibold underline">FAQ-sida</a>
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Sticky Quick Navigation - Hidden on mobile */}
       <div className="hidden md:block sticky top-20 z-40 bg-slate-950/95 backdrop-blur-md border-b border-slate-800">
@@ -554,8 +565,32 @@ export default function SupportPage() {
               </div>
             </div>
 
+            {/* Contact if problem persists */}
+            <div className="mt-12 p-6 md:p-8 bg-slate-900/50 border-2 border-primary/30 rounded-2xl">
+              <h3 className="text-xl font-bold text-white mb-3">Löste det inte problemet?</h3>
+              <p className="text-slate-300 mb-6">
+                Om du provat alla steg ovan och problemet kvarstår, kontakta oss så hjälper vi dig.
+                Boka gärna en annan simulator och fortsätt spela där - vi kompenserar dig för den extra bokningen.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="/kontakt"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20"
+                >
+                  Kontakta oss
+                  <ExternalLink size={18} />
+                </a>
+                <a
+                  href="mailto:info@swedenindoorgolf.se"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors"
+                >
+                  Skicka e-post direkt
+                </a>
+              </div>
+            </div>
+
             {/* Mat Setup Images */}
-            <div>
+            <div className="mt-12">
               <h3 className="text-xl font-bold text-white mb-6">Bollplacering per matta</h3>
               <div className="flex gap-4 mb-6">
                 <button
@@ -834,18 +869,6 @@ export default function SupportPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-12 md:py-20">
-        <div className="container mx-auto px-4 md:px-6 text-center mb-12">
-          <h2 className="text-3xl font-bold text-white mb-4">Behöver du ytterligare hjälp?</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Fyll i formuläret nedan så återkommer vi till dig så snart vi kan.
-            För akuta ärenden i hallen, se anslagstavlan för journummer.
-          </p>
-        </div>
-        <Contact />
       </section>
 
       {/* Floating Action Button (Mobile Only) */}

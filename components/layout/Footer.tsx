@@ -48,8 +48,9 @@ export function Footer() {
               <li><Link href="/prislista" className="hover:text-primary transition-colors">Prislista</Link></li>
               <li><Link href="/tavlingar" className="hover:text-primary transition-colors">Tävlingar</Link></li>
               <li><Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
+              <li><Link href="/support" className="hover:text-primary transition-colors">Support</Link></li>
+              <li><Link href="/kontakt" className="hover:text-primary transition-colors">Kontakt</Link></li>
               <li><Link href="/integritetspolicy" className="hover:text-primary transition-colors">Integritetspolicy</Link></li>
-              <li><Link href="/support" className="hover:text-primary transition-colors">Kontakta oss</Link></li>
               <li><a href="https://premiumgolf.se" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Premium Golf</a></li>
             </ul>
           </div>

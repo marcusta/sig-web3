@@ -9,7 +9,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, subtitle, className, backgroundImage }: PageHeaderProps) {
   return (
-    <div className={cn("relative py-24 md:py-32 bg-slate-900 overflow-hidden", className)}>
+    <div className={cn("relative py-16 md:py-32 bg-slate-900 overflow-hidden", className)}>
       {/* Background Image */}
       {backgroundImage && (
         <div 

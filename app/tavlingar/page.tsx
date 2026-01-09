@@ -3,11 +3,14 @@ import { Trophy, Calendar, Users, Mail, ExternalLink, CreditCard, Info } from 'l
 import Link from 'next/link';
 
 export default function CompetitionsPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   return (
     <>
       <PageHeader
         title="Tävlingar"
         subtitle="Utmana dig själv och andra i våra tävlingar."
+        backgroundImage={`${basePath}/hero-bg.jpg`}
       />
 
       {/* HobbyTouren Indoor Section */}

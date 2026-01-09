@@ -3,11 +3,14 @@ import { Clock, Users, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
 export default function OpeningHoursPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   return (
     <>
       <PageHeader
         title="Öppettider"
         subtitle="Vi har öppet alla dagar, året runt."
+        backgroundImage={`${basePath}/hero-bg.jpg`}
       />
       <section className="py-16 bg-slate-950">
         <div className="container mx-auto px-4 md:px-6">

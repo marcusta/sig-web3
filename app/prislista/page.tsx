@@ -14,6 +14,14 @@ export default function PrislistaPage() {
 
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
+          {/* Intro description */}
+          <div className="text-center mb-16">
+            <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+              Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag.
+              Perfekt för dig som vill hålla spelet skarpt under vintern till nästa säsong.
+            </p>
+          </div>
+
           {/* Pricing Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Weekday Pricing */}

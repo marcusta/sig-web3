@@ -1,6 +1,8 @@
 import { PageHeader } from "@/components/ui/PageHeader";
-import { Mail, MapPin, ExternalLink, Clock } from "lucide-react";
+import { Contact } from "@/components/home/Contact";
+import { Mail, ExternalLink, Clock } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function GolfshopPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
@@ -12,6 +14,23 @@ export default function GolfshopPage() {
         subtitle="Premiumprodukter och expertis"
         backgroundImage={`${basePath}/hero-bg.jpg`}
       />
+
+      {/* Hero CTA */}
+      <section className="py-12 bg-slate-900/50 border-b border-slate-800">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <p className="text-lg text-slate-300 mb-6 max-w-2xl mx-auto">
+            Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag.
+            Perfekt för dig som vill hålla spelet skarpt under vintern till nästa säsong.
+          </p>
+          <Link
+            href="https://www.matchi.se/facilities/swedenindoorgolf"
+            target="_blank"
+            className="inline-block px-8 py-4 bg-primary text-slate-950 font-bold rounded-lg hover:bg-yellow-400 transition-colors"
+          >
+            BOKA BANA
+          </Link>
+        </div>
+      </section>
 
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
@@ -86,6 +105,9 @@ export default function GolfshopPage() {
           </div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <Contact />
     </div>
   );
 }

@@ -36,6 +36,10 @@ const faqCategories = [
       {
         question: "Friskvårdsbidrag",
         answer: "Sedan 2018 är användning av golfsimulator klassat som friskvård. Det innebär att du kan använda ditt friskvårdsbidrag för att spela hos oss. Hör med din arbetsgivare för mer information. Om du önskar underlag för friskvårdsbidrag, maila oss på info@swedenindoorgolf.se"
+      },
+      {
+        question: "SimulatorGolfTour FAQ",
+        answer: "SimulatorGolfTour (SGT) är plattformen vi använder för onlinetävlingar. För att komma igång, registrera dig på simulatorgolftour.com/register. Du hittar guider och YouTube-tutorials på SGT Getting Started: simulatorgolftour.com/getting-started. För HobbyTouren Indoor, se vår tävlingssida för mer information."
       }
     ]
   },
@@ -58,7 +62,7 @@ const faqCategories = [
       },
       {
         question: "Spela golf inomhus - Hur går det till?",
-        answer: "Du slår från en utslagsmatta in i en duk. Utrustningen fotograferar bollen och beräknar bollflykten med extrem precision. När du når greenen puttad du antingen IRL på vår puttyta eller låter datorn beräkna antalet puttar (Auto Putt)."
+        answer: "Du slår från en utslagsmatta in i en duk ca 2 meter framför dig. 4 höghastighetskameror som tar 6 000 bilder/sekund fotograferar bollen och klubban. Data beräknas och visas på en 23\" pekskärm med precision inom 0,5 meter på 150 meters avstånd.\n\nNär du når greenen puttar du antingen IRL på vår ~50 kvm puttyta eller låter datorn beräkna antalet puttar (Auto Putt).\n\nSpellägen:\n• LOCAL MATCH - Spela en bana\n• PRACTICE - Driving range, träna på bana, skills test\n• TOURNAMENTS - Klubb- eller onlinetävlingar\n• ONLINE MATCH - Head-to-head mot spelare var som helst i världen\n\nVi har 8 simulatorer med plats för upp till 4 spelare per simulator."
       }
     ]
   },
@@ -187,14 +191,41 @@ export default function FAQPage() {
                         Instruktion för placering av Club Markers (Drivers, Järn & Putters).
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="aspect-[4/5] bg-slate-800 rounded-xl animate-pulse flex items-center justify-center text-slate-500">
-                          Diagram: Woods
+                        <div className="bg-slate-800 rounded-xl overflow-hidden">
+                          <div className="p-3 border-b border-slate-700">
+                            <p className="text-white text-sm font-semibold text-center">Driver, Woods & Hybrid</p>
+                          </div>
+                          <Image
+                            src="/support/club-marker-woods.png"
+                            alt="Club marker placement for woods"
+                            width={400}
+                            height={500}
+                            className="w-full h-auto"
+                          />
                         </div>
-                        <div className="aspect-[4/5] bg-slate-800 rounded-xl animate-pulse flex items-center justify-center text-slate-500">
-                          Diagram: Järn
+                        <div className="bg-slate-800 rounded-xl overflow-hidden">
+                          <div className="p-3 border-b border-slate-700">
+                            <p className="text-white text-sm font-semibold text-center">Järn & Wedge</p>
+                          </div>
+                          <Image
+                            src="/support/club-marker-iron.png"
+                            alt="Club marker placement for irons"
+                            width={400}
+                            height={500}
+                            className="w-full h-auto"
+                          />
                         </div>
-                        <div className="aspect-[4/5] bg-slate-800 rounded-xl animate-pulse flex items-center justify-center text-slate-500">
-                          Diagram: Putter
+                        <div className="bg-slate-800 rounded-xl overflow-hidden">
+                          <div className="p-3 border-b border-slate-700">
+                            <p className="text-white text-sm font-semibold text-center">Putter</p>
+                          </div>
+                          <Image
+                            src="/support/club-marker-putter.png"
+                            alt="Club marker placement for putter"
+                            width={400}
+                            height={500}
+                            className="w-full h-auto"
+                          />
                         </div>
                       </div>
                    </div>

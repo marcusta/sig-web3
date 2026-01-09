@@ -45,6 +45,8 @@ export function Footer() {
             <h4 className="text-white font-semibold">Information</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><Link href="/om-oss" className="hover:text-primary transition-colors">Om oss</Link></li>
+              <li><Link href="/prislista" className="hover:text-primary transition-colors">Prislista</Link></li>
+              <li><Link href="/tavlingar" className="hover:text-primary transition-colors">Tävlingar</Link></li>
               <li><Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link href="/integritetspolicy" className="hover:text-primary transition-colors">Integritetspolicy</Link></li>
               <li><Link href="/support" className="hover:text-primary transition-colors">Kontakta oss</Link></li>

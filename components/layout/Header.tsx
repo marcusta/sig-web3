@@ -13,6 +13,7 @@ const navigation = [
   { name: 'Support', href: '/support' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Golfshop', href: '/golfshop' },
+  { name: 'Tävlingar', href: '/tavlingar' },
 ];
 
 import Image from 'next/image';

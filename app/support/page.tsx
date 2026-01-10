@@ -397,7 +397,7 @@ export default function SupportPage() {
   return (
     <div className="bg-slate-950 min-h-screen">
       <PageHeader
-        title="Support"
+        title="Supports"
         subtitle="Här hittar du snabbhjälp, manualer och kontaktuppgifter för teknisk support."
         backgroundImage={`${basePath}/hero-bg.jpg`}
       />

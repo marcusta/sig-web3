@@ -33,9 +33,27 @@ BASE_PATH=/preview node build.js  # side-by-side preview at /preview/
 
 `build.js` renders Nunjucks templates → `dist/`, compiles Tailwind, copies `public/` assets.
 
-## Deploy script
+## Automatic deploy (GitHub Actions)
 
-`./deploy.sh` builds and uploads in a single SFTP session.
+Every push to `main` triggers `.github/workflows/deploy.yml`, which builds and uploads `dist/` to `/www/` via SFTP. Manual runs are available from the Actions tab (`Run workflow`).
+
+The workflow mirrors `deploy.sh`: same `lftp mirror -R` command, same `.htaccess` exclusion, no `--delete`. Intent: a non-dev colleague can edit `content/*.json` via GitHub's web editor, commit, and the site redeploys with no local tooling.
+
+### Secret: `ONECOM_PASSWORD`
+
+The workflow reads the SFTP password from the `ONECOM_PASSWORD` repo secret. Host (`ssh.swedenindoorgolf.se`) and user (`swedenindoorgolf.se`) are inlined in the workflow.
+
+**Rotating the password:**
+1. Change it in one.com Control Panel → SSH & SFTP
+2. GitHub → repo → Settings → Secrets and variables → Actions → update `ONECOM_PASSWORD`
+3. (Optional) update local `~/.netrc` / `ONECOM_PASSWORD` env var for `./deploy.sh`
+4. Re-run the latest failed workflow, or push a trivial commit to verify
+
+If the secret is missing, the workflow fails fast with a clear message.
+
+## Manual deploy script
+
+`./deploy.sh` builds and uploads in a single SFTP session. Use when iterating locally or deploying `preview`.
 
 ```bash
 ./deploy.sh             # build BASE_PATH= and upload to /www/

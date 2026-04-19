@@ -1,0 +1,76 @@
+name: Deploy to one.com
+
+# Runs on every push to main and can be triggered manually from the Actions tab.
+# Builds the static site and uploads dist/ to /www/ on one.com via SFTP.
+# Never touches .htaccess (managed on the server) and never deletes remote files.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-onecom
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: node build.js
+        env:
+          BASE_PATH: ''
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Upload dist/ to one.com
+        env:
+          ONECOM_PASSWORD: ${{ secrets.ONECOM_PASSWORD }}
+        run: |
+          set -euo pipefail
+          HOST="ssh.swedenindoorgolf.se"
+          USER="swedenindoorgolf.se"
+          REMOTE="/www"
+
+          if [[ -z "${ONECOM_PASSWORD:-}" ]]; then
+            echo "ONECOM_PASSWORD secret is not set" >&2
+            exit 1
+          fi
+
+          # mirror -R      : upload (reverse mirror)
+          # --parallel=4   : 4 concurrent transfers
+          # -x '\.htaccess$' : skip server .htaccess
+          # no --delete    : leave unrelated remote files alone (WP remnants, preview, backups)
+          lftp -u "$USER,$ONECOM_PASSWORD" "sftp://$HOST" <<EOF
+          set sftp:auto-confirm yes
+          mirror -R --parallel=4 --verbose -x '\.htaccess\$' dist/ $REMOTE/
+          bye
+          EOF
+
+      - name: Write run summary
+        if: always()
+        run: |
+          {
+            echo "### Deploy to one.com"
+            echo ""
+            echo "- **Status:** ${{ job.status }}"
+            echo "- **Commit:** \`${{ github.sha }}\`"
+            echo "- **Ref:** \`${{ github.ref_name }}\`"
+            echo "- **Site:** https://swedenindoorgolf.se"
+          } >> "$GITHUB_STEP_SUMMARY"

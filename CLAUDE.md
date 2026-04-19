@@ -14,7 +14,7 @@ Sweden Indoor Golf website (sig-web3) - A static HTML/CSS/JS marketing site for 
 
 ## Deployment
 
-Static site hosted on one.com at `swedenindoorgolf.se`. Deploy with `./deploy.sh` (builds + uploads via SFTP in one session). See `DEPLOYMENT.md` for details on the hosting model, routing, rollback, and cleanup TODOs.
+Static site hosted on one.com at `swedenindoorgolf.se`. Every push to `main` auto-deploys via `.github/workflows/deploy.yml` (builds + uploads `dist/` to `/www/` over SFTP). Manual/local deploys still work via `./deploy.sh`. See `DEPLOYMENT.md` for the hosting model, the `ONECOM_PASSWORD` secret, rotation, routing, rollback, and cleanup TODOs.
 
 ## Commands
 

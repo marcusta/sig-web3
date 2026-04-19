@@ -1,7 +1,7 @@
 {
   "allDays": "05:00 - 24:00",
   "display": "05 - 24",
-  "description": "När du har bokat din tid via MATCHi får du en kod du använder för att komma in i våra lokaler. Din bana tänds när det är din tur att liras.",
+  "description": "När du har bokat din tid via MATCHi får du en kod du använder för att komma in i våra lokaler. Din bana tänds när det är din tur att lira.",
   "staffed": {
     "title": "Bemannade tider",
     "text": "Vi har bemanning när golfshopen <a href=\"https://premiumgolf.se\" target=\"_blank\" class=\"text-primary hover:underline\">Premiumgolf.se</a> är bemannad. Fråga i receptionen i entrén för hjälp."

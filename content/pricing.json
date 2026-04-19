@@ -1,0 +1,64 @@
+{
+  "intro": "Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag. Perfekt för dig som vill hålla spelet skarpt under vintern till nästa säsong.",
+  "weekday": {
+    "title": "Måndag - Fredag",
+    "slots": [
+      { "time": "05:00 - 16:00", "price": "250 kr/h" },
+      { "time": "16:00 - 21:00", "price": "350 kr/h" },
+      { "time": "21:00 - 24:00", "price": "250 kr/h" }
+    ]
+  },
+  "weekend": {
+    "title": "Lördag - Söndag",
+    "slots": [
+      { "time": "05:00 - 10:00", "price": "250 kr/h" },
+      { "time": "10:00 - 18:00", "price": "350 kr/h" },
+      { "time": "18:00 - 24:00", "price": "250 kr/h" }
+    ]
+  },
+  "priceNote": "Priserna avser hyra av simulator per timme, oavsett antal spelare (max 4).",
+  "greenfee": {
+    "title": "Greenfeemedlem",
+    "subtitle": "Vårt mest populära medlemskap!",
+    "tiers": [
+      { "name": "Small", "price": "1.000 kr/säsong", "low": "120 kr/h", "prime": "190 kr/h" },
+      { "name": "Medium", "price": "2.000 kr/säsong", "low": "80 kr/h", "prime": "120 kr/h" },
+      { "name": "Large", "price": "4.000 kr/säsong", "low": "40 kr/h", "prime": "80 kr/h" }
+    ],
+    "primeNote": "Prime-time = Vardagar 16-21 + Helger 10-18",
+    "lowNote": "Low-time = All övrig tid"
+  },
+  "guldkort": {
+    "title": "Guldkort",
+    "subtitle": "Spela obegränsat!",
+    "price": "3.000 kr",
+    "period": "/mån",
+    "description": "Spela hur mycket du vill. Ingen bindningstid. Gäller 30 dagar åt gången.",
+    "features": ["Obegränsat spel", "Ingen bindningstid", "Förlängs automatiskt"]
+  },
+  "klippkort": {
+    "title": "Klippkort & Bagskåp",
+    "cards": [
+      { "pay": "1000 kr", "get": "1150 kr" },
+      { "pay": "2000 kr", "get": "2500 kr" },
+      { "pay": "3000 kr", "get": "4000 kr" },
+      { "pay": "5000 kr", "get": "7500 kr" }
+    ],
+    "locker": { "label": "Bagskåp (t.o.m 2026-06-30)", "price": "700 kr" }
+  },
+  "junior": {
+    "title": "Junior / Student / Senior",
+    "price": "2.500 kr",
+    "period": "/säsong",
+    "low": "50 kr/h",
+    "prime": "100 kr/h",
+    "note": "Gäller till 1/10 2026. För dig under 21, student eller 65+."
+  },
+  "membershipInfo": {
+    "paragraphs": [
+      "Vi tycker det är roligt när man spelar flera tillsammans på samma bana – golf är ju allra bäst i gott sällskap! Vi vill samtidigt förtydliga att alla medlemskap är personliga.",
+      "Om ni är flera som spelar ihop behöver ni därför dela upp tiden på flera bokningar. Till exempel: om ni är två personer som spelar i 1 timme tillsammans ska ni boka och betala för 30 minuter var. På det sättet blir det rättvist och fungerar bra för alla medlemmar.",
+      "Alla medlemskap förlängs automatiskt om de inte sägs upp 1 mån i förväg via mail till info@swedenindoorgolf.se"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{% extends "base.njk" %}
+
+{% block title %}Öppettider - Sweden Indoor Golf{% endblock %}
+
+{% block content %}
+{% set pageTitle = "Öppettider" %}
+{% set pageSubtitle = "Vi har öppet alla dagar, året runt." %}
+{% set pageBackground = rootPath + "/hero-bg.jpg" %}
+{% include "partials/page-header.njk" %}
+
+<section class="py-12 md:py-16 bg-slate-950">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="max-w-3xl mx-auto">
+
+      {# Main opening hours #}
+      <div class="bg-slate-900 rounded-2xl p-12 border border-slate-800 flex flex-col items-center text-center mb-8">
+        <svg class="w-16 h-16 text-primary mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h2 class="text-3xl font-bold text-white mb-4">Alla dagar</h2>
+        <p class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-400 mb-8">{{ hours.display }}</p>
+        <p class="text-slate-300 leading-relaxed max-w-md">{{ hours.description }}</p>
+      </div>
+
+      {# Additional info #}
+      <div class="grid md:grid-cols-2 gap-6">
+        {# Staffed hours #}
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-start gap-3 mb-4">
+            <div class="p-2 bg-primary/20 rounded-lg text-primary">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">{{ hours.staffed.title }}</h3>
+          </div>
+          <p class="text-slate-300 text-sm mb-4">{{ hours.staffed.text | safe }}</p>
+          <a href="{{ rootPath }}/golfshop/" class="text-primary hover:underline text-sm font-medium">Se mer om golfshopen &rarr;</a>
+        </div>
+
+        {# FSX Live #}
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div class="flex items-start gap-3 mb-4">
+            <div class="p-2 bg-primary/20 rounded-lg text-primary">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">{{ hours.fsxLive.title }}</h3>
+          </div>
+          <p class="text-slate-300 text-sm mb-4">{{ hours.fsxLive.text }}</p>
+          <a href="{{ hours.fsxLive.url }}" target="_blank" class="inline-flex items-center gap-2 bg-primary text-slate-900 px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-sm">
+            Skapa konto
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,78 @@
+<footer class="bg-slate-900 border-t border-slate-800 pt-16 pb-8">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      {# Brand #}
+      <div class="space-y-4">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="relative w-10 h-10">
+            <img src="{{ rootPath }}/logo.png" alt="Sweden Indoor Golf Logo" class="w-full h-full object-contain">
+          </div>
+          <h3 class="text-xl font-bold text-white">
+            SWEDEN <span class="text-primary">INDOOR GOLF</span>
+          </h3>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Linköpings hetaste inomhushall för golf. Upplev den trivsamma miljön i våra lokaler och fascineras av våra precisa simulatorer.
+        </p>
+        <div class="flex gap-4 pt-2">
+          <a href="https://www.facebook.com/swedenindoorgolf.se" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary transition-colors">
+            {% include "partials/icons/facebook.njk" %}
+          </a>
+          <a href="https://instagram.com/swedenindoorgolf" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary transition-colors">
+            {% include "partials/icons/instagram.njk" %}
+          </a>
+        </div>
+      </div>
+
+      {# Info #}
+      <div class="space-y-4">
+        <h4 class="text-white font-semibold">Information</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="{{ rootPath }}/om-oss/" class="hover:text-primary transition-colors">Om oss</a></li>
+          <li><a href="{{ rootPath }}/prislista/" class="hover:text-primary transition-colors">Prislista</a></li>
+          <li><a href="{{ rootPath }}/tavlingar/" class="hover:text-primary transition-colors">Tävlingar</a></li>
+          <li><a href="{{ rootPath }}/faq/" class="hover:text-primary transition-colors">FAQ</a></li>
+          <li><a href="{{ rootPath }}/support/" class="hover:text-primary transition-colors">Support</a></li>
+          <li><a href="{{ rootPath }}/kontakt/" class="hover:text-primary transition-colors">Kontakt</a></li>
+          <li><a href="{{ rootPath }}/integritetspolicy/" class="hover:text-primary transition-colors">Integritetspolicy</a></li>
+          <li><a href="https://premiumgolf.se" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">Premium Golf</a></li>
+        </ul>
+      </div>
+
+      {# Contact #}
+      <div class="space-y-4">
+        <h4 class="text-white font-semibold">Kontakt</h4>
+        <ul class="space-y-3 text-sm text-slate-400">
+          <li class="flex items-start gap-3">
+            {% include "partials/icons/map-pin.njk" %}
+            <span>Industrigatan 5<br>582 77 Linköping</span>
+          </li>
+          <li class="flex items-center gap-3">
+            {% include "partials/icons/phone.njk" %}
+            <span>SMS +46 70 - 691 32 03</span>
+          </li>
+          <li class="flex items-center gap-3">
+            {% include "partials/icons/mail.njk" %}
+            <span>info@swedenindoorgolf.se</span>
+          </li>
+        </ul>
+      </div>
+
+      {# Opening Hours #}
+      <div class="space-y-4">
+        <h4 class="text-white font-semibold">Öppettider</h4>
+        <p class="text-slate-400 text-sm">
+          Alla dagar: <span class="text-white font-bold">05:00 - 24:00</span>
+        </p>
+        <p class="text-slate-500 text-xs mt-2">
+          Bokning sker via MATCHi. Koden till dörren får du i bokningsbekräftelsen.
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+      <p>&copy; {{ year }} Sweden Indoor Golf. All rights reserved.</p>
+      <p>Built with modern web technologies.</p>
+    </div>
+  </div>
+</footer>

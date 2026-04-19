@@ -1,0 +1,108 @@
+{% extends "base.njk" %}
+
+{% block title %}FAQ - Sweden Indoor Golf{% endblock %}
+
+{% block content %}
+{% set pageTitle = "FAQ" %}
+{% set pageSubtitle = "Här hittar du svar på de vanligaste frågorna om vår anläggning, teknik och bokning." %}
+{% set pageBackground = rootPath + "/hero-bg.jpg" %}
+{% include "partials/page-header.njk" %}
+
+<section class="py-12 md:py-20">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex flex-col lg:flex-row gap-12">
+
+      {# Sidebar - Desktop only #}
+      <aside class="hidden lg:block lg:w-1/3 xl:w-1/4">
+        <div class="sticky top-24 space-y-2">
+          <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6 ml-4">Kategorier</h3>
+          {% for category in faq.categories %}
+          <button class="faq-category-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all {% if loop.first %}bg-primary text-slate-950 font-bold shadow-lg shadow-primary/20{% else %}text-slate-400 hover:bg-slate-900 hover:text-white{% endif %}" data-category="{{ category.id }}">
+            <span>{{ category.title }}</span>
+          </button>
+          {% endfor %}
+        </div>
+      </aside>
+
+      {# Content Area #}
+      <main class="w-full lg:w-2/3 xl:w-3/4">
+        {# Desktop: show one category at a time #}
+        <div class="hidden lg:block">
+          {% for category in faq.categories %}
+          <div class="faq-category-panel {% if not loop.first %}hidden{% endif %}" data-category-panel="{{ category.id }}">
+            {% for item in category.items %}
+            <div class="border-b border-slate-800 last:border-0 accordion-item">
+              <button class="accordion-trigger w-full py-6 flex items-center justify-between text-left group">
+                <span class="text-lg font-semibold transition-colors text-white group-hover:text-primary">{{ item.question }}</span>
+                <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="accordion-content">
+                <div class="pb-6 text-slate-400 leading-relaxed whitespace-pre-wrap">{{ item.answer | safe }}</div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+
+        {# Mobile: show all categories #}
+        <div class="lg:hidden space-y-12">
+          {% for category in faq.categories %}
+          <div id="{{ category.id }}" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-6">
+              <h2 class="text-2xl font-bold text-white">{{ category.title }}</h2>
+            </div>
+            <div>
+              {% for item in category.items %}
+              <div class="border-b border-slate-800 last:border-0 accordion-item">
+                <button class="accordion-trigger w-full py-6 flex items-center justify-between text-left group">
+                  <span class="text-lg font-semibold transition-colors text-white group-hover:text-primary">{{ item.question }}</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-6 text-slate-400 leading-relaxed whitespace-pre-wrap">{{ item.answer | safe }}</div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        {# Contact CTA #}
+        <div class="mt-16 text-center">
+          <h3 class="text-2xl font-bold text-white mb-4">Hittar du inte det du letar efter?</h3>
+          <p class="text-slate-400 mb-8 max-w-xl mx-auto">Kontakta oss gärna med frågor om bokningar, teknik eller medlemskap.</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="{{ rootPath }}/kontakt/" class="px-8 py-3 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20">Kontakta oss</a>
+            <a href="mailto:info@swedenindoorgolf.se" class="px-8 py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors flex items-center gap-2">Skicka E-post</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+{# Floating Action Button (Mobile Only) #}
+<button id="faq-fab" class="lg:hidden fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-slate-950 rounded-full shadow-2xl flex items-center justify-center hover:bg-yellow-400 active:scale-95 transition-all" aria-label="Open category menu">
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+
+{# Mobile Category Menu #}
+<div id="faq-backdrop" class="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] bottom-sheet-backdrop"></div>
+<div id="faq-bottom-sheet" class="lg:hidden fixed bottom-0 left-0 right-0 z-[60] bg-slate-900 rounded-t-3xl shadow-2xl max-h-[80vh] overflow-y-auto bottom-sheet">
+  <div class="sticky top-0 bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between rounded-t-3xl">
+    <h3 class="text-lg font-bold text-white">FAQ Kategorier</h3>
+    <button id="faq-sheet-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-800 transition-colors" aria-label="Close menu">
+      <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <div class="px-6 py-4 space-y-2">
+    {% for category in faq.categories %}
+    <button class="faq-mobile-category-btn w-full flex items-center gap-4 px-4 py-4 rounded-xl text-left transition-all bg-slate-800/50 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-primary/30" data-category="{{ category.id }}">
+      <span class="font-medium">{{ category.title }}</span>
+    </button>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

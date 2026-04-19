@@ -1,0 +1,19 @@
+{
+  "email": "info@swedenindoorgolf.se",
+  "phone": "SMS +46 70 - 691 32 03",
+  "bookingPhone": "010-405 88 00",
+  "address": { "street": "Industrigatan 5", "zip": "582 77", "city": "Linköping" },
+  "social": {
+    "facebook": "https://www.facebook.com/swedenindoorgolf.se",
+    "instagram": "https://instagram.com/swedenindoorgolf"
+  },
+  "team": [
+    { "name": "Christian Bremer", "email": "christian.bremer@swedenindoorgolf.se" },
+    { "name": "Johan Jigerström", "email": "johan.jigerstrom@swedenindoorgolf.se" }
+  ],
+  "booking": {
+    "url": "https://www.matchi.se/facilities/swedenindoorgolf",
+    "membershipUrl": "https://www.matchi.se/facilities/membership/swedenindoorgolf",
+    "couponUrl": "https://www.matchi.se/facilities/swedenindoorgolf#coupon_33559"
+  }
+}

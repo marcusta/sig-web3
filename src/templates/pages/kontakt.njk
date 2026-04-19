@@ -1,0 +1,86 @@
+{% extends "base.njk" %}
+
+{% block title %}Kontakt - Sweden Indoor Golf{% endblock %}
+
+{% block content %}
+{% set pageTitle = "Kontakt" %}
+{% set pageSubtitle = "Hör av dig till oss - vi hjälper dig gärna!" %}
+{% set pageBackground = rootPath + "/hero-bg.jpg" %}
+{% include "partials/page-header.njk" %}
+
+<section class="py-12 md:py-20">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="max-w-3xl mx-auto">
+
+      {# Contact Info Cards #}
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold text-white mb-8 text-center">Kontaktinformation</h2>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-8">
+          {# E-post #}
+          <div class="flex items-start gap-4 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-primary/30 transition-colors">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <h3 class="text-white font-bold mb-1">E-post</h3>
+              <a href="mailto:{{ contact.email }}" class="text-slate-400 hover:text-primary transition-colors text-sm">{{ contact.email }}</a>
+            </div>
+          </div>
+
+          {# Bokning #}
+          <div class="flex items-start gap-4 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-primary/30 transition-colors">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-white font-bold mb-1">Bokning</h3>
+              <a href="tel:{{ contact.booking.phone }}" class="text-slate-400 hover:text-primary transition-colors text-sm">{{ contact.booking.phone }} (MATCHi)</a>
+            </div>
+          </div>
+
+          {# Adress #}
+          <div class="flex items-start gap-4 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-primary/30 transition-colors">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h3 class="text-white font-bold mb-1">Adress</h3>
+              <p class="text-slate-400 text-sm">{{ contact.address.street }}<br>{{ contact.address.zip }} {{ contact.address.city }}</p>
+            </div>
+          </div>
+
+          {# Bemannade tider #}
+          <div class="flex items-start gap-4 p-4 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-primary/30 transition-colors">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h3 class="text-white font-bold mb-1">Bemannade tider</h3>
+              <p class="text-slate-400 text-sm">När golfshopen har öppet</p>
+            </div>
+          </div>
+        </div>
+
+        {# Snabba svar #}
+        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl text-center">
+          <h3 class="text-white font-bold mb-3">Snabba svar</h3>
+          <p class="text-slate-400 text-sm mb-4">För svar på vanliga frågor, se vår FAQ-sida eller Support-sida:</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="{{ rootPath }}/faq/" class="px-4 py-2 bg-slate-800 text-white text-sm font-semibold rounded-lg hover:bg-slate-700 transition-colors">FAQ</a>
+            <a href="{{ rootPath }}/support/" class="px-4 py-2 bg-slate-800 text-white text-sm font-semibold rounded-lg hover:bg-slate-700 transition-colors">Support</a>
+          </div>
+        </div>
+      </div>
+
+      {# Contact Form #}
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-4 text-center">Skicka ett meddelande</h2>
+        <p class="text-slate-400 mb-8 text-center">Fyll i formuläret så återkommer vi till dig så snart vi kan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/contact-form.njk" %}
+{% endblock %}

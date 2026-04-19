@@ -1,32 +1,15 @@
 {
-  "name": "app_temp",
-  "version": "0.1.0",
+  "name": "sig-web3",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4001",
-    "build": "NEXT_PUBLIC_BASE_PATH=/sig-web3 next build",
-    "build:prod": "rm -rf .next && rm -rf out && npm run build",
-    "start": "NEXT_PUBLIC_BASE_PATH=/sig-web3 next start",
-    "lint": "eslint"
+    "dev": "node build.js --watch --serve",
+    "build": "node build.js",
+    "build:preview": "BASE_PATH=/preview node build.js",
+    "build:prod": "BASE_PATH= node build.js"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.24.12",
-    "lucide-react": "^0.562.0",
-    "next": "16.1.1",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "tailwind-merge": "^3.4.0",
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@tailwindcss/typography": "^0.5.19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.1",
-    "tailwindcss": "^4"
+    "@tailwindcss/cli": "^4.2.0",
+    "nunjucks": "^3.2.4"
   }
 }

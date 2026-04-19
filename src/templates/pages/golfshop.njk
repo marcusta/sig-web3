@@ -1,0 +1,82 @@
+{% extends "base.njk" %}
+
+{% block title %}Golfshop - Sweden Indoor Golf{% endblock %}
+
+{% block content %}
+{% set pageTitle = "Golfshop" %}
+{% set pageSubtitle = "Premiumprodukter och expertis" %}
+{% set pageBackground = rootPath + "/hero-bg.jpg" %}
+{% include "partials/page-header.njk" %}
+
+{# Hero CTA #}
+<section class="py-12 bg-slate-900/50 border-b border-slate-800">
+  <div class="container mx-auto px-4 md:px-6 text-center">
+    <p class="text-lg text-slate-300 mb-6 max-w-2xl mx-auto">
+      Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag.
+      Perfekt för dig som vill hålla spelet skarpt under vintern till nästa säsong.
+    </p>
+    <a href="https://www.matchi.se/facilities/swedenindoorgolf" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 bg-primary text-slate-950 font-bold rounded-lg hover:bg-yellow-400 transition-colors">BOKA BANA</a>
+  </div>
+</section>
+
+<section class="py-12 md:py-20 px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      {# Content Left #}
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Golfshop Premiumgolf.se</h2>
+          <p class="text-lg text-slate-300 leading-relaxed mb-6">{{ golfshop.description | safe }}</p>
+          <p class="text-slate-300">{{ golfshop.detailedDescription }}</p>
+        </div>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              Kontakt & Tjänster
+            </h3>
+            <p class="text-slate-400 mb-6 text-lg">Undrar du något kring:</p>
+            <ul class="grid grid-cols-2 gap-4 mb-8">
+              {% for service in golfshop.services %}
+              <li class="flex items-center gap-2 text-slate-300">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                {{ service }}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 text-slate-300">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:{{ golfshop.email }}" class="hover:text-white transition-colors text-lg">{{ golfshop.email }}</a>
+            </div>
+            <div class="flex items-center gap-3 text-slate-300">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span class="text-lg">Se öppettider på <a href="{{ golfshop.website }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">premiumgolf.se</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {# Image Right #}
+      <div class="relative">
+        <div class="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-800 group">
+          <img src="{{ rootPath }}/premium-golf.png" alt="Premium Golf Shop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <span class="inline-block px-3 py-1 bg-primary text-slate-900 text-xs font-bold rounded mb-2">PARTNER</span>
+            <h3 class="text-white font-bold text-xl">{{ golfshop.partner }}</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{# Contact Form #}
+{% include "partials/contact-form.njk" %}
+{% endblock %}

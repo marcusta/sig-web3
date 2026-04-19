@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Sweden Indoor Golf - Indoor Golf Played Better{% endblock %}</title>
+  <meta name="description" content="{% block description %}Linköpings bästa och mest prisvärda inomhushall för golf. Spela golf året runt i våra moderna simulatorer.{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ rootPath }}/styles.css">
+  <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col">
+  {% include "partials/header.njk" %}
+
+  <main class="flex-1 flex flex-col pt-20">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "partials/footer.njk" %}
+
+  <script src="{{ rootPath }}/main.js" defer></script>
+</body>
+</html>

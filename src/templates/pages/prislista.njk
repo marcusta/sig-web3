@@ -1,0 +1,159 @@
+{% extends "base.njk" %}
+
+{% block title %}Prislista - Sweden Indoor Golf{% endblock %}
+
+{% block content %}
+{% set pageTitle = "Prislista" %}
+{% set pageSubtitle = "Spela golf året runt på dina villkor" %}
+{% set pageBackground = rootPath + "/hero-bg.jpg" %}
+{% include "partials/page-header.njk" %}
+
+<section class="py-12 md:py-20 px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <p class="text-lg text-slate-300 max-w-3xl mx-auto">{{ pricing.intro }}</p>
+    </div>
+
+    {# Pricing Grid #}
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      {# Weekday #}
+      <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+            <svg class="text-primary w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h2 class="text-2xl font-bold">{{ pricing.weekday.title }}</h2>
+        </div>
+        <div class="space-y-4">
+          {% for slot in pricing.weekday.slots %}
+          <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+            <span class="text-slate-300">{{ slot.time }}</span>
+            <span class="text-xl font-bold text-primary">{{ slot.price }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {# Weekend #}
+      <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+            <svg class="text-primary w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h2 class="text-2xl font-bold">{{ pricing.weekend.title }}</h2>
+        </div>
+        <div class="space-y-4">
+          {% for slot in pricing.weekend.slots %}
+          <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+            <span class="text-slate-300">{{ slot.time }}</span>
+            <span class="text-xl font-bold text-primary">{{ slot.price }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mb-20">
+      <p class="text-slate-400 mb-8 max-w-2xl mx-auto">{{ pricing.priceNote }}</p>
+      <a href="https://www.matchi.se/facilities/swedenindoorgolf" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 bg-primary text-slate-950 font-bold rounded-lg hover:bg-yellow-400 transition-colors">BOKA NU VIA MATCHI</a>
+    </div>
+
+    {# Memberships #}
+    <div class="grid lg:grid-cols-3 gap-8">
+      {# Greenfeemedlem #}
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 flex flex-col">
+        <div class="mb-6">
+          <h3 class="text-xl font-bold mb-2 text-primary">{{ pricing.greenfee.title }}</h3>
+          <p class="text-slate-400 text-sm">{{ pricing.greenfee.subtitle }}</p>
+        </div>
+        <ul class="space-y-4 mb-8 flex-1">
+          {% for tier in pricing.greenfee.tiers %}
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <div class="text-sm text-slate-300">
+              <strong class="text-white block mb-1">{{ tier.name }} - {{ tier.price }}</strong>
+              Low: {{ tier.low }} | Prime: {{ tier.prime }}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="text-xs text-slate-500 mb-6">
+          <p>{{ pricing.greenfee.primeNote }}</p>
+          <p>{{ pricing.greenfee.lowNote }}</p>
+        </div>
+        <a href="{{ contact.booking.membershipUrl }}" target="_blank" rel="noopener noreferrer" class="w-full block text-center py-3 border border-primary text-primary font-semibold rounded hover:bg-primary hover:text-slate-950 transition-colors">BLI GREENFEEMEDLEM</a>
+      </div>
+
+      {# Guldkort #}
+      <div class="bg-gradient-to-br from-yellow-900/30 to-slate-900 p-8 rounded-2xl border border-yellow-500/30 flex flex-col relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-4 opacity-10">
+          <svg class="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="mb-6 relative z-10">
+          <h3 class="text-xl font-bold mb-2 text-yellow-400">{{ pricing.guldkort.title }}</h3>
+          <p class="text-slate-400 text-sm">{{ pricing.guldkort.subtitle }}</p>
+        </div>
+        <div class="flex-1 relative z-10">
+          <div class="text-4xl font-bold text-white mb-2">{{ pricing.guldkort.price }}<span class="text-lg text-slate-400 font-normal">{{ pricing.guldkort.period }}</span></div>
+          <p class="text-slate-300 mb-6">{{ pricing.guldkort.description }}</p>
+          <ul class="space-y-3 mb-8">
+            {% for feature in pricing.guldkort.features %}
+            <li class="flex items-center gap-2 text-sm text-slate-300">
+              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              {{ feature }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <a href="{{ contact.booking.membershipUrl }}" target="_blank" rel="noopener noreferrer" class="w-full block text-center py-3 bg-yellow-500 text-slate-900 font-bold rounded hover:bg-yellow-400 transition-colors relative z-10">KÖP GULDKORT</a>
+      </div>
+
+      {# Klippkort & Student #}
+      <div class="space-y-6">
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+          <h3 class="text-lg font-bold mb-4 text-primary">{{ pricing.klippkort.title }}</h3>
+          <ul class="space-y-2 text-sm text-slate-300 mb-4">
+            {% for card in pricing.klippkort.cards %}
+            <li class="flex justify-between">
+              <span>{{ card.pay }}</span>
+              <span class="text-white font-semibold flex items-center gap-1">{{ card.get }} <span class="text-xs text-slate-500">krediter</span></span>
+            </li>
+            {% endfor %}
+          </ul>
+          <div class="pt-4 border-t border-slate-800">
+            <p class="text-sm text-slate-300 flex justify-between items-center">
+              <span class="max-w-[150px]">{{ pricing.klippkort.locker.label }}</span>
+              <span class="text-white font-semibold">{{ pricing.klippkort.locker.price }}</span>
+            </p>
+          </div>
+          <a href="{{ contact.booking.couponUrl }}" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-sm py-2 mt-4 bg-slate-800 text-white rounded hover:bg-slate-700 transition-colors">Köp Klippkort/Bagskåp</a>
+        </div>
+
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+          <h3 class="text-lg font-bold mb-2 text-primary">{{ pricing.junior.title }}</h3>
+          <p class="text-2xl font-bold text-white mb-2">{{ pricing.junior.price }}<span class="text-sm text-slate-400 font-normal">{{ pricing.junior.period }}</span></p>
+          <div class="text-sm text-slate-300 mb-4">
+            <p class="flex justify-between"><span>Low-time:</span> <span class="text-white">{{ pricing.junior.low }}</span></p>
+            <p class="flex justify-between"><span>Prime-time:</span> <span class="text-white">{{ pricing.junior.prime }}</span></p>
+            <p class="text-xs text-slate-500 mt-2">{{ pricing.junior.note }}</p>
+          </div>
+          <a href="{{ contact.booking.membershipUrl }}" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-sm py-2 border border-slate-600 rounded hover:bg-slate-800 transition-colors">Bli Medlem</a>
+        </div>
+      </div>
+    </div>
+
+    {# Membership Info #}
+    <div class="mt-16 p-8 bg-slate-900/30 rounded-2xl border border-slate-800/50">
+      <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Om Medlemskap
+      </h3>
+      <div class="prose prose-invert text-slate-300 max-w-none">
+        {% for p in pricing.membershipInfo.paragraphs %}
+        <p class="{% if not loop.last %}mb-4{% endif %}">{{ p }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

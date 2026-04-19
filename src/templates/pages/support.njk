@@ -1,0 +1,913 @@
+{% extends "base.njk" %}
+
+{% block title %}Support - Sweden Indoor Golf{% endblock %}
+
+{% block content %}
+{% set pageTitle = "Support" %}
+{% set pageSubtitle = "Här hittar du snabbhjälp, manualer och kontaktuppgifter för teknisk support." %}
+{% set pageBackground = rootPath + "/hero-bg.jpg" %}
+{% include "partials/page-header.njk" %}
+
+{# FAQ Quick Link Bar #}
+<div class="py-6 bg-slate-900/50 border-b border-slate-800">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-slate-300 text-sm md:text-base">
+        Söker du information om <strong class="text-white">bokningar, priser eller medlemskap?</strong> Se vår <a href="{{ rootPath }}/faq/" class="text-primary hover:text-yellow-400 font-semibold underline">FAQ-sida</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+{# Main Section with Sidebar #}
+<section class="py-12 md:py-20">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex flex-col lg:flex-row gap-12">
+
+      {# Sidebar - Desktop only #}
+      <aside class="hidden lg:block lg:w-1/3 xl:w-1/4">
+        <div class="sticky top-24 space-y-2">
+          <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6 ml-4">Snabbnavigering</h3>
+          <button class="support-nav-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all bg-primary text-slate-950 font-bold shadow-lg shadow-primary/20" data-section="practice">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>Träna på Rangen</span>
+          </button>
+          <button class="support-nav-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-slate-400 hover:bg-slate-900 hover:text-white" data-section="play-round">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg>
+            <span>Spela en Runda</span>
+          </button>
+          <button class="support-nav-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-slate-400 hover:bg-slate-900 hover:text-white" data-section="compete">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            <span>Tävla & Utmaningar</span>
+          </button>
+          <button class="support-nav-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-slate-400 hover:bg-slate-900 hover:text-white" data-section="troubleshooting">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>Felsökning</span>
+          </button>
+          <button class="support-nav-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-slate-400 hover:bg-slate-900 hover:text-white" data-section="understand-data">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16h8"/><path d="M7 11h12"/><path d="M7 6h3"/></svg>
+            <span>Förstå Data</span>
+          </button>
+          <button class="support-nav-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all text-slate-400 hover:bg-slate-900 hover:text-white" data-section="advanced">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Avancerat</span>
+          </button>
+        </div>
+      </aside>
+
+      {# Main Content Area #}
+      <main class="w-full lg:w-2/3 xl:w-3/4">
+
+        {# Quick Link to Första Hjälpen #}
+        <div class="mb-12 lg:mb-16">
+          <a href="#troubleshooting" class="block w-full border-2 border-red-800/50 rounded-2xl p-4 md:p-8 hover:border-red-700 transition-all group bg-gradient-to-r from-red-950/30 to-slate-950">
+            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+              <svg class="w-9 h-9 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              <div class="flex-1 text-center md:text-left">
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Problem att komma igång?</h3>
+                <p class="text-slate-300 text-sm md:text-base">Klicka här för att gå direkt till Första Hjälpen med lösningar på vanliga problem</p>
+              </div>
+              <div class="shrink-0 text-red-500 group-hover:translate-x-2 transition-transform hidden md:block">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        {# ==================== TRÄNA PÅ RANGEN ==================== #}
+        <section id="practice" class="mb-12 lg:mb-20 scroll-mt-24">
+          <div class="mb-12 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-white mb-2">Träna på Rangen</h2>
+            <p class="text-slate-400 text-lg">Kom igång med driving range och träningslägen</p>
+          </div>
+
+          {# Quick Start Video #}
+          <div class="mb-16 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16"/></svg>
+              Quick Start Video
+            </h3>
+            <div class="border border-slate-800 rounded-2xl overflow-hidden">
+              <video controls class="w-full" poster="{{ rootPath }}/support/mat-1-2.jpg" preload="metadata" playsinline>
+                <source src="{{ rootPath }}/support/sig-start.mp4" type="video/mp4">
+                Din webbläsare stödjer inte videoformatet.
+              </video>
+            </div>
+          </div>
+
+          {# Slå ett slag #}
+          <div class="mb-16 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6">Slå ett slag</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3 text-slate-300 text-lg">
+                <span class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></span>
+                Placera bollen, se Första hjälpen nedan
+              </li>
+              <li class="flex items-start gap-3 text-slate-300 text-lg">
+                <span class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></span>
+                SLÅ och INGEN BOLL se Första hjälpen nedan
+              </li>
+              <li class="flex items-start gap-3 text-slate-300 text-lg">
+                <span class="w-2 h-2 bg-primary rounded-full mt-2 shrink-0"></span>
+                Sikta parallellt efter mattan som är placerad rakt mot duken
+              </li>
+            </ul>
+          </div>
+
+          {# Träningslägen #}
+          <div class="animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6">Träningslägen</h3>
+            <div class="space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-12">
+              <div class="animate-on-scroll animate-from-left">
+                <h4 class="font-bold text-white text-lg mb-3">Driving Range</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2 text-slate-400">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                    Välj olika målflaggor genom att klicka på dem eller ändra avståndet manuellt.
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                    Se din slagstatistik i listform för att identifiera mönster i din träning.
+                  </li>
+                </ul>
+              </div>
+              <div class="animate-on-scroll animate-from-left">
+                <h4 class="font-bold text-white text-lg mb-3">Practice on Course</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2 text-slate-400">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                    Gör det möjligt att träna på specifika slag var som helst på en bana.
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                    Byt hål: Hoppa mellan olika hål för att träna specifika situationer.
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                    Flytta bollen: Klicka på marken eller kartan för att placera bollen precis där du vill träna.
+                  </li>
+                </ul>
+              </div>
+              <div class="animate-on-scroll animate-from-left">
+                <h4 class="font-bold text-white text-lg mb-3">Skills Challenge</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2 text-slate-400">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></span>
+                    Utmana dig själv i precisionsövningar mot flaggan.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {# ==================== SPELA EN RUNDA ==================== #}
+        <section id="play-round" class="mb-12 lg:mb-20 p-6 md:p-8 bg-slate-900/30 rounded-2xl scroll-mt-24">
+          <div class="mb-12 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-white mb-2">Spela en Runda</h2>
+            <p class="text-slate-400 text-lg">Allt du behöver veta för att spela en hel bana</p>
+          </div>
+
+          {# Spelare - Lägga till/Ta bort #}
+          <div class="mb-12 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Spelare - Lägga till/Ta bort
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              <div class="animate-on-scroll animate-from-left">
+                <h4 class="font-bold text-white text-lg mb-2">Lägg till spelare</h4>
+                <p class="text-slate-400 leading-relaxed">Tryck på "+"-knappen i nedre vänstra hörnet av menyn "Players Settings". Du kan lägga till upp till 8 lokala spelare.</p>
+              </div>
+              <div class="animate-on-scroll animate-from-left">
+                <h4 class="font-bold text-white text-lg mb-2">Ta bort spelare</h4>
+                <p class="text-slate-400 leading-relaxed">Använd "X" eller minus-ikonen vid spelarprofilen i listan.</p>
+              </div>
+              <div class="animate-on-scroll animate-from-left">
+                <h4 class="font-bold text-white text-lg mb-2">Höger/Vänster</h4>
+                <p class="text-slate-400 leading-relaxed">För varje spelare kan du välja om de spelar höger- eller vänsterhänt. På bana 3 (vår multiswipe-bana) är detta extra viktigt för att launch monitorn ska läsa rätt.</p>
+              </div>
+              <div class="animate-on-scroll animate-from-left">
+                <h4 class="font-bold text-white text-lg mb-2">Turordning</h4>
+                <p class="text-slate-400 leading-relaxed">En stjärna (*) bredvid ett namn i spelarlistan betyder att spelaren redan har slagit sitt slag. Du kan klicka på valfritt namn i listan för att hoppa till den spelarens tur.</p>
+              </div>
+            </div>
+          </div>
+
+          {# Starta en runda #}
+          <div class="mb-12 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6">Starta en runda</h3>
+            <div class="space-y-8">
+              <div class="flex items-start gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">1.</div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg mb-2">Välj Bana</h4>
+                  <p class="text-slate-400 leading-relaxed">Bläddra genom biblioteket av världsberömda banor.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">2.</div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg mb-2">Matchinställningar</h4>
+                  <ul class="space-y-2 mt-3">
+                    <li class="text-slate-400 leading-relaxed">
+                      <span class="text-primary font-semibold">Tee:</span> Välj tee baserat på din önskade svårighetsgrad/längd.
+                    </li>
+                    <li class="text-slate-400 leading-relaxed">
+                      <span class="text-primary font-semibold">Puttning:</span> Välj mellan Auto-putt (datorn avgör baserat på avstånd), Gimme circle (hålet räknas som sänkt inom en viss radie, t.ex. 2-3 meter), eller Manuell puttning.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">3.</div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg mb-2">Mulligans</h4>
+                  <p class="text-slate-400 leading-relaxed">Kan aktiveras i inställningarna om man vill kunna ta om ett slag (använd CTRL + M).</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">4.</div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg mb-2">Väder & Förhållanden</h4>
+                  <p class="text-slate-400 leading-relaxed">Du kan ställa in vindstyrka, hårdhet på fairways och hastighet på greenerna (Stimp).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {# Under spelet - Kontroller #}
+          <div class="animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.001"/><path d="M10 8h.001"/><path d="M14 8h.001"/><path d="M18 8h.001"/><path d="M8 12h.001"/><path d="M12 12h.001"/><path d="M16 12h.001"/><path d="M7 16h10"/></svg>
+              Under spelet - Kontroller
+            </h3>
+            <div class="space-y-8 mb-12">
+              {# Genvägar (Viktigt!) #}
+              <div>
+                <h4 class="text-lg font-bold text-white mb-4">Genvägar (Viktigt!)</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">TAB</kbd>
+                    <span class="text-slate-400 text-sm">Se en fullständig lista över alla tangentbordsgenvägar direkt på skärmen.</span>
+                  </div>
+                </div>
+              </div>
+
+              {# Sikta & Kamera #}
+              <div>
+                <h4 class="text-lg font-bold text-white mb-4">Sikta & Kamera</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">A</kbd>
+                    <span class="text-slate-400 text-sm">Återställ siktet mot det rekommenderade målet.</span>
+                  </div>
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">F3</kbd>
+                    <span class="text-slate-400 text-sm">Växla mellan boll, siktpunkt och hålet.</span>
+                  </div>
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">F5</kbd>
+                    <span class="text-slate-400 text-sm">Free Look - flyga fritt (använd W/A/S/D + högerklick).</span>
+                  </div>
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">R</kbd>
+                    <span class="text-slate-400 text-sm">Öppna "Range Finder" (avståndsmätare).</span>
+                  </div>
+                </div>
+              </div>
+
+              {# Minikartan #}
+              <div>
+                <h4 class="text-lg font-bold text-white mb-4">Minikartan</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">Q</kbd>
+                    <span class="text-slate-400 text-sm">Zooma in på minikartan.</span>
+                  </div>
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">W</kbd>
+                    <span class="text-slate-400 text-sm">Zooma ut på minikartan.</span>
+                  </div>
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">S</kbd>
+                    <span class="text-slate-400 text-sm">Ändra storlek på kartan.</span>
+                  </div>
+                  <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-primary/30 transition-colors">
+                    <kbd class="px-3 py-2 bg-slate-800 rounded-lg text-primary font-mono font-bold text-sm min-w-[60px] text-center">Y</kbd>
+                    <span class="text-slate-400 text-sm">Se höjdkurvor (slope) på greenen (Heatmap).</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {# Lie & Påverkan #}
+            <div class="mt-12 pt-12 border-t border-slate-800">
+              <h4 class="text-xl font-bold text-white mb-4">Lie & Påverkan</h4>
+              <p class="text-slate-400 mb-6">Information om hur bollen ligger finns längst ner på minikartan.</p>
+              <div class="space-y-6">
+                <div>
+                  <h5 class="font-semibold text-primary text-lg mb-1">Uppför/Nedför</h5>
+                  <p class="text-slate-400">Påverkar bollens höjd och längd.</p>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-primary text-lg mb-1">Sido-lutning</h5>
+                  <p class="text-slate-400">Om det står "Left" betyder det att bollen ligger under fötterna och tenderar att starta åt vänster.</p>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-primary text-lg mb-1">Puttning</h5>
+                  <p class="text-slate-400">Använd heatmap (Y) för att läsa greenen. Siktet justeras med musen eller piltangenterna.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {# ==================== TÄVLA & UTMANINGAR ==================== #}
+        <section id="compete" class="mb-12 lg:mb-20 scroll-mt-24">
+          <div class="mb-12 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-white mb-2">Tävla & Utmaningar</h2>
+            <p class="text-slate-400 text-lg">Tournaments, challenges och online-matcher</p>
+          </div>
+
+          {# Våra Klubbtävlingar #}
+          <div class="border-2 border-primary/30 rounded-2xl p-6 md:p-12 mb-12 animate-on-scroll">
+            <div class="flex items-center gap-3 mb-6">
+              <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+              <h3 class="text-2xl font-bold text-white">Våra Klubbtävlingar</h3>
+            </div>
+            <p class="text-lg text-slate-300 mb-8">Vi arrangerar flera tävlingar under inomhussäsongen där du kan tävla mot andra golfare:</p>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-8">
+              <div>
+                <h4 class="text-primary font-bold text-lg mb-2">HobbyTouren Indoor</h4>
+                <p class="text-slate-400">Veckotävlingar och majors för alla hcp-klasser. Spela när det passar dig!</p>
+              </div>
+              <div>
+                <h4 class="text-primary font-bold text-lg mb-2">H40+ Scratch Indoor</h4>
+                <p class="text-slate-400">Seriespel för klubbar inom Östergötland. För dig som är 40+.</p>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <a href="{{ rootPath }}/tavlingar/" class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20">
+                Se alla tävlingar & anmäl dig
+                <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+            </div>
+          </div>
+
+          {# Tävlingslägen i GSPro #}
+          <div class="animate-on-scroll">
+            <h3 class="text-xl font-bold text-white mb-6">Tävlingslägen i GSPro</h3>
+            <div class="space-y-4 max-w-2xl">
+              <p class="text-slate-300">
+                <strong class="text-primary">TOURNAMENTS:</strong> Delta i klubbtävlingar eller onlinetävlingar mot spelare globalt.
+              </p>
+              <p class="text-slate-300">
+                <strong class="text-primary">ONLINE MATCH:</strong> Spela head-to-head i realtid mot spelare var som helst i världen.
+              </p>
+              <p class="text-slate-300">
+                <strong class="text-primary">SKILLS CHALLENGE:</strong> Utmana dig själv i precisionsövningar som närmast flagga och längsta drive.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {# ==================== FELSÖKNING ==================== #}
+        <section id="troubleshooting" class="mb-12 lg:mb-20 p-6 md:p-8 bg-slate-900/30 rounded-2xl scroll-mt-24">
+          <div class="mb-12 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-white mb-2">Felsökning</h2>
+            <p class="text-slate-400 text-lg">När något inte fungerar som det ska</p>
+          </div>
+
+          {# FÖRSTA HJÄLPEN #}
+          <div class="border-2 border-red-900/30 rounded-2xl p-6 md:p-8 mb-12">
+            <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+              <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              FÖRSTA HJÄLPEN
+            </h3>
+            <div class="space-y-6">
+              <div class="flex gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">1.</div>
+                <p class="text-slate-300 leading-relaxed text-lg">Starta genom att klicka på Practice → Driving Range</p>
+              </div>
+              <div class="flex gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">2.</div>
+                <p class="text-slate-300 leading-relaxed text-lg">Placera bollen i den svarta rutan, kontrollera att det bara finns EN boll och inga andra föremål i det rödmarkerade området, se bilderna nedan för matta 1-2 och 4-8, samt matta 3.</p>
+              </div>
+              <div class="flex gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">3.</div>
+                <p class="text-slate-300 leading-relaxed text-lg">Kontrollera att det står SLÅ i den GRÖNA rutan på skärmen och börja spela. Om det står INGEN BOLL på skärmen gå vidare till punkt 4.</p>
+              </div>
+              <div class="flex gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">4.</div>
+                <p class="text-slate-300 leading-relaxed text-lg">Tryck på Windows-symbolen och starta om datorn. Vänta till GSPro menyn visas på skärm innan du fortsätter.</p>
+              </div>
+              <div class="flex gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">5.</div>
+                <p class="text-slate-300 leading-relaxed text-lg">Om det står READY i den GRÖNA rutan men slag registreras inte – Täck över alla fyra kamerorna på GCQuad, se den GULA rutan i bild 1, i några sekunder för att återställa vitbalansen. Detta kan inträffa när du ställer dig i vita rutan med vita skor eller motsvarande. Tips: undvik att stå/gå i den vita rutan, det gäller endast matta 1-2 och 4-8.</p>
+              </div>
+              <div class="flex gap-4 animate-on-scroll animate-from-left">
+                <div class="text-primary font-bold shrink-0 text-2xl">6.</div>
+                <p class="text-slate-300 leading-relaxed text-lg">Om det inte fungerar boka en annan bana och fortsätt på den, meddela oss via mail, vi kompenserar dig för den extra bokningen.</p>
+              </div>
+            </div>
+          </div>
+
+          {# Löste det inte problemet? #}
+          <div class="mt-12 p-6 md:p-8 bg-slate-900/50 border-2 border-primary/30 rounded-2xl animate-on-scroll">
+            <h3 class="text-xl font-bold text-white mb-3">Löste det inte problemet?</h3>
+            <p class="text-slate-300 mb-6">Om du provat alla steg ovan och problemet kvarstår, kontakta oss så hjälper vi dig. Boka gärna en annan simulator och fortsätt spela där - vi kompenserar dig för den extra bokningen.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="{{ rootPath }}/kontakt/" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-slate-950 font-bold rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-primary/20">
+                Kontakta oss
+                <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+              <a href="mailto:info@swedenindoorgolf.se" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors">
+                Skicka e-post direkt
+              </a>
+            </div>
+          </div>
+
+          {# Bollplacering per matta #}
+          <div class="mt-12 animate-on-scroll">
+            <h3 class="text-xl font-bold text-white mb-6">Bollplacering per matta</h3>
+            <div class="flex gap-4 mb-6">
+              <button class="px-6 py-3 rounded-xl font-medium transition-all bg-primary text-slate-950" data-mat-btn="mat1-2">Matta 1-2 och 4-8</button>
+              <button class="px-6 py-3 rounded-xl font-medium transition-all bg-slate-800 text-slate-400 hover:bg-slate-700" data-mat-btn="mat3">Matta 3</button>
+            </div>
+            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden">
+              <img src="{{ rootPath }}/support/mat-1-2.jpg" alt="Matta 1-2 och 4-8" class="w-full h-auto" data-mat-img="mat1-2">
+              <img src="{{ rootPath }}/support/mat-3.jpg" alt="Matta 3" class="w-full h-auto hidden" data-mat-img="mat3">
+            </div>
+          </div>
+        </section>
+
+        {# ==================== FÖRSTÅ DATA ==================== #}
+        <section id="understand-data" class="mb-12 lg:mb-20 scroll-mt-24">
+          <div class="mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-white mb-2">Förstå Data</h2>
+            <p class="text-slate-400 text-lg">Vad betyder alla siffror och värden?</p>
+          </div>
+
+          {# Data Brickor #}
+          <div class="mb-16 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-4">Data Brickor</h3>
+            <p class="text-slate-400 mb-8">Vilka är dom viktigaste och vad betyder dom? Klicka för att se beskrivningar.</p>
+            <div class="space-y-2">
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Back Spin</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Mäter bollens rotation bakåt i varv per minut (RPM).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Ball Speed</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Mäter bollens hastighet direkt efter träffen.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Carry (Game)</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Den totala luftfärden bollen färdas, inkluderat alla faktorer i spelet som väder, vind och höjdskillnader.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Carry (Raw)</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Luftfärden bollen skulle haft på en helt plan yta utan vind.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club AoA (Angle of Attack)</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Den vertikala vinkeln som klubbhuvudet rör sig mot bollen vid träff (uppåt/nedåt).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club Closure Rate</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Hastigheten som klubbhuvudet vrider sig vid träffen.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club Face H Impact</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Den horisontella träffpunkten på klubbladet (tå eller häl).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club Face V Impact</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Den vertikala träffpunkten på klubbladet (högt eller lågt).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club FaceToPath</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Visar hur öppet eller stängt klubbladet är i förhållande till din svingbana.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club Lie</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Vinkeln mellan klubbladet och marken i träffögonblicket.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club Loft</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Den faktiska vertikala vinkeln på klubbladet vid träffen.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club Path</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Den horisontella riktningen som klubbhuvudet rör sig precis före träffen (utifrån-in eller inifrån-ut).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club Speed</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Klubbhuvudets hastighet vid träffögonblicket.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Club Spin Loft</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Skillnaden mellan den dynamiska loften och anfallsvinkeln (AoA).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Descent Angle</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Vinkeln som bollen faller med när den landar.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Dist To Pin</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Avståndet från bollens nuvarande position till hålet.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">HLA (Horizontal Launch Angle)</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Vilken riktning bollen startar åt horisontellt (höger/vänster).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Offline (Raw)</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Hur långt från det tänkta målet bollen landar (i sidled).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Peak Height</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Den högsta höjden bollen når under sin luftfärd.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Side Spin</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Mäter bollens sidorotation (skruv åt vänster eller höger) i RPM.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Smash Factor</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Förhållandet mellan bollhastighet och klubbhastighet (visar hur effektiv träffen är).</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">Total Length</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Det totala avståndet från där bollen slogs till där den stannar helt.</div>
+                </div>
+              </div>
+              <div class="border-b border-slate-800 last:border-0 accordion-item cursor-pointer hover:bg-slate-900/30 transition-colors">
+                <button class="accordion-trigger w-full flex items-center justify-between py-4">
+                  <span class="font-medium text-white">VLA (Vertical Launch Angle)</span>
+                  <svg class="accordion-chevron text-slate-500 w-5 h-5 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <div class="pb-4 text-slate-400 leading-relaxed">Den initiala vinkeln bollen startar uppåt med.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {# Avancerade Datarutan #}
+          <div class="animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-4">Avancerade Datarutan (Data Tiles)</h3>
+            <p class="text-slate-400 mb-8">Datarutorna visar din sving- och bolldata efter varje slag.</p>
+            <div class="space-y-8">
+              <div>
+                <h4 class="font-bold text-white text-lg mb-3">Practice</h4>
+                <p class="text-slate-400">I rangeläge kan du visa upp till 24 olika mätvärden samtidigt.</p>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-lg mb-3">Spel</h4>
+                <p class="text-slate-400">Under en vanlig runda visas upp till 12 mätvärden.</p>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-lg mb-3">Viktiga värden</h4>
+                <ul class="space-y-2 mt-3">
+                  <li class="text-slate-400">
+                    <span class="text-primary font-semibold">HLA (Horizontal Launch Angle):</span> Vilket håll bollen startar åt (höger/vänster).
+                  </li>
+                  <li class="text-slate-400">
+                    <span class="text-primary font-semibold">VLA (Vertical Launch Angle):</span> Bollens startvinkel i höjdled.
+                  </li>
+                  <li class="text-slate-400">
+                    <span class="text-primary font-semibold">Smash Factor:</span> Effektiviteten i träffen (Bollhastighet / Klubbhastighet).
+                  </li>
+                  <li class="text-slate-400">
+                    <span class="text-primary font-semibold">Spin Axis:</span> Bollens skruvaxel (bestämmer om det är en Draw/Fade/Hook/Slice).
+                  </li>
+                  <li class="text-slate-400">
+                    <span class="text-primary font-semibold">Carry:</span> Hur långt bollen flyger i luften.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {# ==================== AVANCERAT ==================== #}
+        <section id="advanced" class="mb-12 lg:mb-20 scroll-mt-24">
+          <div class="mb-12 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-white mb-2">Avancerat</h2>
+            <p class="text-slate-400 text-lg">För dig som vill gå djupare</p>
+          </div>
+
+          {# Club Markers #}
+          <div class="mb-16 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              Club Markers
+            </h3>
+            <div class="mb-8 space-y-4">
+              <p class="text-slate-300 leading-relaxed">
+                <a href="https://www.matchi.se/facilities/swedenindoorgolf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-slate-950 px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                  Köp club markers
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                </a>
+              </p>
+              <p class="text-slate-300 leading-relaxed text-lg">Du köper dina club markers i vårt bokningssystem Matchi. För att få klubbdata behöver dina golfklubbor märkas upp med Club markers, ett set räcker till +14 klubbor. Du behöver 4 st markeringar per klubba och instruktion hur de skall placeras på klubbladen finns nedan.</p>
+              <p class="text-slate-300 leading-relaxed text-lg">När du har köpt dina club markers kvitterar du ut dem i hallen under bemannade tider (måndag - onsdag, 14 - 20).</p>
+              <p class="text-primary font-semibold text-lg">OBS: För att få bolldata (spela banor) behövs inga club markers!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div>
+                <h4 class="font-bold text-white mb-4">Driver, Fairway woods & Hybrid</h4>
+                <div class="border border-slate-800 rounded-xl overflow-hidden">
+                  <img src="{{ rootPath }}/support/club-marker-woods.png" alt="Club marker placement for woods" class="w-full h-auto">
+                </div>
+              </div>
+              <div>
+                <h4 class="font-bold text-white mb-4">Järn & Wedge</h4>
+                <div class="border border-slate-800 rounded-xl overflow-hidden">
+                  <img src="{{ rootPath }}/support/club-marker-iron.png" alt="Club marker placement for irons" class="w-full h-auto">
+                </div>
+              </div>
+              <div>
+                <h4 class="font-bold text-white mb-4">Putter</h4>
+                <div class="border border-slate-800 rounded-xl overflow-hidden">
+                  <img src="{{ rootPath }}/support/club-marker-putter.png" alt="Club marker placement for putter" class="w-full h-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {# Manual GSPro #}
+          <div class="mb-16 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6">Manual GSPro</h3>
+            <div class="mb-12">
+              <h4 class="text-xl font-bold text-white mb-6">GSPRO SOFTWARE - ALLMÄNT</h4>
+              <div class="space-y-4 text-slate-300 leading-relaxed text-lg max-w-4xl">
+                <p>GSPRO är marknadsledande mjukvara för golf simulator. GSPRO använder GCQuads data för analys och visualisering. Kanske världens just nu kraftfullaste kombination designad för professionella club fitting instruktörer och tränare.</p>
+                <p>Med komplett boll och klubbdata, många visualiseringslägen, enkelheten i användningen och det intuitiva gränssnittet ges även amatören möjlighet att analysera sitt spel. På köpet ingår även kostnadsfria konton i en molntjänst för datalagring av alla slag för analys av spelaren själv eller som underlag i samtal med en tränare.</p>
+                <p>GSPRO innehåller virtuella kopior av några av världens toppbanor, spelappar med olika utmaningar, "skills games" som närmst flagga och längsta drive. Sammantaget tas utmaningarna och nöjet till en ny nivå. Att flytta spelet inomhus känns plötsligt fullkomligt självklart.</p>
+                <p class="text-primary font-semibold">Träna på den virtuella rangen eller träna genom att delta i tävlingar online mot spelare i hela världen. All utrustning hos oss är uppkopplad på nätet så du får inte svårt att finna motstånd om kamraterna stannat hemma.</p>
+                <p class="text-slate-400 italic">Vem vet, möjligen blir du kvar inomhus i sommar...</p>
+              </div>
+            </div>
+
+            {# GSPRO Manualer #}
+            <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+              GSPRO Manualer
+            </h4>
+            <div class="space-y-4">
+              <a href="https://www.swedenindoorgolf.se/wp-content/uploads/2024/01/GSPro-Quick-Start-V2.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between py-4 border-b border-slate-800 hover:border-primary/30 transition-colors group">
+                <div class="flex items-center gap-4">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                  <div>
+                    <h5 class="font-bold text-white text-lg group-hover:text-primary transition-colors">GSPro Quick Start V2</h5>
+                    <span class="text-sm text-slate-500">PDF dokument</span>
+                  </div>
+                </div>
+                <svg class="w-[18px] h-[18px] text-slate-600 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+              <a href="https://www.swedenindoorgolf.se/wp-content/uploads/2024/01/GSPro-Users-Guide-V2.0.2-2.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between py-4 border-b border-slate-800 hover:border-primary/30 transition-colors group">
+                <div class="flex items-center gap-4">
+                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                  <div>
+                    <h5 class="font-bold text-white text-lg group-hover:text-primary transition-colors">GSPro Users Guide V2.0.2</h5>
+                    <span class="text-sm text-slate-500">PDF dokument</span>
+                  </div>
+                </div>
+                <svg class="w-[18px] h-[18px] text-slate-600 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+            </div>
+          </div>
+
+          {# Video Clips - YouTube #}
+          <div class="animate-on-scroll">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+              Video Clips - YouTube
+            </h3>
+            <div class="space-y-4">
+              <a href="https://www.youtube.com/watch?v=EReyn_3JbwY&t=30s" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 py-4 border-b border-slate-800 hover:border-red-500/30 transition-colors group">
+                <svg class="w-6 h-6 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16"/></svg>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg group-hover:text-primary transition-colors">Putting – speed, stimp and BLI</h4>
+                  <span class="text-sm text-slate-500">YouTube Tutorial</span>
+                </div>
+                <svg class="w-[18px] h-[18px] text-slate-600 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+              <a href="https://www.youtube.com/watch?v=j3_T5bL08ow&t=30s" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 py-4 border-b border-slate-800 hover:border-red-500/30 transition-colors group">
+                <svg class="w-6 h-6 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16"/></svg>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg group-hover:text-primary transition-colors">Data tiles in a round</h4>
+                  <span class="text-sm text-slate-500">YouTube Tutorial</span>
+                </div>
+                <svg class="w-[18px] h-[18px] text-slate-600 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+              <a href="https://www.youtube.com/watch?v=erzjyNHt4KE&t=30s" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 py-4 border-b border-slate-800 hover:border-red-500/30 transition-colors group">
+                <svg class="w-6 h-6 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16"/></svg>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg group-hover:text-primary transition-colors">Drop menu after a hazard</h4>
+                  <span class="text-sm text-slate-500">YouTube Tutorial</span>
+                </div>
+                <svg class="w-[18px] h-[18px] text-slate-600 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+              <a href="https://www.youtube.com/watch?v=7eJxh0vWMgU&t=30s" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 py-4 border-b border-slate-800 hover:border-red-500/30 transition-colors group">
+                <svg class="w-6 h-6 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16"/></svg>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg group-hover:text-primary transition-colors">Navigating in game</h4>
+                  <span class="text-sm text-slate-500">YouTube Tutorial</span>
+                </div>
+                <svg class="w-[18px] h-[18px] text-slate-600 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+              <a href="https://www.youtube.com/watch?v=ebP0Hzo7chk" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 py-4 border-b border-slate-800 hover:border-red-500/30 transition-colors group">
+                <svg class="w-6 h-6 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16"/></svg>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg group-hover:text-primary transition-colors">Instant replay</h4>
+                  <span class="text-sm text-slate-500">YouTube Tutorial</span>
+                </div>
+                <svg class="w-[18px] h-[18px] text-slate-600 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+              <a href="https://www.youtube.com/watch?v=TsBnx4CpW2o&t=30s" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 py-4 border-b border-slate-800 hover:border-red-500/30 transition-colors group">
+                <svg class="w-6 h-6 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16"/></svg>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white text-lg group-hover:text-primary transition-colors">Gimme circle and autoputt</h4>
+                  <span class="text-sm text-slate-500">YouTube Tutorial</span>
+                </div>
+                <svg class="w-[18px] h-[18px] text-slate-600 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</section>
+
+{# Floating Action Button (Mobile Only) #}
+<button id="support-fab" class="md:hidden fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-slate-950 rounded-full shadow-2xl flex items-center justify-center hover:bg-yellow-400 active:scale-95 transition-all" aria-label="Open navigation menu">
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+</button>
+
+{# Mobile Bottom Sheet Backdrop #}
+<div id="support-backdrop" class="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] bottom-sheet-backdrop"></div>
+
+{# Mobile Bottom Sheet #}
+<div id="support-bottom-sheet" class="md:hidden fixed bottom-0 left-0 right-0 z-[60] bg-slate-900 rounded-t-3xl shadow-2xl max-h-[80vh] overflow-y-auto bottom-sheet">
+  <div class="sticky top-0 bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between rounded-t-3xl">
+    <h3 class="text-lg font-bold text-white">Snabbnavigering</h3>
+    <button id="support-sheet-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-800 transition-colors" aria-label="Close menu">
+      <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <div class="px-6 py-4 space-y-2">
+    <button class="support-mobile-nav-btn w-full flex items-center gap-4 px-4 py-4 rounded-xl text-left transition-all bg-slate-800/50 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-primary/30" data-section="practice">
+      <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      </div>
+      <span class="font-medium">Träna på Rangen</span>
+    </button>
+    <button class="support-mobile-nav-btn w-full flex items-center gap-4 px-4 py-4 rounded-xl text-left transition-all bg-slate-800/50 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-primary/30" data-section="play-round">
+      <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg>
+      </div>
+      <span class="font-medium">Spela en Runda</span>
+    </button>
+    <button class="support-mobile-nav-btn w-full flex items-center gap-4 px-4 py-4 rounded-xl text-left transition-all bg-slate-800/50 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-primary/30" data-section="compete">
+      <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+      </div>
+      <span class="font-medium">Tävla & Utmaningar</span>
+    </button>
+    <button class="support-mobile-nav-btn w-full flex items-center gap-4 px-4 py-4 rounded-xl text-left transition-all bg-slate-800/50 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-primary/30" data-section="troubleshooting">
+      <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+      </div>
+      <span class="font-medium">Felsökning</span>
+    </button>
+    <button class="support-mobile-nav-btn w-full flex items-center gap-4 px-4 py-4 rounded-xl text-left transition-all bg-slate-800/50 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-primary/30" data-section="understand-data">
+      <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16h8"/><path d="M7 11h12"/><path d="M7 6h3"/></svg>
+      </div>
+      <span class="font-medium">Förstå Data</span>
+    </button>
+    <button class="support-mobile-nav-btn w-full flex items-center gap-4 px-4 py-4 rounded-xl text-left transition-all bg-slate-800/50 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-primary/30" data-section="advanced">
+      <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <span class="font-medium">Avancerat</span>
+    </button>
+  </div>
+</div>
+{% endblock %}

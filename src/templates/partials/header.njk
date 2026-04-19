@@ -1,0 +1,54 @@
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-top">
+  <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+    <a href="{{ rootPath }}/" class="flex items-center gap-3 group">
+      <div class="relative w-12 h-12">
+        <img src="{{ rootPath }}/logo.png" alt="Sweden Indoor Golf Logo" class="w-full h-full object-contain">
+      </div>
+      <span class="text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">
+        SWEDEN <span class="text-primary group-hover:text-white transition-colors">INDOOR GOLF</span>
+      </span>
+    </a>
+
+    {# Desktop Nav #}
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="{{ rootPath }}/" class="nav-link text-sm font-medium text-slate-400 hover:text-primary transition-colors">Start</a>
+      <a href="{{ rootPath }}/prislista/" class="nav-link text-sm font-medium text-slate-400 hover:text-primary transition-colors">Prislista</a>
+      <a href="{{ rootPath }}/oppettider/" class="nav-link text-sm font-medium text-slate-400 hover:text-primary transition-colors">Öppettider</a>
+      <a href="{{ rootPath }}/support/" class="nav-link text-sm font-medium text-slate-400 hover:text-primary transition-colors">Support</a>
+      <a href="{{ rootPath }}/faq/" class="nav-link text-sm font-medium text-slate-400 hover:text-primary transition-colors">FAQ</a>
+      <a href="{{ rootPath }}/golfshop/" class="nav-link text-sm font-medium text-slate-400 hover:text-primary transition-colors">Golfshop</a>
+      <a href="{{ rootPath }}/tavlingar/" class="nav-link text-sm font-medium text-slate-400 hover:text-primary transition-colors">Tävlingar</a>
+      <a href="https://www.matchi.se/facilities/swedenindoorgolf" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-primary text-slate-950 font-bold rounded-lg hover:bg-yellow-400 transition-colors transform hover:scale-105 active:scale-95">
+        BOKA BANA
+      </a>
+    </nav>
+
+    {# Mobile Menu Button #}
+    <button id="mobile-menu-btn" class="md:hidden text-slate-100 p-2" aria-label="Toggle menu">
+      {# Hamburger icon #}
+      <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      {# Close icon #}
+      <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  {# Mobile Nav #}
+  <div id="mobile-nav" class="mobile-nav md:hidden bg-slate-950 border-t border-slate-800">
+    <nav class="flex flex-col p-4 space-y-4">
+      <a href="{{ rootPath }}/" class="text-lg font-medium text-slate-300 hover:text-primary">Start</a>
+      <a href="{{ rootPath }}/prislista/" class="text-lg font-medium text-slate-300 hover:text-primary">Prislista</a>
+      <a href="{{ rootPath }}/oppettider/" class="text-lg font-medium text-slate-300 hover:text-primary">Öppettider</a>
+      <a href="{{ rootPath }}/support/" class="text-lg font-medium text-slate-300 hover:text-primary">Support</a>
+      <a href="{{ rootPath }}/faq/" class="text-lg font-medium text-slate-300 hover:text-primary">FAQ</a>
+      <a href="{{ rootPath }}/golfshop/" class="text-lg font-medium text-slate-300 hover:text-primary">Golfshop</a>
+      <a href="{{ rootPath }}/tavlingar/" class="text-lg font-medium text-slate-300 hover:text-primary">Tävlingar</a>
+      <a href="https://www.matchi.se/facilities/swedenindoorgolf" target="_blank" rel="noopener noreferrer" class="block text-center px-5 py-3 bg-primary text-slate-950 font-bold rounded-lg hover:bg-yellow-400">
+        BOKA BANA
+      </a>
+    </nav>
+  </div>
+</header>

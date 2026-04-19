@@ -1,0 +1,8 @@
+{
+  "partner": "Premium Golf",
+  "website": "https://premiumgolf.se",
+  "email": "info@premiumgolf.se",
+  "description": "Vi delar lokaler med golfshopen <a href=\"https://premiumgolf.se\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-semibold\">premiumgolf.se</a>. Välkommen in till golfshopen för köp av golfklubbor och tillbehör.",
+  "detailedDescription": "Premium Golf erbjuder ett brett sortiment av kvalitetsprodukter och professionell hjälp med utprovning.",
+  "services": ["Golfklubbor", "Verkstadsärenden", "Golflektioner", "Custom Fitting"]
+}

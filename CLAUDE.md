@@ -2,72 +2,103 @@
 
 ## Project Overview
 
-Sweden Indoor Golf website (sig-web3) - A static-exported Next.js marketing site for an indoor golf facility in Linköping, Sweden. Deployed to `https://app.swedenindoorgolf.se/sig-web3/`.
+Sweden Indoor Golf website (sig-web3) - A static HTML/CSS/JS marketing site for an indoor golf facility in Linköping, Sweden. Built with Nunjucks templates, Tailwind CSS v4, and vanilla JavaScript. Deployed to one.com at `swedenindoorgolf.se`.
 
 ## Tech Stack
 
-- **Next.js 16** with static export (`output: 'export'`)
-- **React 19** with TypeScript
-- **Tailwind CSS v4** (utility-first styling)
-- **Framer Motion** (animations)
-- **Lucide React** (icons)
+- **Nunjucks** templating engine (renders HTML from `.njk` templates)
+- **Tailwind CSS v4** compiled via `@tailwindcss/cli`
+- **Vanilla JavaScript** (IntersectionObserver for animations, DOM manipulation for interactivity)
+- **Contact form** POSTs to `https://app.swedenindoorgolf.se/sig-status/contact` (service lives in separate `sig-status` repo)
+- **Inline SVGs** for all icons (no icon library)
+
+## Deployment
+
+Static site hosted on one.com at `swedenindoorgolf.se`. Deploy with `./deploy.sh` (builds + uploads via SFTP in one session). See `DEPLOYMENT.md` for details on the hosting model, routing, rollback, and cleanup TODOs.
 
 ## Commands
 
 ```bash
-npm run dev        # Development server on port 4001
-npm run build      # Production build (outputs to /out/)
-npm run lint       # ESLint
+npm run build          # Build with BASE_PATH=/sig-web3 (default)
+npm run build:preview  # Build with BASE_PATH=/preview (side-by-side testing)
+npm run build:prod     # Build with BASE_PATH= (root deployment)
 ```
 
-## Build for Production
-
+Custom base path:
 ```bash
-export NEXT_PUBLIC_BASE_PATH=/sig-web3
-npm run build
-# Deploy contents of /out/ to server
+BASE_PATH=/custom-path node build.js
 ```
+
+Output goes to `/dist/`.
 
 ## Project Structure
 
 ```
-app/                    # Next.js App Router pages
-  page.tsx              # Home page
-  layout.tsx            # Root layout (Header/Footer)
-  globals.css           # Tailwind config + custom theme
-  [route]/page.tsx      # Other pages (prislista, om-oss, faq, etc.)
+build.js                # Build script (Nunjucks render + Tailwind compile + asset copy)
 
-components/
-  home/                 # Home page components (Hero, Features, Stats, Gallery, CTA, Contact)
-  layout/               # Header, Footer
-  ui/                   # Reusable components (PageHeader)
+src/
+  templates/
+    base.njk            # Root layout (head, header, footer, scripts)
+    pages/              # One .njk file per page (index, prislista, faq, etc.)
+    partials/
+      header.njk        # Site header + mobile nav
+      footer.njk        # Site footer
+      contact-form.njk  # Reusable contact form
+      page-header.njk   # Reusable page header with background image
+      icons/            # ~54 inline SVG icon partials
 
-lib/
-  utils.ts              # cn() helper for Tailwind class merging
+  css/
+    input.css           # Tailwind config + custom animations/transitions
 
-public/                 # Static assets (images, logo)
+  js/
+    main.js             # All interactivity (scroll animations, accordions, mobile menu, form handler)
+
+content/                # JSON data files (injected as Nunjucks globals)
+  pricing.json          # Prices, memberships, terms
+  faq.json              # FAQ categories and Q&A items
+  contact.json          # Contact info, team, social links
+  tournaments.json      # Tournament details
+  golfshop.json         # Golf shop info
+  hours.json            # Opening hours
+
+api/
+  contact.php           # Form submission handler (PHP mail())
+
+public/                 # Static assets (images, logo) copied to dist/
+
+dist/                   # Build output (not committed)
 ```
 
-## Code Conventions
+## Content Management
 
-### Components
-- Use `'use client'` directive for interactive components
-- TypeScript functional components with typed props
-- Server components by default (no directive needed)
+Page content is managed via JSON files in `content/`. These are loaded by `build.js` and injected as global variables into all Nunjucks templates. To update content (prices, FAQ items, hours, etc.), edit the JSON files and rebuild.
 
-### Styling
+## Styling
+
 - Dark theme: background `#020617` (slate-950), text `#f1f5f9` (slate-100)
 - Primary color: `#eab308` (yellow-500)
 - Mobile-first responsive design using Tailwind breakpoints (md:, lg:)
+- Custom animations defined in `src/css/input.css`
 
-### Animations
-- Framer Motion for all animations
-- Use `whileInView` with `viewport={{ once: true }}` for scroll-triggered animations
-- Spring physics: `type: 'spring'`
+## Animations
 
-### Navigation
-- Use Next.js `<Link>` for internal routes (handles basePath automatically)
-- Use standard `<a>` tags for external links (MATCHi booking platform)
+- CSS `@keyframes` and transitions for all animations
+- `IntersectionObserver` in `main.js` triggers scroll-based entrance animations
+- Classes: `.animate-on-scroll`, `.animate-scale`, `.animate-from-left`
+- Stagger delays: `.delay-100` through `.delay-800`
+
+## Navigation
+
+- Use `<a href="{{ basePath }}/route/">` for internal links
+- Use `<a href="https://...">` for external links (MATCHi booking, social media)
+- `basePath` is a Nunjucks global set from `BASE_PATH` env var
+
+## Base Path Handling
+
+- `BASE_PATH` env var controls subdirectory deployment (defaults to `/sig-web3`)
+- All templates use `{{ basePath }}` for internal links and asset references
+- `main.js` detects basePath at runtime from the stylesheet `href` attribute
+- Set `BASE_PATH=` (empty) for root deployment
 
 ## UI/Design Principles
 
@@ -114,31 +145,12 @@ Example: If parent has p-8, child should have p-4 or p-6
 - When used: subtle (border-slate-800, bg-slate-900/50)
 - Avoid multiple border styles on same page
 
-**7. Mobile-first simplification checklist**
-- [ ] Remove all nested boxes
-- [ ] Reduce all padding by 30-40%
-- [ ] Remove decorative icons/elements
-- [ ] Flatten card-within-card structures
-- [ ] Use `hidden md:block` for desktop-only containers
-
-**8. Common violations to avoid**
-- ❌ Card inside a card inside a section
-- ❌ Borders on borders on borders
-- ❌ Decorative containers that add no meaning
-- ❌ Excessive padding creating "tunnel vision"
-- ❌ Background colors nested 3+ levels deep
-
-## Important Patterns
-
-### Base Path Handling
-- `NEXT_PUBLIC_BASE_PATH` environment variable controls subdirectory deployment
-- Next.js `<Link>` and `<Image>` handle basePath automatically
-- For CSS background images or static paths, manually prepend `process.env.NEXT_PUBLIC_BASE_PATH`
-
-### Static Export Constraints
-- No server-side features (API routes, SSR, ISR)
-- Images must use `unoptimized: true` in next.config.ts
-- All content is hard-coded (no database/CMS)
+**7. Common violations to avoid**
+- Card inside a card inside a section
+- Borders on borders on borders
+- Decorative containers that add no meaning
+- Excessive padding creating "tunnel vision"
+- Background colors nested 3+ levels deep
 
 ## Pages
 
@@ -154,6 +166,7 @@ Example: If parent has p-8, child should have p-4 or p-6
 | `/golfshop` | Golf shop |
 | `/hjalp` | Help guides |
 | `/integritetspolicy` | Privacy policy |
+| `/kontakt` | Contact page |
 
 ## Language
 

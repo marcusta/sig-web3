@@ -1,5 +1,19 @@
 {
-  "intro": "Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag. Perfekt för dig som vill hålla spelet skarpt under vintern till nästa säsong.",
+  "intro": "Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag. Perfekt för dig som vill träna billigt, hålla spelet igång och spela när utomhustiderna är svåra att få.",
+  "summerOffer": {
+    "enabled": true,
+    "eyebrow": "Sommarpris",
+    "title": "Spela och träna för 39 kr",
+    "price": "39 kr",
+    "unit": "för 30 min",
+    "description": "Under sommaren kan du spela billigt med riktiga bollar, få data på varje slag och boka en snabb runda när det passar dig.",
+    "features": [
+      "Träna billigt utan att betala för dyra rangebollar",
+      "Spela världskända banor när det är svårt att få starttid utomhus",
+      "Kläm in en snabb runda utan att avsätta flera timmar"
+    ],
+    "note": "Ordinarie prislista visas längre ner och återställs inför säsongen."
+  },
   "weekday": {
     "title": "Måndag - Fredag",
     "slots": [

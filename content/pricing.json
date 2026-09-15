@@ -31,6 +31,7 @@
     ]
   },
   "priceNote": "Priserna avser hyra av simulator per timme, oavsett antal spelare (max 4).",
+  "membershipNote": "Alla medlemskap gäller till den 1 juni 2027 (2027-06-01).",
   "greenfee": {
     "title": "Greenfeemedlem",
     "subtitle": "Vårt mest populära medlemskap!",
@@ -72,7 +73,8 @@
     "paragraphs": [
       "Vi tycker det är roligt när man spelar flera tillsammans på samma bana – golf är ju allra bäst i gott sällskap! Vi vill samtidigt förtydliga att alla medlemskap är personliga.",
       "Om ni är flera som spelar ihop behöver ni därför dela upp tiden på flera bokningar. Till exempel: om ni är två personer som spelar i 1 timme tillsammans ska ni boka och betala för 30 minuter var. På det sättet blir det rättvist och fungerar bra för alla medlemmar.",
-      "Alla medlemskap förlängs automatiskt om de inte sägs upp 1 mån i förväg via mail till info@swedenindoorgolf.se"
+      "Alla medlemskap förlängs automatiskt om de inte sägs upp 1 mån i förväg via mail till info@swedenindoorgolf.se",
+      "Alla medlemskap gäller till den 1 juni 2027 (2027-06-01)."
     ]
   }
 }

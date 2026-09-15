@@ -59,7 +59,7 @@
       { "pay": "3000 kr", "get": "4000 kr" },
       { "pay": "5000 kr", "get": "7500 kr" }
     ],
-    "locker": { "label": "Bagskåp (t.o.m 2026-06-30)", "price": "700 kr" }
+    "locker": { "label": "Bagskåp (t.o.m 2027-06-01)", "price": "700 kr" }
   },
   "junior": {
     "title": "Junior / Student / Senior",
@@ -67,7 +67,7 @@
     "period": "/säsong",
     "low": "50 kr/h",
     "prime": "100 kr/h",
-    "note": "Gäller till 1/10 2026. För dig under 21, student eller 65+."
+    "note": "Gäller till 1/6 2027. För dig under 21, student eller 65+."
   },
   "membershipInfo": {
     "paragraphs": [

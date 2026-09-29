@@ -51,11 +51,13 @@
   <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#070c1a] to-transparent pointer-events-none"></div>
 </section>
 
+{% if pricing.summerOffer and pricing.summerOffer.enabled %}
 <section class="py-10 md:py-16 bg-[#070c1a]">
   <div class="container mx-auto px-4 md:px-6">
     {% include "partials/summer-offer.njk" %}
   </div>
 </section>
+{% endif %}
 
 {# Features Section #}
 <section class="py-16 md:py-24 bg-[#070c1a]">

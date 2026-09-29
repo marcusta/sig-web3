@@ -1,7 +1,7 @@
 {
   "intro": "Du spelar med tourbollar i sval, vädersäker miljö och får exakt data på varje slag. Perfekt för dig som vill träna billigt, hålla spelet igång och spela när utomhustiderna är svåra att få.",
   "summerOffer": {
-    "enabled": true,
+    "enabled": false,
     "eyebrow": "Sommarpris",
     "title": "Spela och träna för 39 kr",
     "price": "39 kr",
